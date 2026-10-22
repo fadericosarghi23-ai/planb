@@ -1,7 +1,8 @@
 ---
-// Home come viaggio nella casa attraverso i render dei progetti dello studio: dalla foto aerea la
-// camera si avvicina alla villa e con lo scroll "attraversa" un ambiente dopo l'altro, spingendosi
-// verso il punto d'ingresso di ogni immagine (data/viaggio.json → fotogrammi.fuoco, in % dell'immagine).
+// Home come viaggio nella casa. Si parte dal modello 3D della villa (scripts/villa3d.js): vista dall'alto
+// identica alla foto aerea, giro attorno alla casa e alla piscina (tappa Architettura), arrivo alla porta.
+// Dentro, il viaggio prosegue nei render dei progetti dello studio: la camera si spinge verso il punto
+// d'ingresso di ogni immagine (fotogrammi.fuoco, in %) e "attraversa" nell'ambiente successivo.
 // Ogni stanza mostra una sezione della landing (testi da data/pagine/home.json).
 import Nodo from './Nodo.astro';
 import home from '../data/pagine/home.json';
@@ -14,17 +15,22 @@ const trova = (id: string, nodi: any[] = home.sections as any[]): any => {
   return null;
 };
 const stanze = viaggio.stanze.map((s) => ({ ...s, nodi: s.testi.map((id: string) => trova(id)).filter(Boolean).map((n: any) => ({ ...n, fx: undefined })) }));
-const fotogrammi = viaggio.fotogrammi.map((f: any) => ({ ...f, m: M[f.img] }));
-// lunghezza di scorrimento di ogni fotogramma (in altezze schermo): più lunga dove c'è una sezione da leggere
-const lung = fotogrammi.map((f: any) => (f.stanza !== undefined ? 0.7 : 0.35));
-const corsa = lung.reduce((a: number, b: number) => a + b, 0);
+const fotogrammi = (viaggio.fotogrammi as any[]).map((f) => ({ ...f, m: f.img ? M[f.img] : null, lung: f.lung ?? (f.stanza !== undefined ? 0.7 : 0.35) }));
+const corsa = fotogrammi.reduce((a, f) => a + f.lung, 0);
+const aerea = M[viaggio.fotoAerea];
+const dati = fotogrammi.map((f) => ({ tipo: f.tipo || 'img', lung: f.lung, sosta: f.sosta ?? 0, tappa: f.tappa ?? 0, stanza: f.stanza ?? -1 }));
 const path = '/';
 ---
-<div class="viaggio" style={`--corsa:${corsa}`} data-lung={JSON.stringify(lung)} data-stanze={JSON.stringify(fotogrammi.map((f: any) => f.stanza ?? -1))}>
+<div class="viaggio" style={`--corsa:${corsa}`} data-fotogrammi={JSON.stringify(dati)}>
   <div class="v-palco">
-    {fotogrammi.map((f: any, i: number) => (
-      <img class="v-f" src={f.m.src} width={f.m.w} height={f.m.h} alt={f.m.alt || ''} decoding="async" fetchpriority={i === 0 ? 'high' : undefined}
-        style={`object-position:${f.fuoco[0]}% ${f.fuoco[1]}%;transform-origin:${f.fuoco[0]}% ${f.fuoco[1]}%;opacity:${i === 0 ? 1 : 0}`} data-fx={f.fuoco[0]} data-fy={f.fuoco[1]} />
+    <div class="v-f v-3d" data-k="3d">
+      <canvas class="v-canvas" aria-hidden="true"></canvas>
+      <img class="v-aerea" src={aerea.src} width={aerea.w} height={aerea.h} alt={aerea.alt || ''} fetchpriority="high" />
+      <p class="v-carico" aria-hidden="true"><span></span></p>
+    </div>
+    {fotogrammi.map((f, i) => f.m && (
+      <img class="v-f" data-i={i} src={f.m.src} width={f.m.w} height={f.m.h} alt={f.m.alt || ''} decoding="async"
+        style={`object-position:${f.fuoco[0]}% ${f.fuoco[1]}%;transform-origin:${f.fuoco[0]}% ${f.fuoco[1]}%;opacity:0`} data-fx={f.fuoco[0]} data-fy={f.fuoco[1]} />
     ))}
     <div class="v-velo" aria-hidden="true"></div>
     {stanze.map((s, i) => (
@@ -44,6 +50,13 @@ const path = '/';
   .viaggio { position: relative; height: calc((var(--corsa) + 1) * 100vh); margin-top: calc(var(--header-h) * -1); }
   .v-palco { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--nero); }
   .v-f { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: transform, opacity, filter; backface-visibility: hidden; }
+  .v-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .v-aerea { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .6s linear; }
+  .pronta .v-aerea { opacity: 0; }
+  .v-carico { position: absolute; left: 50%; top: 50%; width: 120px; height: 2px; margin-left: -60px; background: rgba(255, 255, 255, .25); overflow: hidden; transition: opacity .4s; }
+  .v-carico span { display: block; width: 40%; height: 100%; background: var(--chiaro); animation: v-carico 1.2s ease-in-out infinite; }
+  @keyframes v-carico { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+  .pronta .v-carico, .senza-3d .v-carico { opacity: 0; }
   .v-velo { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(0, 0, 0, .62), rgba(0, 0, 0, .12) 50%, rgba(0, 0, 0, 0) 70%), linear-gradient(to bottom, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0) 20%); }
   .v-pannello { position: absolute; left: 50%; bottom: 7vh; width: min(980px, calc(100% - 140px)); transform: translate(-50%, 24px); opacity: 0; visibility: hidden; transition: opacity .7s var(--ease-wix), transform .9s var(--ease-wix), visibility 0s .7s; text-align: center; }
   .v-pannello.attivo { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .7s var(--ease-wix), transform .9s var(--ease-wix), visibility 0s; }
@@ -74,32 +87,52 @@ const path = '/';
 </style>
 
 <script>
-  // Scroll → posizione nel viaggio. In ogni fotogramma la camera avanza lentamente verso il punto
-  // d'ingresso, poi accelera, sfuma e "attraversa" nel fotogramma successivo.
+  import { avviaVilla } from '../scripts/villa3d.js';
+
+  // Scroll → posizione nel viaggio. Nei fotogrammi 3D lo scroll muove la camera nel modello;
+  // nei render la camera avanza verso il punto d'ingresso, poi sfuma nel fotogramma successivo.
   const root = document.querySelector('.viaggio') as HTMLElement;
   if (root) {
-    const lung: number[] = JSON.parse(root.dataset.lung!);
-    const stanzaDi: number[] = JSON.parse(root.dataset.stanze!);
-    const fot = [...root.querySelectorAll<HTMLImageElement>('.v-f')];
+    type F = { tipo: string; lung: number; sosta: number; tappa: number; stanza: number };
+    const F: F[] = JSON.parse(root.dataset.fotogrammi!);
+    const strato3d = root.querySelector('.v-3d') as HTMLElement;
+    const imgs = new Map([...root.querySelectorAll<HTMLImageElement>('img.v-f')].map((el) => [+el.dataset.i!, el]));
+    const strato = (k: number): HTMLElement => (F[k].tipo === '3d' ? strato3d : imgs.get(k)!);
     const pannelli = [...root.querySelectorAll<HTMLElement>('.v-pannello')];
     const punti = [...root.querySelectorAll<HTMLButtonElement>('.v-indice button')];
     const ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const inizi = lung.map((_, i) => lung.slice(0, i).reduce((a, b) => a + b, 0));
-    const corsa = lung.reduce((a, b) => a + b, 0);
+    const inizi = F.map((_, i) => F.slice(0, i).reduce((a, f) => a + f.lung, 0));
+    const corsa = F.reduce((a, f) => a + f.lung, 0);
     const io = (x: number) => (x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
     const clamp = (x: number) => Math.max(0, Math.min(1, x));
     const PASSO = 0.78; // da qui in poi il fotogramma "attraversa" nel successivo
 
-    const posa = (el: HTMLImageElement, p: number, visibile: number, scalaIn = 1) => {
+    // modello 3D (se il browser non lo supporta resta la foto aerea)
+    let villa: any = null; let tappe: number[] = [0, 0.5, 1];
+    const webgl = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } })();
+    if (webgl) {
+      villa = avviaVilla({ canvas: root.querySelector('.v-canvas') as HTMLCanvasElement, fotoSrc: (root.querySelector('.v-aerea') as HTMLImageElement).src, onPronto: () => root.classList.add('pronta') });
+      tappe = villa.tappe;
+    } else root.classList.add('senza-3d');
+
+    const posaImg = (el: HTMLElement, p: number, visibile: number, scalaIn = 1) => {
       const avvicina = ridotto ? 0 : 0.16 * io(clamp(p / PASSO));
       const tuffo = ridotto ? 0 : 1.1 * Math.pow(clamp((p - PASSO) / (1 - PASSO)), 2);
       const s = (1 + avvicina + tuffo) * scalaIn;
-      const fx = +el.dataset.fx!, fy = +el.dataset.fy!;
+      const fx = +(el.dataset.fx || 50), fy = +(el.dataset.fy || 50);
       const t = (s - 1) / s; // il punto d'ingresso scivola verso il centro mentre si avanza
       const uscita = clamp((p - PASSO - 0.04) / (1 - PASSO - 0.04));
       el.style.opacity = String(Math.min(visibile, 1 - io(uscita)));
       el.style.transform = `translate3d(${((50 - fx) * t * 0.55).toFixed(3)}%, ${((50 - fy) * t * 0.55).toFixed(3)}%, 0) scale(${s.toFixed(4)})`;
       el.style.filter = !ridotto && uscita > 0 ? `blur(${(uscita * 6).toFixed(2)}px)` : 'none';
+    };
+    const posa3d = (k: number, p: number) => {
+      const f = F[k], da = tappe[f.tappa], a = tappe[f.tappa + 1] ?? 1;
+      villa?.vai(da + (a - da) * io(clamp((p - f.sosta) / (1 - f.sosta))));
+      const ultimo = F[k + 1]?.tipo !== '3d';
+      const uscita = ultimo ? clamp((p - 0.86) / 0.14) : 0;
+      strato3d.style.opacity = String(1 - io(uscita));
+      strato3d.style.filter = !ridotto && uscita > 0 ? `blur(${(uscita * 5).toFixed(2)}px)` : 'none';
     };
 
     let att = 0, obiettivo = 0, ultimaStanza = 0, attiva = 0;
@@ -107,14 +140,18 @@ const path = '/';
     const leggi = () => { obiettivo = Math.max(0, Math.min(corsa - 0.0001, (window.scrollY - inizio()) / window.innerHeight)); };
     const disegna = () => {
       let i = 0; for (let k = 0; k < inizi.length; k++) if (inizi[k] <= att) i = k;
-      const p = clamp((att - inizi[i]) / lung[i]);
-      fot.forEach((el, k) => {
-        if (k === i) posa(el, p, 1);
-        else if (k === i + 1 && p > PASSO) { const e = io(clamp((p - PASSO) / (1 - PASSO))); posa(el, 0, e, 1.05 - 0.05 * e); }
-        else if (el.style.opacity !== '0') el.style.opacity = '0';
-      });
-      const s = stanzaDi[i];
-      const nuova = s >= 0 && p < 0.7 ? s : -1;
+      const p = clamp((att - inizi[i]) / F[i].lung);
+      const visibili = new Set<HTMLElement>();
+      if (F[i].tipo === '3d') { posa3d(i, p); visibili.add(strato3d); }
+      else { posaImg(strato(i), p, 1); visibili.add(strato(i)); }
+      const sogliaUscita = F[i].tipo === '3d' ? 0.86 : PASSO;
+      if (F[i + 1] && F[i + 1].tipo !== '3d' && p > sogliaUscita && strato(i + 1) !== strato(i)) {
+        const e = io(clamp((p - sogliaUscita) / (1 - sogliaUscita))); posaImg(strato(i + 1), 0, e, 1.05 - 0.05 * e); visibili.add(strato(i + 1));
+      }
+      for (const el of [strato3d, ...imgs.values()]) if (!visibili.has(el) && el.style.opacity !== '0') el.style.opacity = '0';
+      const s = F[i].stanza;
+      const lettura = F[i].tipo === '3d' ? F[i].sosta + 0.12 : 0.7;
+      const nuova = s >= 0 && p < lettura ? s : -1;
       if (s >= 0) ultimaStanza = s;
       if (nuova !== attiva) { attiva = nuova; pannelli.forEach((el, k) => el.classList.toggle('attivo', k === attiva)); }
       punti.forEach((b, k) => b.classList.toggle('attivo', k === ultimaStanza));
@@ -128,8 +165,8 @@ const path = '/';
     window.addEventListener('resize', () => { leggi(); disegna(); });
     leggi(); att = obiettivo; disegna(); requestAnimationFrame(ciclo);
     punti.forEach((b, k) => b.addEventListener('click', () => {
-      const f = stanzaDi.indexOf(k);
-      window.scrollTo({ top: inizio() + (inizi[f] + lung[f] * 0.3) * window.innerHeight, behavior: 'smooth' });
+      const f = F.findIndex((x) => x.stanza === k);
+      window.scrollTo({ top: inizio() + (inizi[f] + F[f].lung * 0.15) * window.innerHeight, behavior: 'smooth' });
     }));
   }
 </script>

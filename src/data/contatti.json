@@ -1,0 +1,23 @@
+{
+  "foto": "contact-sfondo-01",
+  "fuoco": [50, 42],
+  "nome": "Contatti",
+  "titolo": "comp-l9xhskql",
+  "colonne": [
+    { "titolo": "comp-kdis5us3", "voci": ["comp-kdis9nr5", "comp-lzg8rb0a"] },
+    { "titolo": "comp-kdis3yd1", "voci": ["comp-kdis7t78", "comp-lqei1ryz"] },
+    { "titolo": "comp-kdis6mfy", "voci": ["comp-kdisaqk9", "comp-lk1u2eut"] }
+  ],
+  "modulo": {
+    "titolo": "Scrivici",
+    "testo": "Raccontaci il tuo progetto: ti ricontattiamo entro due giorni lavorativi.",
+    "campi": [
+      { "nome": "nome", "etichetta": "Nome e cognome", "tipo": "text" },
+      { "nome": "email", "etichetta": "Email", "tipo": "email" },
+      { "nome": "telefono", "etichetta": "Telefono", "tipo": "tel" },
+      { "nome": "messaggio", "etichetta": "Messaggio", "tipo": "textarea" }
+    ],
+    "privacy": "Ho letto l'informativa e acconsento al trattamento dei dati per essere ricontattato.",
+    "invio": "INVIA"
+  }
+}

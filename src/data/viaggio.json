@@ -1,23 +1,23 @@
 {
   "invito": "Scorri per entrare nella casa",
+  "fotoAerea": "home-galleria-01",
   "stanze": [
     { "nome": "La casa", "testi": [] },
+    { "nome": "Architettura", "testi": ["comp-lk1opfn5", "comp-lkog557o"] },
     { "nome": "Soggiorno", "testi": ["comp-lnxlrxo9", "comp-lnxnjeqa"] },
     { "nome": "Studio", "testi": ["comp-m2dyhajj", "comp-m2dyoqkp", "comp-m2dz7jpn", "comp-m2enxmj6"] },
     { "nome": "Zona notte", "testi": ["comp-lk0d29px", "comp-lkogisd2"] },
-    { "nome": "Architettura", "testi": ["comp-lk1opfn5", "comp-lkog557o"] },
     { "nome": "Showroom", "testi": ["comp-lk4lyoj81", "comp-lkoi8903"] },
     { "nome": "Il giardino", "testi": [] }
   ],
   "fotogrammi": [
-    { "img": "home-galleria-01", "fuoco": [55, 61], "stanza": 0 },
-    { "img": "home-galleria-11", "fuoco": [52, 58] },
-    { "img": "home-galleria-03", "fuoco": [31, 50], "stanza": 1 },
+    { "tipo": "3d", "tappa": 0, "sosta": 0.3, "lung": 1.1, "stanza": 0 },
+    { "tipo": "3d", "tappa": 1, "sosta": 0.45, "lung": 1.4, "stanza": 1 },
+    { "img": "home-galleria-03", "fuoco": [31, 50], "stanza": 2 },
     { "img": "home-galleria-09", "fuoco": [48, 45] },
-    { "img": "home-galleria-05", "fuoco": [35, 52], "stanza": 2 },
+    { "img": "home-galleria-05", "fuoco": [35, 52], "stanza": 3 },
     { "img": "home-galleria-19", "fuoco": [74, 44] },
-    { "img": "home-galleria-17", "fuoco": [50, 56], "stanza": 3 },
-    { "img": "architecture-galleria-04", "fuoco": [60, 55], "stanza": 4 },
+    { "img": "home-galleria-17", "fuoco": [50, 56], "stanza": 4 },
     { "img": "home-galleria-24", "fuoco": [55, 56], "stanza": 5 },
     { "img": "home-galleria-21", "fuoco": [45, 48], "stanza": 6 }
   ]
