@@ -1,0 +1,135 @@
+---
+// Home come viaggio 3D nella villa: la camera parte dalla vista dall'alto (identica alla prima foto)
+// e con lo scroll entra in casa; ogni stanza mostra una sezione della landing (testi da data/pagine/home.json).
+// Senza WebGL resta la home classica (stesse sezioni, layout originale).
+import Nodo from './Nodo.astro';
+import home from '../data/pagine/home.json';
+import viaggio from '../data/viaggio.json';
+import media from '../data/media.json';
+
+const M = media as Record<string, { src: string; w: number; h: number; alt: string }>;
+const foto = M[viaggio.foto];
+const trova = (id: string, nodi: any[] = home.sections as any[]): any => {
+  for (const n of nodi) { if (n.id === id) return n; const r = trova(id, n.c || []); if (r) return r; }
+  return null;
+};
+const senzaFx = (n: any) => ({ ...n, fx: undefined });
+const stanze = viaggio.stanze.map((s) => ({ ...s, nodi: s.testi.map((id: string) => trova(id)).filter(Boolean).map(senzaFx) }));
+const DWELL = 0.7, TRAVEL = 1.6; // in altezze schermo
+const corsa = stanze.length * DWELL + (stanze.length - 1) * TRAVEL;
+const path = '/';
+---
+<div class="viaggio" style={`--corsa:${corsa}`} data-dwell={DWELL} data-travel={TRAVEL} data-n={stanze.length}>
+  <div class="v-palco">
+    <canvas class="v-canvas" aria-hidden="true"></canvas>
+    <img class="v-foto" src={foto.src} width={foto.w} height={foto.h} alt={foto.alt} fetchpriority="high" />
+    <div class="v-velo" aria-hidden="true"></div>
+    <p class="v-carico" aria-hidden="true"><span></span></p>
+    {stanze.map((s, i) => (
+      <section class={`v-pannello ${i === 0 ? 'attivo' : ''} ${s.nodi.length ? '' : 'solo-nome'}`} data-i={i} aria-label={s.nome}>
+        <p class="v-nome"><span>{String(i + 1).padStart(2, '0')}</span>{s.nome}</p>
+        {s.nodi.map((n: any) => <Nodo n={n} path={path} />)}
+        {i === 0 && <p class="v-invito">{viaggio.invito}<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg></p>}
+      </section>
+    ))}
+    <nav class="v-indice" aria-label="Stanze della casa">
+      {stanze.map((s, i) => <button type="button" data-vai={i} class={i === 0 ? 'attivo' : ''} aria-label={s.nome}><span>{s.nome}</span></button>)}
+    </nav>
+  </div>
+</div>
+<main class="pagina home-classica" style={`--dh:${home.h.d};--mh:${home.h.m}`}>
+  {home.sections.map((s: any) => <Nodo n={s} path={path} />)}
+</main>
+
+<style>
+  .viaggio { position: relative; height: calc((var(--corsa) + 1) * 100vh); margin-top: calc(var(--header-h) * -1); }
+  .v-palco { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--grigio); }
+  .v-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .v-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: opacity .2s linear; }
+  .v-carico { position: absolute; left: 50%; top: 50%; width: 120px; height: 2px; margin-left: -60px; background: rgba(255, 255, 255, .25); overflow: hidden; transition: opacity .4s; }
+  .v-carico span { display: block; width: 40%; height: 100%; background: var(--chiaro); animation: v-carico 1.2s ease-in-out infinite; }
+  @keyframes v-carico { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+  .pronta .v-carico { opacity: 0; }
+  .v-velo { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0) 55%); }
+  .v-pannello { position: absolute; left: 50%; bottom: 7vh; width: min(980px, calc(100% - 140px)); transform: translate(-50%, 24px); opacity: 0; visibility: hidden; transition: opacity .6s var(--ease-wix), transform .8s var(--ease-wix), visibility 0s .6s; text-align: center; }
+  .v-pannello.attivo { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .6s var(--ease-wix), transform .8s var(--ease-wix), visibility 0s; }
+  .v-pannello :global(.wx) { position: relative; left: auto; top: auto; width: auto; height: auto; margin: 0 auto 14px; max-width: 864px; }
+  .v-pannello :global(.wx-btn) { width: var(--dw); height: var(--dh); margin-top: 22px; }
+  .v-pannello :global(.wx-text) { pointer-events: auto; }
+  .v-nome { display: inline-flex; gap: 12px; align-items: baseline; margin-bottom: 18px; font: 300 13px/1 var(--font-avenir); letter-spacing: .25em; text-transform: uppercase; color: var(--chiaro); }
+  .v-nome span { font-weight: 800; }
+  .solo-nome .v-nome { font-size: 15px; }
+  .v-invito { display: flex; flex-direction: column; align-items: center; gap: 8px; font: 300 16px/1.4 var(--font-avenir); letter-spacing: .08em; color: var(--chiaro); }
+  .v-invito svg { animation: v-giu 1.6s ease-in-out infinite; }
+  @keyframes v-giu { 50% { transform: translateY(6px); } }
+  .v-indice { position: absolute; right: 26px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 14px; }
+  .v-indice button { position: relative; width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1px solid var(--chiaro); background: transparent; cursor: pointer; transition: background-color .3s, transform .3s; }
+  .v-indice button.attivo { background: var(--chiaro); transform: scale(1.25); }
+  .v-indice span { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; font: 300 12px var(--font-avenir); letter-spacing: .1em; color: var(--chiaro); opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .v-indice button:hover span, .v-indice button.attivo span { opacity: 1; }
+  .home-classica { display: none; }
+  :global(.v3d-off) .viaggio { display: none; }
+  :global(.v3d-off) .home-classica { display: block; }
+  @media (max-width: 750px) {
+    .viaggio { margin-top: calc(var(--header-h-m) * -1); }
+    .v-pannello { width: calc(100% - 12.5vw); bottom: 5vh; }
+    .v-pannello :global(.wx) { max-width: none; }
+    .v-pannello :global(.wx-btn) { width: var(--mw); height: var(--mh); }
+    .v-nome { font-size: 3.4vw; margin-bottom: 3vw; }
+    .v-indice { right: 3vw; gap: 3vw; }
+    .v-indice span { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .v-pannello, .v-pannello.attivo { transition: none; } .v-invito svg { animation: none; } }
+</style>
+
+<script>
+  import { avviaVilla } from '../scripts/villa3d.js';
+
+  const root = document.querySelector('.viaggio') as HTMLElement;
+  const ok = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } })();
+  if (!ok || !root) {
+    document.documentElement.classList.add('v3d-off');
+  } else {
+    const DW = +root.dataset.dwell!, TR = +root.dataset.travel!, N = +root.dataset.n!;
+    const canvas = root.querySelector('.v-canvas') as HTMLCanvasElement;
+    const foto = root.querySelector('.v-foto') as HTMLImageElement;
+    const pannelli = [...root.querySelectorAll<HTMLElement>('.v-pannello')];
+    const punti = [...root.querySelectorAll<HTMLButtonElement>('.v-indice button')];
+    let pronta = false;
+    const villa = avviaVilla({ canvas, fotoSrc: foto.src, onPronto: () => { pronta = true; root.classList.add('pronta'); aggiorna(); } });
+    const tappe: number[] = villa.tappe;
+    const corsa = N * DW + (N - 1) * TR;
+    const ease = (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+
+    // posizione di scroll (in schermi) → parametro del percorso, stanza attiva, dissolvenza della foto
+    const stato = (sc: number) => {
+      let u = Math.max(0, Math.min(corsa, sc));
+      for (let i = 0; i < N; i++) {
+        if (u <= DW) return { t: tappe[i], stanza: i, f: 0, i };
+        u -= DW;
+        if (i < N - 1 && u <= TR) { const f = u / TR; return { t: tappe[i] + (tappe[i + 1] - tappe[i]) * ease(f), stanza: f < 0.18 ? i : f > 0.82 ? i + 1 : -1, f, i }; }
+        u -= TR;
+      }
+      return { t: 1, stanza: N - 1, f: 0, i: N - 1 };
+    };
+    const inizio = () => root.getBoundingClientRect().top + window.scrollY;
+    let attiva = 0;
+    const aggiorna = () => {
+      const sc = (window.scrollY - inizio()) / window.innerHeight;
+      const s = stato(sc);
+      villa.vai(s.t);
+      foto.style.opacity = String(!pronta ? 1 : s.i === 0 ? Math.max(0, 1 - s.f / 0.12) : 0);
+      if (s.stanza !== attiva) {
+        attiva = s.stanza;
+        pannelli.forEach((p, k) => p.classList.toggle('attivo', k === attiva));
+        punti.forEach((p, k) => p.classList.toggle('attivo', k === (attiva < 0 ? -2 : attiva)));
+      }
+    };
+    window.addEventListener('scroll', aggiorna, { passive: true });
+    window.addEventListener('resize', aggiorna);
+    const s0 = stato((window.scrollY - inizio()) / window.innerHeight); villa.salta(s0.t); aggiorna();
+    punti.forEach((b, k) => b.addEventListener('click', () => {
+      window.scrollTo({ top: inizio() + (k * (DW + TR) + DW / 2) * window.innerHeight, behavior: 'smooth' });
+    }));
+  }
+</script>

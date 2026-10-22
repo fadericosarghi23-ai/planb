@@ -1,5 +1,9 @@
 ---
-import Pagina from '../components/Pagina.astro';
+// Home: viaggio 3D nella villa (components/Viaggio.astro); le sezioni restano in data/pagine/home.json.
+import Layout from '../layouts/Layout.astro';
+import Viaggio from '../components/Viaggio.astro';
 import p from '../data/pagine/home.json';
 ---
-<Pagina p={p} />
+<Layout seo={p.seo} chrome={p.chrome} bg={p.bodyBg}>
+  <Viaggio />
+</Layout>
