@@ -16,7 +16,7 @@ const trova = (id: string, nodi: any[] = home.sections as any[]): any => {
 const stanze = viaggio.stanze.map((s) => ({ ...s, nodi: s.testi.map((id: string) => trova(id)).filter(Boolean).map((n: any) => ({ ...n, fx: undefined })) }));
 const fotogrammi = viaggio.fotogrammi.map((f: any) => ({ ...f, m: M[f.img] }));
 // lunghezza di scorrimento di ogni fotogramma (in altezze schermo): più lunga dove c'è una sezione da leggere
-const lung = fotogrammi.map((f: any) => (f.stanza !== undefined ? 1.5 : 0.8));
+const lung = fotogrammi.map((f: any) => (f.stanza !== undefined ? 0.7 : 0.35));
 const corsa = lung.reduce((a: number, b: number) => a + b, 0);
 const path = '/';
 ---
