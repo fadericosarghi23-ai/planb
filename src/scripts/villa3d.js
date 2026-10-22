@@ -130,7 +130,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     for (let i = 0; i < pos.count; i++) {
       const x = pos.getX(i), z = pos.getZ(i);
       const n = 0.5 + 0.25 * Math.sin(x * 0.13 + Math.sin(z * 0.07) * 2) + 0.2 * Math.sin(z * 0.11 - x * 0.05) + rnd(-0.05, 0.05);
-      col.push(0.36 + n * 0.08, 0.47 + n * 0.08, 0.18 + n * 0.05);
+      col.push(0.27 + n * 0.05, 0.38 + n * 0.06, 0.13 + n * 0.03);
       uv.setXY(i, x / 3, z / 3);
     }
     g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
@@ -175,6 +175,64 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     chiome.push([x, z, r]);
   };
   // chiome piene: carte di foglie con la texture fotografica del cespuglio, distribuite in un volume tondeggiante
+  // prato in 3D: ciuffi d'erba mossi dal vento, colorati con il pixel della foto aerea sottostante
+  // (dall'alto il prato resta identico alla foto, da vicino ha volume). Niente erba su ghiaia e pietra.
+  const vento = { value: 0 };
+  const prato = () => {
+    const img = new Image(); img.crossOrigin = 'anonymous'; img.src = fotoSrc;
+    img.decode().then(() => {
+      const W = 500, H = 265, c = document.createElement('canvas'); c.width = W; c.height = H;
+      const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(img, 0, 0, W, H);
+      const px = g.getImageData(0, 0, W, H).data;
+      const [a0, b0] = P(0, 0), [a1, b1] = P(2000, 1060);
+      const colore = (x, z) => {
+        const u = Math.floor(((x - a0) / (a1 - a0)) * W), v = Math.floor(((z - b0) / (b1 - b0)) * H);
+        if (u < 0 || v < 0 || u >= W || v >= H) return null;
+        const i = (v * W + u) * 4; return [px[i], px[i + 1], px[i + 2]];
+      };
+      // ciuffo: 3 fili incrociati, rastremati verso la punta
+      const filo = (rot) => {
+        const b = new THREE.PlaneGeometry(0.035, 1, 1, 2); b.translate(0, 0.5, 0);
+        const p = b.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i); p.setX(i, p.getX(i) * (1 - y * 0.92) + y * y * 0.06); }
+        b.rotateY(rot); return b;
+      };
+      const parti = [filo(0), filo(Math.PI / 3), filo((2 * Math.PI) / 3)];
+      const pos = [], uv = [], idx = []; let off = 0;
+      for (const b of parti) { pos.push(...b.attributes.position.array); uv.push(...b.attributes.uv.array); idx.push(...b.index.array.map((x) => x + off)); off += b.attributes.position.count; }
+      const ciuffo = new THREE.BufferGeometry();
+      ciuffo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); ciuffo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); ciuffo.setIndex(idx); ciuffo.computeVertexNormals();
+      const mat = new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, roughness: 1, metalness: 0, envMapIntensity: 0.4 });
+      mat.onBeforeCompile = (sh) => {
+        sh.uniforms.vento = vento;
+        sh.vertexShader = 'uniform float vento;\n' + sh.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>
+          vec4 ip = instanceMatrix * vec4(0.0, 0.0, 0.0, 1.0);
+          float pieg = uv.y * uv.y;
+          transformed.x += pieg * (0.08 * sin(vento * 1.7 + ip.x * 0.35 + ip.z * 0.21) + 0.04 * sin(vento * 3.1 + ip.z * 0.9));
+          transformed.z += pieg * 0.05 * cos(vento * 1.3 + ip.x * 0.27);`);
+        // base più scura (ombra tra i fili), punta più chiara
+        sh.fragmentShader = sh.fragmentShader.replace('#include <color_fragment>', '#include <color_fragment>\n diffuseColor.rgb *= mix(0.7, 0.98, vUv.y);');
+        sh.vertexShader = sh.vertexShader.replace('#include <uv_vertex>', '#include <uv_vertex>\n vUv = uv;');
+        sh.vertexShader = 'varying vec2 vUv;\n' + sh.vertexShader; sh.fragmentShader = 'varying vec2 vUv;\n' + sh.fragmentShader;
+      };
+      const N = mobile ? 90000 : 360000, R = 30, cx = 0, cz = 2;
+      const erba = new THREE.InstancedMesh(ciuffo, mat, N); const o = new THREE.Object3D(); const col = new THREE.Color();
+      let k = 0, tent = 0;
+      while (k < N && tent < N * 4) {
+        tent++;
+        const r = R * Math.sqrt(rnd(0, 1)), an = rnd(0, Math.PI * 2), x = cx + Math.cos(an) * r, z = cz + Math.sin(an) * r;
+        if (x > -6.9 && x < 14.7 && z > -7.7 && z < 8.3) continue; // pavimentazione e casa
+        const cc = colore(x, z) || [rnd(70, 92), rnd(98, 122), rnd(34, 48)]; // oltre la foto: prato di raccordo
+        const [rr, gg, bb] = cc;
+        if (!(gg > rr * 0.95 && gg > bb * 1.05)) continue; // solo dove la foto è prato
+        o.position.set(x, 0, z); o.rotation.set(0, rnd(0, 6.3), 0);
+        const h = rnd(0.07, 0.15); o.scale.set(rnd(1.2, 1.8), h, 1); o.updateMatrix();
+        erba.setMatrixAt(k, o.matrix);
+        col.setRGB(rr / 255, gg / 255, bb / 255, THREE.SRGBColorSpace).multiplyScalar(rnd(0.9, 1.15)); erba.setColorAt(k, col);
+        k++;
+      }
+      erba.count = k; erba.receiveShadow = true; erba.frustumCulled = false; scene.add(erba);
+    });
+  };
   const fogliame = () => {
     let mat; modelli.shrub_02?.scene?.traverse((n) => { if (n.isMesh && !mat && (n.material.alphaTest > 0 || n.material.transparent || n.material.alphaMap)) mat = n.material; });
     if (!mat) return;
@@ -351,7 +409,8 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     [[0, 5.05, 9.2], [0, 4.95, 0], 42],
     st(3),
     [[0, 6.2, 11.5], [0, 4, 3], 46],
-    [[11, 16, 27], [2.5, 1, 0], 42, true],
+    [[-4, 3.2, 17], [2, 2, 4], 50],
+    [[-7.5, 1.5, 17.5], [4.5, 1.9, 3.5], 50, true],
   ].filter(Boolean);
 
 
@@ -401,12 +460,13 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     const dentro = dentroStanza(camera.position);
     renderer.toneMapping = dentro ? THREE.NoToneMapping : THREE.AgXToneMapping;
     if (gtao) gtao.enabled = !dentro;
+    vento.value += dt;
     ondeTex.offset.x += dt * 0.015; ondeTex.offset.y += dt * 0.01;
     composer.render();
     requestAnimationFrame(ciclo);
   };
   if (import.meta.env?.DEV) window.__villa3d = { scene, camera, modelli };
-  manager.onLoad = () => { if (pronto) return; pronto = true; fogliame(); renderer.compile(scene, camera); onPronto?.(); };
+  manager.onLoad = () => { if (pronto) return; pronto = true; fogliame(); prato(); renderer.compile(scene, camera); onPronto?.(); };
   colloca(0); requestAnimationFrame(ciclo);
 
   return {
