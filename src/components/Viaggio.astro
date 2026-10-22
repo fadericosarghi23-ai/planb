@@ -1,9 +1,9 @@
 ---
-// Home come viaggio nella casa. Si parte dal modello 3D della villa (scripts/villa3d.js): vista dall'alto
-// identica alla foto aerea, giro attorno alla casa e alla piscina (tappa Architettura), arrivo alla porta.
-// Dentro, il viaggio prosegue nei render dei progetti dello studio: la camera si spinge verso il punto
-// d'ingresso di ogni immagine (fotogrammi.fuoco, in %) e "attraversa" nell'ambiente successivo.
-// Ogni stanza mostra una sezione della landing (testi da data/pagine/home.json).
+// Home come viaggio continuo nel modello 3D della villa (scripts/villa3d.js): vista dall'alto identica
+// alla foto aerea, giro attorno alla casa (tappa Architettura), poi in volo dentro ogni stanza dalla sua
+// vetrata. Le stanze sono volumi su cui è proiettato un render dello studio (data/viaggio.json → stanze3d):
+// arrivati nel punto di ripresa la stanza è identica alla foto. Ogni tappa mostra una sezione della landing
+// (testi da data/pagine/home.json). Senza WebGL resta la foto aerea.
 import Nodo from './Nodo.astro';
 import home from '../data/pagine/home.json';
 import viaggio from '../data/viaggio.json';
@@ -19,9 +19,10 @@ const fotogrammi = (viaggio.fotogrammi as any[]).map((f) => ({ ...f, m: f.img ? 
 const corsa = fotogrammi.reduce((a, f) => a + f.lung, 0);
 const aerea = M[viaggio.fotoAerea];
 const dati = fotogrammi.map((f) => ({ tipo: f.tipo || 'img', lung: f.lung, sosta: f.sosta ?? 0, tappa: f.tappa ?? 0, stanza: f.stanza ?? -1 }));
+const stanze3d = (viaggio as any).stanze3d.map((s: any) => ({ ...s, src: M[s.img].src, w: M[s.img].w, h: M[s.img].h }));
 const path = '/';
 ---
-<div class="viaggio" style={`--corsa:${corsa}`} data-fotogrammi={JSON.stringify(dati)}>
+<div class="viaggio" style={`--corsa:${corsa}`} data-fotogrammi={JSON.stringify(dati)} data-stanze3d={JSON.stringify(stanze3d)}>
   <div class="v-palco">
     <div class="v-f v-3d" data-k="3d">
       <canvas class="v-canvas" aria-hidden="true"></canvas>
@@ -63,6 +64,7 @@ const path = '/';
   .v-pannello :global(.wx) { position: relative; left: auto; top: auto; width: auto; height: auto; margin: 0 auto 14px; max-width: 864px; }
   .v-pannello :global(.wx-btn) { width: var(--dw); height: var(--dh); margin-top: 22px; }
   .v-pannello :global(.wx-text) { pointer-events: auto; text-shadow: 0 1px 18px rgba(0, 0, 0, .35); }
+  .v-pannello :global(.wx-text *) { background-color: transparent !important; }
   .v-nome { display: inline-flex; gap: 12px; align-items: baseline; margin-bottom: 18px; font: 300 13px/1 var(--font-avenir); letter-spacing: .25em; text-transform: uppercase; color: var(--chiaro); }
   .v-nome span { font-weight: 800; }
   .solo-nome .v-nome { font-size: 15px; }
@@ -111,7 +113,7 @@ const path = '/';
     let villa: any = null; let tappe: number[] = [0, 0.5, 1];
     const webgl = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } })();
     if (webgl) {
-      villa = avviaVilla({ canvas: root.querySelector('.v-canvas') as HTMLCanvasElement, fotoSrc: (root.querySelector('.v-aerea') as HTMLImageElement).src, onPronto: () => root.classList.add('pronta') });
+      villa = avviaVilla({ canvas: root.querySelector('.v-canvas') as HTMLCanvasElement, stanze: JSON.parse(root.dataset.stanze3d!), fotoSrc: (root.querySelector('.v-aerea') as HTMLImageElement).src, onPronto: () => root.classList.add('pronta') });
       tappe = villa.tappe;
     } else root.classList.add('senza-3d');
 
@@ -129,7 +131,7 @@ const path = '/';
     const posa3d = (k: number, p: number) => {
       const f = F[k], da = tappe[f.tappa], a = tappe[f.tappa + 1] ?? 1;
       villa?.vai(da + (a - da) * io(clamp((p - f.sosta) / (1 - f.sosta))));
-      const ultimo = F[k + 1]?.tipo !== '3d';
+      const ultimo = !!F[k + 1] && F[k + 1].tipo !== '3d';
       const uscita = ultimo ? clamp((p - 0.86) / 0.14) : 0;
       strato3d.style.opacity = String(1 - io(uscita));
       strato3d.style.filter = !ridotto && uscita > 0 ? `blur(${(uscita * 5).toFixed(2)}px)` : 'none';

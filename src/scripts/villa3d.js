@@ -32,7 +32,7 @@ function uvMondo(geo, w, h, d, tile) {
   return geo;
 }
 
-export function avviaVilla({ canvas, fotoSrc, onPronto }) {
+export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   const mobile = window.matchMedia('(max-width: 750px)').matches || navigator.hardwareConcurrency <= 4;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.25 : 1.5));
@@ -176,9 +176,13 @@ export function avviaVilla({ canvas, fotoSrc, onPronto }) {
   };
   // chiome piene: carte di foglie con la texture fotografica del cespuglio, distribuite in un volume tondeggiante
   const fogliame = () => {
-    let mat; modelli.shrub_02?.scene?.traverse((n) => { if (n.isMesh && !mat) mat = n.material; });
+    let mat; modelli.shrub_02?.scene?.traverse((n) => { if (n.isMesh && !mat && (n.material.alphaTest > 0 || n.material.transparent || n.material.alphaMap)) mat = n.material; });
     if (!mat) return;
-    const m = mat.clone(); m.side = THREE.DoubleSide; m.alphaTest = 0.35; m.alphaToCoverage = !mobile; m.color.set('#a9cf6a');
+    const m = mat.clone(); m.side = THREE.DoubleSide; m.alphaTest = 0.45; m.alphaToCoverage = !mobile; m.color.set('#b4d47a');
+    // maschera tonda e frastagliata: ogni carta diventa un ciuffo di foglie invece di un quadrato
+    const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d');
+    for (let i = 0; i < 70; i++) { const r = rnd(6, 20), an = rnd(0, 6.3), d = rnd(0, 40); g.fillStyle = '#fff'; g.beginPath(); g.arc(64 + Math.cos(an) * d, 64 + Math.sin(an) * d, r, 0, 7); g.fill(); }
+    m.alphaMap = new THREE.CanvasTexture(c);
     const per = mobile ? 150 : 280, o = new THREE.Object3D();
     const inst = new THREE.InstancedMesh(new THREE.PlaneGeometry(1, 1), m, chiome.length * per); let k = 0;
     for (const [x, z, r] of chiome) for (let i = 0; i < per; i++) {
@@ -253,11 +257,6 @@ export function avviaVilla({ canvas, fotoSrc, onPronto }) {
   vetrata(mx1, mz1 + 8.2, mx1, mz1 + 12.6, 0.9, H1 - 0.25); vetrata(mx1, mz1 + 1.2, mx1, mz1 + 12.0, 4.3, 6.4);
   parete(mx2, mz1, mx2, mz2, Y0, YT, [[5.1, 7.6, Y0, 2.7], [9.6, 13.0, Y0, H1 - 0.2], [4.0, 6.2, Y1, 6.1], [7.0, 12.8, 4.3, 6.4]]);
   vetrata(mx2, mz1 + 9.6, mx2, mz1 + 13.0, Y0, H1 - 0.2); vetrata(mx2, mz1 + 7.0, mx2, mz1 + 12.8, 4.3, 6.4);
-  parete(mx1, 0.8, mx2, 0.8, Y1, H2, [[1.6, 4.0, Y1, 6.0]], 0.15);
-  faretti(mx1 + 0.4, mz1 + 0.4, mx2 - 0.4, mz2 - 0.4, H1); faretti(mx1 + 0.4, mz1 + 0.4, mx2 - 0.4, mz2 - 0.4, H2);
-  // scala bianca a sbalzo con parapetto in vetro, come nei progetti dello studio
-  for (let i = 0; i < 17; i++) box(1.5, 0.06, 0.3, M.laccato, 2.25, Y0 + 0.14 + i * 0.205, 5.0 - i * 0.215, { tile: 1 });
-  box(0.02, 1.0, 3.6, M.vetro, 1.35, Y1, 3.3, { ombra: false }); box(1.8, 1.0, 0.02, M.vetro, 2.2, Y1, 1.45, { ombra: false });
 
   const [ex1, ez1] = P(1218, 492), [ex2, ez2] = P(1480, 735);
   box(ex2 - ex1, 0.04, ez2 - ez1, M.resina, (ex1 + ex2) / 2, Y0, (ez1 + ez2) / 2, { ombra: false, tile: 3 });
@@ -266,7 +265,6 @@ export function avviaVilla({ canvas, fotoSrc, onPronto }) {
   cornice(ex1 - 0.2, ez1, ex2, ez2, H1 + 0.25, 1.0, 0.16);
   parete(ex1, ez1, ex2, ez1, Y0, H1);
   vetrata(ex2, ez1, ex2, ez2, Y0, H1); vetrata(ex1, ez2, ex2, ez2, Y0, H1);
-  faretti(ex1 + 0.4, ez1 + 0.4, ex2 - 0.4, ez2 - 0.4, H1);
 
   const [wx1, wz1] = P(943, 492), [, wz2] = P(998, 742);
   box(mx1 - wx1, 0.04, wz2 - wz1, M.resina, (wx1 + mx1) / 2, Y0, (wz1 + wz2) / 2, { ombra: false, tile: 3 });
@@ -276,25 +274,35 @@ export function avviaVilla({ canvas, fotoSrc, onPronto }) {
   parete(wx1, wz1, wx1, wz2, Y0, 3.3, [[0.4, 7.1, Y0, 2.9]], 0.25);
   vetrata(wx1, wz1 + 0.4, wx1, wz1 + 7.1, Y0, 2.9, 1.2);
 
-  // ---------------------------------------------------------------- dietro le vetrate e in terrazza
-  // gli interni sono raccontati dai render dello studio: dall'esterno si vedono tende di lino chiaro
-  // appena mosse, la luce calda delle stanze e i riflessi del cielo sui vetri
-  const tendaMat = new THREE.MeshStandardMaterial({ color: '#fbf7ef', roughness: 1, transparent: true, opacity: 0.62, side: THREE.DoubleSide, emissive: '#ffe9c9', emissiveIntensity: 0.55, depthWrite: false });
-  const tenda = (x1, z1, x2, z2, y0, y1, scosta = 0.35) => {
-    const L = Math.hypot(x2 - x1, z2 - z1), ang = Math.atan2(z2 - z1, x2 - x1);
-    const g = new THREE.PlaneGeometry(L, y1 - y0, Math.ceil(L * 6), 1); const p = g.attributes.position;
-    for (let i = 0; i < p.count; i++) p.setZ(i, Math.sin(p.getX(i) * 9) * 0.035);
-    g.computeVertexNormals();
-    const m = new THREE.Mesh(g, tendaMat); m.position.set((x1 + x2) / 2, (y0 + y1) / 2, (z1 + z2) / 2); m.rotation.y = -ang;
-    // spostata verso l'interno rispetto al vetro
-    m.translateZ(scosta); m.receiveShadow = true; scene.add(m);
-  };
-  tenda(mx1 + 0.3, mz2, mx2 - 0.3, mz2, Y0 + 0.05, H1 - 0.05, -0.4); tenda(mx1 + 0.3, mz2, mx2 - 0.3, mz2, Y1 + 0.05, H2 - 0.05, -0.4);
-  tenda(ex1 + 0.3, ez2, ex2 - 0.3, ez2, Y0 + 0.05, H1 - 0.05, -0.4); tenda(ex2, ez1 + 0.3, ex2, ez2 - 0.3, Y0 + 0.05, H1 - 0.05, 0.4);
-  tenda(mx2, 3.0, mx2, 6.4, Y0 + 0.05, H1 - 0.25, 0.4); tenda(mx2, 0.4, mx2, 6.2, 4.35, 6.35, 0.4);
-  tenda(mx1, 1.6, mx1, 6.0, 0.95, H1 - 0.3, -0.4); tenda(mx1, -5.4, mx1, 5.4, 4.35, 6.35, -0.4);
-  luce(-0.5, 2.6, 3.5, 6, 9); luce(0, 2.6, -3.5, 5, 9); luce(7.2, 2.6, -0.8, 6, 9); luce(-0.5, 6.0, -3.0, 5, 9); luce(-0.5, 6.0, 3.5, 5, 9);
-  // ingresso: porta vetrata a battente nella facciata ovest, con lampade a parete
+  // ---------------------------------------------------------------- stanze fotografiche
+  // Ogni stanza è un volume 3D dentro la villa su cui è proiettato un render dello studio dal punto in
+  // cui è stato inquadrato: quando la camera arriva in quel punto la stanza è identica alla foto,
+  // avvicinandosi e allontanandosi ha profondità. Il lato verso la vetrata è aperto: si entra in volo.
+  const vsProiezione = `varying vec4 vP; uniform mat4 projVP;
+    void main() { vec4 w = modelMatrix * vec4(position, 1.0); vP = projVP * w; gl_Position = projectionMatrix * viewMatrix * w; }`;
+  const fsProiezione = `varying vec4 vP; uniform sampler2D map;
+    void main() { vec2 uv = vP.w > 0.0 ? clamp(vP.xy / vP.w * 0.5 + 0.5, 0.002, 0.998) : vec2(0.5);
+      gl_FragColor = texture2D(map, uv);
+      #include <colorspace_fragment>
+    }`;
+  const LATI = { 'x+': 0, 'x-': 1, 'y+': 2, 'y-': 3, 'z+': 4, 'z-': 5 }; // ordine dei gruppi di BoxGeometry
+  const stanzeFoto = [];
+  for (const s of stanze) {
+    const [x1, x2, y1, y2, z1, z2] = s.box;
+    const tex = tl.load(s.src); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 16;
+    const proj = new THREE.PerspectiveCamera(s.fov, s.w / s.h, 0.05, 100);
+    proj.position.set(...s.pos); proj.lookAt(...s.guarda); proj.updateMatrixWorld(); proj.updateProjectionMatrix();
+    const projVP = new THREE.Matrix4().multiplyMatrices(proj.projectionMatrix, proj.matrixWorldInverse);
+    const mat = new THREE.ShaderMaterial({ uniforms: { map: { value: tex }, projVP: { value: projVP } }, vertexShader: vsProiezione, fragmentShader: fsProiezione, side: THREE.BackSide });
+    const vuoto = new THREE.MeshBasicMaterial({ visible: false });
+    const mats = Array(6).fill(mat); mats[LATI[s.aperta]] = vuoto;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(x2 - x1, y2 - y1, z2 - z1), mats);
+    m.position.set((x1 + x2) / 2, (y1 + y2) / 2, (z1 + z2) / 2); scene.add(m);
+    stanzeFoto.push(new THREE.Box3(new THREE.Vector3(x1, y1, z1), new THREE.Vector3(x2, y2, z2)));
+  }
+  const dentroStanza = (p) => stanzeFoto.some((b) => b.containsPoint(p));
+
+  // ingresso: lampade a parete accanto alla porta vetrata nella facciata ovest
   for (const z of [-2.2, 0.9]) { box(0.06, 0.32, 0.12, M.infisso, wx1 - 0.08, 2.1, z); const l = new THREE.PointLight('#ffd9a8', 2, 4, 2); l.position.set(wx1 - 0.3, 2.2, z); scene.add(l); }
   // terrazza: chaise longue a telaio sottile, tavolo da esterno, fioriere
   const lacca = new THREE.MeshPhysicalMaterial({ color: '#8f8a84', roughness: 0.25, clearcoat: 1 });
@@ -316,20 +324,36 @@ export function avviaVilla({ canvas, fotoSrc, onPronto }) {
     for (const s of [-0.85, 0.85]) for (const t of [-0.3, 0.3]) box(0.02, 0.28, 0.02, lacca, t, 0, s, { parent: g });
   }
 
-  // ---------------------------------------------------------------- percorso della camera (esterno)
+  // ---------------------------------------------------------------- percorso della camera
   // [posizione, punto guardato, fov, tappa?]: vista dall'alto identica alla foto → giro della villa
-  // (piscina e facciate: tappa "Architettura") → arrivo alla porta d'ingresso
+  // (tappa Architettura) → in volo dentro ogni stanza dalla sua vetrata, e fuori verso la successiva.
+  // Nelle tappe delle stanze posizione, direzione e fov coincidono con quelli della proiezione.
   const fotoC = P(1000, 530);
+  const st = (k) => { const s = stanze[k]; return s ? [s.pos, s.guarda, s.fov, true] : null; };
   const K = [
     [[fotoC[0], 50.4, fotoC[1] + 0.001], [fotoC[0], 0, fotoC[1]], 35, true],
-    [[2, 34, 26], [2, 0, 0], 40],
     [[16, 12, 26], [3, 2, 1], 44],
     [[13.2, 1.9, 16.5], [4.0, 2.6, 2.0], 50, true],
-    [[4, 2.4, 16], [-2, 2.6, 0], 52],
-    [[-13, 2.2, 10], [-4, 1.8, 0], 54],
-    [[-14.5, 1.7, -0.5], [-4.5, 1.6, -0.6], 56],
-    [[-7.4, 1.65, -0.6], [-4, 1.6, -0.6], 58, true],
-  ];
+    [[5, 1.75, 13], [0, 1.6, 4], 46],
+    [[0, 1.55, 8.8], [0, 1.5, 0], 41],
+    st(0),
+    [[0.4, 1.7, 9.8], [4, 1.6, 4], 44],
+    [[9.5, 1.8, 9.2], [12, 1.6, 2], 46],
+    [[15.6, 1.6, -0.95], [10, 1.5, -0.95], 41],
+    st(1),
+    [[15.4, 2.6, -1.4], [10, 3, -3], 44],
+    [[9, 6.5, -11.5], [0, 5, -4], 46],
+    [[-8.5, 6, -11], [-4, 5, -3], 46],
+    [[-9.5, 5.1, -2.9], [-3, 5, -2.9], 41],
+    st(2),
+    [[-9.5, 5.6, -1.2], [-3, 5, 3], 44],
+    [[-6.5, 5.4, 10.5], [0, 5, 5], 44],
+    [[0, 5.05, 9.2], [0, 4.95, 0], 42],
+    st(3),
+    [[0, 6.2, 11.5], [0, 4, 3], 46],
+    [[11, 16, 27], [2.5, 1, 0], 42, true],
+  ].filter(Boolean);
+
 
   const posC = new THREE.CatmullRomCurve3(K.map((k) => new THREE.Vector3(...k[0])), false, 'centripetal');
   const lookC = new THREE.CatmullRomCurve3(K.map((k) => new THREE.Vector3(...k[1])), false, 'centripetal');
@@ -373,6 +397,10 @@ export function avviaVilla({ canvas, fotoSrc, onPronto }) {
     const dt = Math.min(0.05, orologio.getDelta());
     tAtt += (tTarget - tAtt) * Math.min(1, dt * 4.5);
     colloca(tAtt);
+    // nelle stanze il render deve restare identico alla foto: niente tone mapping né occlusione
+    const dentro = dentroStanza(camera.position);
+    renderer.toneMapping = dentro ? THREE.NoToneMapping : THREE.AgXToneMapping;
+    if (gtao) gtao.enabled = !dentro;
     ondeTex.offset.x += dt * 0.015; ondeTex.offset.y += dt * 0.01;
     composer.render();
     requestAnimationFrame(ciclo);

@@ -10,15 +10,19 @@
     { "nome": "Showroom", "testi": ["comp-lk4lyoj81", "comp-lkoi8903"] },
     { "nome": "Il giardino", "testi": [] }
   ],
+  "stanze3d": [
+    { "img": "home-galleria-03", "pos": [0, 1.5, 5.75], "guarda": [0, 1.4, -6], "fov": 40, "box": [-2.98, 2.98, 0.22, 3.4, -6.28, 6.05], "aperta": "z+" },
+    { "img": "home-galleria-05", "pos": [10.7, 1.5, -0.95], "guarda": [3, 1.35, -0.95], "fov": 40, "box": [3.6, 11.0, 0.22, 3.4, -4.28, 2.5], "aperta": "x+" },
+    { "img": "home-galleria-17", "pos": [-2.85, 5.1, -2.9], "guarda": [3.2, 4.95, -2.9], "fov": 40, "box": [-3.12, 2.98, 3.68, 6.85, -6.28, 0.7], "aperta": "x-" },
+    { "img": "home-galleria-24", "pos": [0, 5.05, 5.75], "guarda": [0, 4.95, -1], "fov": 42, "box": [-2.98, 2.98, 3.68, 6.85, 0.9, 6.05], "aperta": "z+" }
+  ],
   "fotogrammi": [
-    { "tipo": "3d", "tappa": 0, "sosta": 0.3, "lung": 1.1, "stanza": 0 },
-    { "tipo": "3d", "tappa": 1, "sosta": 0.45, "lung": 1.4, "stanza": 1 },
-    { "img": "home-galleria-03", "fuoco": [31, 50], "stanza": 2 },
-    { "img": "home-galleria-09", "fuoco": [48, 45] },
-    { "img": "home-galleria-05", "fuoco": [35, 52], "stanza": 3 },
-    { "img": "home-galleria-19", "fuoco": [74, 44] },
-    { "img": "home-galleria-17", "fuoco": [50, 56], "stanza": 4 },
-    { "img": "home-galleria-24", "fuoco": [55, 56], "stanza": 5 },
-    { "img": "home-galleria-21", "fuoco": [45, 48], "stanza": 6 }
+    { "tipo": "3d", "tappa": 0, "sosta": 0.3, "lung": 0.9, "stanza": 0 },
+    { "tipo": "3d", "tappa": 1, "sosta": 0.35, "lung": 1.0, "stanza": 1 },
+    { "tipo": "3d", "tappa": 2, "sosta": 0.35, "lung": 1.0, "stanza": 2 },
+    { "tipo": "3d", "tappa": 3, "sosta": 0.35, "lung": 1.0, "stanza": 3 },
+    { "tipo": "3d", "tappa": 4, "sosta": 0.35, "lung": 1.0, "stanza": 4 },
+    { "tipo": "3d", "tappa": 5, "sosta": 0.35, "lung": 1.0, "stanza": 5 },
+    { "tipo": "3d", "tappa": 6, "sosta": 0.6, "lung": 0.6, "stanza": 6 }
   ]
 }
