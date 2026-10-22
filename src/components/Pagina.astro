@@ -1,0 +1,13 @@
+---
+// Contenuto di una pagina: le sezioni del suo albero (src/data/pagine/<pagina>.json) dentro un contenitore alto quanto l'originale.
+import Layout from '../layouts/Layout.astro';
+import Nodo from './Nodo.astro';
+interface Props { p: any; seo?: any }
+const { p, seo } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<Layout seo={seo || p.seo} chrome={p.chrome} bg={p.bodyBg}>
+  <main class="pagina" style={`--dh:${p.h.d};--mh:${p.h.m}`}>
+    {p.sections.map((s: any) => <Nodo n={s} path={path} />)}
+  </main>
+</Layout>

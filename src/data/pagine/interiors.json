@@ -1,0 +1,598 @@
+{
+ "seo": {
+  "title": "INTERIORS | PLAN B studio",
+  "description": "Ristutturare e arredare la tua casa, una villa o un appartamento, un negozio, un ufficio o un locale pubblico: PLAN.B STUDIO ti offre un servizio completo dal rilievo alla progettazione esecutiva, fino alla realizzazione finale dei tuoi interni curati in ogni dettaglio.\n\nUnique and stylish interior design projects. Complete renovations.",
+  "ogImage": "og-02"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 5250,
+  "m": 7117
+ },
+ "h": {
+  "d": "5024.2px",
+  "m": "2129.938vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-23)",
+ "sections": [
+  {
+   "id": "comp-lg5u0ngh",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "5024.2px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "2129.938vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-l9g29c51",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-l9g29c5r",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-10)"
+       },
+       "c": [
+        {
+         "id": "comp-l9g29c5w",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 400,
+           "offscreen": true
+          },
+          "m": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 200,
+           "offscreen": false
+          }
+         },
+         "html": "<h1 class=\"t32\"><span class=\"t2\"><span class=\"t3\"><span class=\"t4\"><span class=\"t4\">INTERIOR DESIGN</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lkcz4lk8",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "153px"
+     },
+     "m": {
+      "l": "0",
+      "t": "25.313vw",
+      "w": "100%",
+      "h": "93.063vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lkcz4ln6",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "153px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "93.063vw"
+       },
+       "bg": {
+        "color": "var(--colore-10)"
+       },
+       "c": [
+        {
+         "id": "comp-lkcz4ln8",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 400px)",
+          "t": "0px",
+          "w": "800px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "0.938vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1500,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1500,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t33\"><span class=\"t34\"><span class=\"t34\"><span class=\"t35\"><span class=\"t36\">Ristutturare e arredare la tua casa, una villa o un appartamento, un negozio, un ufficio o un locale pubblico: PLAN.B STUDIO ti offre un servizio completo dal rilievo alla progettazione esecutiva, fino alla realizzazione finale dei tuoi interni curati in ogni dettaglio.<br>\nLavoriamo con le migliori imprese per un'esecuzione perfetta e di altissima qualità. Una ristutturazione edilizia e degli impianti con l'impiego di materiali di pregio e soluzioni innovative. Un arredamento esclusivo e di grande eleganza, con arredi unici progettati e prodotti su misura artigianalmente e i complementi dei brand del design contemporaneo più apprezzati.</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-l9g29c65",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "352.1px",
+      "w": "100%",
+      "h": "4672.2px"
+     },
+     "m": {
+      "l": "0",
+      "t": "118.375vw",
+      "w": "100%",
+      "h": "2011.563vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-l9g29c681",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "4672.2px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "2011.563vw"
+       },
+       "bg": {
+        "color": "var(--colore-10)"
+       },
+       "c": [
+        {
+         "id": "comp-l9g29c6d1",
+         "k": "gallery",
+         "d": {
+          "l": "0",
+          "t": "0px",
+          "w": "100%",
+          "h": "4671.2px"
+         },
+         "m": {
+          "l": "0",
+          "t": "0vw",
+          "w": "100%",
+          "h": "2009.063vw"
+         },
+         "items": [
+          {
+           "img": "interiors-galleria-01",
+           "title": "Appartamento Arredato / Cesano Maderno",
+           "desc": "Un pregevole appartamento nel centro di Cesano Maderno, al piano terra di un edificio residenziale dei primi anni del novecento con prospetto su una via tranquilla, in un contesto di edifici signorili recentemente ristrutturati. \n\nUn appartamento di 45mq composto da due locali e servizi: ingresso nel soggiorno con zona cucina e pranzo, camera da letto con armadi guardaroba e bagno con doccia.\n\nUn raffinato progetto di ristrutturazione degli interni con materiali di qualità, completo di un elegante arredamento contemporaneo curato in ogni dettaglio.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 0,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-02",
+           "title": "Attico con terrazza / Seregno MB",
+           "desc": "",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 0,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-03",
+           "title": "Verdi 76 - Villa con giardino e piscina / Seregno",
+           "desc": "Recupero architettonico e interior design di un complesso abitativo tardo ottocentesco con villa, dependance, autorimessa e giardino.\n\nIl progetto, tramite l'aggiunta di un nuovo volume angolare, prevede l'unione dei due edifici abitativi attualmente separati, in un’unica grande villa disposta su due livelli.\nIl nuovo volume è un parallelepipedo in muratura di due piani con ampie finestrature a tutta altezza e copertura piana per alloggiare l’impianto di climatizzazione.\nIl progetto architettonico si completa con una piscina rettangolare, posizionata al centro del giardino piantumato e un grande garage per tre auto.\n\nIl progetto di interior design, contemporaneo e funzionale, riorganizza gli spazi abitativi.\nAl piano terra: un foyer d’ingresso con accesso al vano scala, un soggiorno doppio con camino e area home cinema, una sala da pranzo, una cucina abitabile con isola, una serie di locali di servizio con bagno di cortesia, dispensa, lavanderia e deposito cappotti. Il piano terra si completa con un appartamento per la servitù con accesso indipendente.\nAl primo piano: due camere da letto con bagni in suite e un grande appartamento padronale con camera da letto e terrazza, cabina armadi e bagno in suite.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 385.5818738083625,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-04",
+           "title": "Brianza Assicurazioni HQ / Seregno",
+           "desc": "Progetto di ristrutturazione e interior design di un edificio storico nel centro di Seregno per la sede di rappresentanza di una compagnia di assicurazioni.\nIl progetto prevede un'area bar con bagni nell'ingresso al piano terra e dehor lounge bar nel cortile.\nAl primo piano sono collocati gli uffici open space, la sala riunioni e l'ufficio direzionale.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 385.5818738083625,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-05",
+           "title": "City House interior design / Vimodrone",
+           "desc": "Progetto di interior design e light design.\nRinnovamento del soggiorno, vano scala e studio di una villa con giardino e piscina a Vimodrone, Milano.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 771.163747616725,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-06",
+           "title": "House with Garden / Lecco",
+           "desc": "Progetto architettonico e di interior design di una casa su due livelli con giardino e box auto al piano interrato.\n\nDa una struttura al rustico, parte di un complesso bifamiliare, edificata una trentina di anni fa e mai ultimata, abbiamo progettato un'abitazione raffinata, elegante e contemporanea con materiali ecologici e il massimo dell'efficenza energetica per vivere ad impatto zero.\n\nIl piano terra è un open space dove il soggiorno, la zona pranzo e la cucina si sviluppano in un percorso senza interruzioni attorno al blocco centrale, che funge da disimpegno di servizio.\n\nIl primo piano è dedicato alla zona notte con tre camere da letto e due bagni. La camera da letto padronale si affaccia su un terrazzo tramite una porta finestra scorrevole a tutta parete. E' dotata di cabina armadio e bagno in suite.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 771.163747616725,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-07",
+           "title": "Two-storey Penthouse / Seregno",
+           "desc": "Attico e super-attico al sesto e settimo piano in un pregevole condominio nel centro di Seregno dei primi anni '70 del secolo scorso. Le ampie finestre su ogni lato dell'immobile si aprono sui numerosi terrazzi, offrendo una vista panoramica sulla città e sull'arco alpino.\n\nAbbiamo progettato una ristutturazione completa per ridefinire gli spazi con un taglio contemporaneo. Una nuova distribuzione di notevole precisione formale per garantire funzionalità ed eleganza.\n\nLe finiture e gli arredi sobri e raffinati completano l'atmosfera unica di questo esclusivo progetto d'interni.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 1156.7456214250874,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-08",
+           "title": "Company HQ / Milano Porta Nuova",
+           "desc": "",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 1156.7456214250874,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "interiors-galleria-09",
+           "title": "Summer House / Punta Ala",
+           "desc": "",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 1542.32749523345,
+            "l": 0,
+            "w": 807,
+            "h": 428
+           }
+          },
+          {
+           "img": "interiors-galleria-10",
+           "title": "Country House / Brianza",
+           "desc": "Ristrutturazione architettonica e interior design di una residenza privata di campagna fine ottocento nell'area collinare di Como. Un progetto totale di recupero architettonico e strutturale: dagli esterni alla ridefinizione degli spazi abitativi, di impianti e finiture, fino alla realizzatione di tutti gli arredi disegnati e curati in ogni dettaglio.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 1542.32749523345,
+            "l": 809,
+            "w": 641,
+            "h": 428
+           }
+          },
+          {
+           "img": "interiors-galleria-11",
+           "title": "Private Villa / Zurich East Bank",
+           "desc": "Abbiamo progettato questa grande casa privata nell'esclusiva area residenziale dell'East Bank sul lago di Zurigo.\n\nLa residenza, con pianta ad L aperta, si sviluppa su due piani per una superfice complessiva di 700 mq.\n\nLe grandi aperture vetrate consentono a tutti gli ambienti della casa di godere della vista spettacolare di un'area paesaggistica unica.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 1971.867850434805,
+            "l": 0,
+            "w": 731,
+            "h": 387
+           }
+          },
+          {
+           "img": "interiors-galleria-12",
+           "title": "City Loft / Milano piazza sempione",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 1971.867850434805,
+            "l": 733,
+            "w": 717,
+            "h": 387
+           }
+          },
+          {
+           "img": "interiors-galleria-13",
+           "title": "Country Estate / Como hillside",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 2361.187146181911,
+            "l": 0,
+            "w": 457,
+            "h": 457
+           }
+          },
+          {
+           "img": "home-galleria-19",
+           "title": "Private House / staircase",
+           "desc": "",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 2361.187146181911,
+            "l": 459,
+            "w": 304,
+            "h": 457
+           }
+          },
+          {
+           "img": "home-galleria-16",
+           "title": "Country Estate / Como hillside",
+           "desc": "",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 2361.187146181911,
+            "l": 765,
+            "w": 685,
+            "h": 457
+           }
+          },
+          {
+           "img": "home-galleria-22",
+           "title": "Country Estate / Como hillside",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 2819.8635325763044,
+            "l": 0,
+            "w": 685,
+            "h": 457
+           }
+          },
+          {
+           "img": "interiors-galleria-14",
+           "title": "Country Estate / Como hillside",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 2819.8635325763044,
+            "l": 687,
+            "w": 457,
+            "h": 457
+           }
+          },
+          {
+           "img": "interiors-galleria-15",
+           "title": "City Loft / Milano piazza sempione",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 2819.8635325763044,
+            "l": 1146,
+            "w": 304,
+            "h": 457
+           }
+          },
+          {
+           "img": "interiors-galleria-16",
+           "title": "City Loft / Milano piazza sempione",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 3278.5399189706977,
+            "l": 0,
+            "w": 482,
+            "h": 482
+           }
+          },
+          {
+           "img": "interiors-galleria-17",
+           "title": "Country Estate / Como hillside",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 3278.5399189706977,
+            "l": 484,
+            "w": 482,
+            "h": 482
+           }
+          },
+          {
+           "img": "interiors-galleria-18",
+           "title": "City Loft / Milano piazza sempione",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 3278.5399189706977,
+            "l": 968,
+            "w": 482,
+            "h": 482
+           }
+          },
+          {
+           "img": "interiors-galleria-19",
+           "title": "City Loft / Milano piazza sempione",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 3762.5399189706977,
+            "l": 0,
+            "w": 457,
+            "h": 457
+           }
+          },
+          {
+           "img": "interiors-galleria-20",
+           "title": "Private Villa / Seregno",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 3762.5399189706977,
+            "l": 459,
+            "w": 304,
+            "h": 457
+           }
+          },
+          {
+           "img": "interiors-galleria-21",
+           "title": "Private Villa / Seregno",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 3762.5399189706977,
+            "l": 765,
+            "w": 685,
+            "h": 457
+           }
+          },
+          {
+           "img": "interiors-galleria-22",
+           "title": "Private Villa / Seregno",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 4221.173042660425,
+            "l": 0,
+            "w": 450,
+            "h": 450
+           }
+          }
+         ],
+         "mobile": {
+          "mode": "column",
+          "w": 320,
+          "h": 170,
+          "gap": 1
+         },
+         "settings": {
+          "layout": 1,
+          "horizontal": false,
+          "click": "expand",
+          "autoSlide": false,
+          "speed": 36,
+          "overlay": "var(--colore-32)",
+          "margin": 2
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

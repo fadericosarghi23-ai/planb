@@ -1,0 +1,870 @@
+{
+ "home-galleria-01": {
+  "src": "/img/home-galleria-01.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Villa LaSalle"
+ },
+ "home-galleria-02": {
+  "src": "/img/home-galleria-02.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa verdi 76 - soggiorno con camino"
+ },
+ "home-galleria-03": {
+  "src": "/img/home-galleria-03.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa verdi 76 - soggiorno"
+ },
+ "home-galleria-04": {
+  "src": "/img/home-galleria-04.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Cortile con Bar e sedute"
+ },
+ "home-galleria-05": {
+  "src": "/img/home-galleria-05.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Ufficio direzionale"
+ },
+ "home-galleria-06": {
+  "src": "/img/home-galleria-06.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "attico - camera master"
+ },
+ "home-galleria-07": {
+  "src": "/img/home-galleria-07.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "casa di campagna - soggiorno"
+ },
+ "home-galleria-08": {
+  "src": "/img/home-galleria-08.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa verdi 76 - giardino con piscina"
+ },
+ "home-galleria-09": {
+  "src": "/img/home-galleria-09.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa verdi 76 - cucina"
+ },
+ "home-galleria-10": {
+  "src": "/img/home-galleria-10.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Villa project - Zurich"
+ },
+ "home-galleria-11": {
+  "src": "/img/home-galleria-11.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Villa LaSalle"
+ },
+ "home-galleria-12": {
+  "src": "/img/home-galleria-12.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Ingresso Bar"
+ },
+ "home-galleria-13": {
+  "src": "/img/home-galleria-13.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "interior design - Loft Milano"
+ },
+ "home-galleria-14": {
+  "src": "/img/home-galleria-14.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "interior design - soggiorno di una villa"
+ },
+ "home-galleria-15": {
+  "src": "/img/home-galleria-15.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "interior design - appartamento bilocale"
+ },
+ "home-galleria-16": {
+  "src": "/img/home-galleria-16.jpg",
+  "w": 2500,
+  "h": 1667,
+  "kind": "image",
+  "alt": "Private Villa - Como"
+ },
+ "home-galleria-17": {
+  "src": "/img/home-galleria-17.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa verdi 76 - camera master"
+ },
+ "home-galleria-18": {
+  "src": "/img/home-galleria-18.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa verdi 76 - bagno master"
+ },
+ "home-galleria-19": {
+  "src": "/img/home-galleria-19.jpg",
+  "w": 2000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "private house - staircase"
+ },
+ "home-galleria-20": {
+  "src": "/img/home-galleria-20.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "villa in Toscana"
+ },
+ "home-galleria-21": {
+  "src": "/img/home-galleria-21.jpg",
+  "w": 2500,
+  "h": 1325,
+  "kind": "image",
+  "alt": "TROPICAL VILLA poolside"
+ },
+ "home-galleria-22": {
+  "src": "/img/home-galleria-22.jpg",
+  "w": 2500,
+  "h": 1667,
+  "kind": "image",
+  "alt": "Private Villa - Como"
+ },
+ "home-galleria-23": {
+  "src": "/img/home-galleria-23.jpg",
+  "w": 1667,
+  "h": 2300,
+  "kind": "image",
+  "alt": "interior design - Loft Milano"
+ },
+ "home-galleria-24": {
+  "src": "/img/home-galleria-24.jpg",
+  "w": 3000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "spHaus booth - Kortrijk"
+ },
+ "home-galleria-25": {
+  "src": "/img/home-galleria-25.jpg",
+  "w": 2000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "Country House Kitchen"
+ },
+ "home-video-01": {
+  "src": "/video/home-video-01.mp4",
+  "w": 1024,
+  "h": 576,
+  "kind": "video",
+  "alt": ""
+ },
+ "home-poster-01": {
+  "src": "/img/home-poster-01.jpg",
+  "w": 1024,
+  "h": 576,
+  "kind": "image",
+  "alt": ""
+ },
+ "home-sfondo-01": {
+  "src": "/img/home-sfondo-01.jpg",
+  "w": 3470,
+  "h": 780,
+  "kind": "image",
+  "alt": "disegni architettonici"
+ },
+ "home-video-02": {
+  "src": "/video/home-video-02.mp4",
+  "w": 1920,
+  "h": 1080,
+  "kind": "video",
+  "alt": ""
+ },
+ "home-poster-02": {
+  "src": "/img/home-poster-02.jpg",
+  "w": 1920,
+  "h": 1080,
+  "kind": "image",
+  "alt": ""
+ },
+ "home-video-03": {
+  "src": "/video/home-video-03.mp4",
+  "w": 1920,
+  "h": 1080,
+  "kind": "video",
+  "alt": ""
+ },
+ "home-poster-03": {
+  "src": "/img/home-poster-03.jpg",
+  "w": 1920,
+  "h": 1080,
+  "kind": "image",
+  "alt": ""
+ },
+ "home-sfondo-02": {
+  "src": "/img/home-sfondo-02.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "virtual reality"
+ },
+ "og-01": {
+  "src": "/img/og-01.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": ""
+ },
+ "interiors-galleria-01": {
+  "src": "/img/interiors-galleria-01.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Appartamento Arredato / Cesano Maderno"
+ },
+ "interiors-galleria-02": {
+  "src": "/img/interiors-galleria-02.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Attico con terrazza / Seregno MB"
+ },
+ "interiors-galleria-03": {
+  "src": "/img/interiors-galleria-03.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Verdi 76 - Villa con giardino e piscina / Seregno"
+ },
+ "interiors-galleria-04": {
+  "src": "/img/interiors-galleria-04.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Brianza Assicurazioni HQ / Seregno"
+ },
+ "interiors-galleria-05": {
+  "src": "/img/interiors-galleria-05.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Vimodrone - City House interior design"
+ },
+ "interiors-galleria-06": {
+  "src": "/img/interiors-galleria-06.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "House with Garden / Lecco"
+ },
+ "interiors-galleria-07": {
+  "src": "/img/interiors-galleria-07.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Two-storey Penthouse / Seregno"
+ },
+ "interiors-galleria-08": {
+  "src": "/img/interiors-galleria-08.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Company HQ / Milano porta nuova\noffice interior planning, furniture and lighting design"
+ },
+ "interiors-galleria-09": {
+  "src": "/img/interiors-galleria-09.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Summer House / Punta Ala"
+ },
+ "interiors-galleria-10": {
+  "src": "/img/interiors-galleria-10.jpg",
+  "w": 2500,
+  "h": 1667,
+  "kind": "image",
+  "alt": "Country House / Brianza"
+ },
+ "interiors-galleria-11": {
+  "src": "/img/interiors-galleria-11.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Private Villa / Zurich\narchitectural and interior design project"
+ },
+ "interiors-galleria-12": {
+  "src": "/img/interiors-galleria-12.jpg",
+  "w": 2500,
+  "h": 1351,
+  "kind": "image",
+  "alt": "City Loft / Milano piazza sempione"
+ },
+ "interiors-galleria-13": {
+  "src": "/img/interiors-galleria-13.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Country Estate / Como hillside"
+ },
+ "interiors-galleria-14": {
+  "src": "/img/interiors-galleria-14.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Country Estate / Como hillside"
+ },
+ "interiors-galleria-15": {
+  "src": "/img/interiors-galleria-15.jpg",
+  "w": 2000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "City Loft / Milano piazza sempione"
+ },
+ "interiors-galleria-16": {
+  "src": "/img/interiors-galleria-16.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "City Loft / Milano piazza sempione"
+ },
+ "interiors-galleria-17": {
+  "src": "/img/interiors-galleria-17.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Country Estate / Como hillside"
+ },
+ "interiors-galleria-18": {
+  "src": "/img/interiors-galleria-18.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "City Loft / Milano piazza sempione"
+ },
+ "interiors-galleria-19": {
+  "src": "/img/interiors-galleria-19.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "City Loft / Milano piazza sempione"
+ },
+ "interiors-galleria-20": {
+  "src": "/img/interiors-galleria-20.jpg",
+  "w": 2000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "Private Villa / Seregno"
+ },
+ "interiors-galleria-21": {
+  "src": "/img/interiors-galleria-21.jpg",
+  "w": 3000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Private Villa / Seregno"
+ },
+ "interiors-galleria-22": {
+  "src": "/img/interiors-galleria-22.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Private Villa / Seregno"
+ },
+ "og-02": {
+  "src": "/img/og-02.jpg",
+  "w": 3000,
+  "h": 2000,
+  "kind": "image",
+  "alt": ""
+ },
+ "architecture-galleria-01": {
+  "src": "/img/architecture-galleria-01.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Verdi 76 | Villa con giardino e piscina / Seregno"
+ },
+ "architecture-galleria-02": {
+  "src": "/img/architecture-galleria-02.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "House with Garden / Lecco"
+ },
+ "architecture-galleria-03": {
+  "src": "/img/architecture-galleria-03.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "Private Villa / Zurich"
+ },
+ "architecture-galleria-04": {
+  "src": "/img/architecture-galleria-04.jpg",
+  "w": 2500,
+  "h": 1325,
+  "kind": "image",
+  "alt": ""
+ },
+ "products-galleria-01": {
+  "src": "/img/products-galleria-01.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "INTERSECT 100/60 lamps"
+ },
+ "products-galleria-02": {
+  "src": "/img/products-galleria-02.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "BB 26/46 lamps"
+ },
+ "products-galleria-03": {
+  "src": "/img/products-galleria-03.jpg",
+  "w": 1600,
+  "h": 914,
+  "kind": "image",
+  "alt": "MOON PHASE dining tables"
+ },
+ "products-galleria-04": {
+  "src": "/img/products-galleria-04.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "PAR.XR WOOD dining table"
+ },
+ "products-galleria-05": {
+  "src": "/img/products-galleria-05.jpg",
+  "w": 2500,
+  "h": 1325,
+  "kind": "image",
+  "alt": "LOST ISLAND outdoor seating system"
+ },
+ "products-galleria-06": {
+  "src": "/img/products-galleria-06.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "TWIN PLANETS floor lamp"
+ },
+ "products-galleria-07": {
+  "src": "/img/products-galleria-07.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "NS-L door handle"
+ },
+ "products-galleria-08": {
+  "src": "/img/products-galleria-08.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "KEPLER 69C sectional sofa"
+ },
+ "products-galleria-09": {
+  "src": "/img/products-galleria-09.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "K.22 MOTHER outdoor chair"
+ },
+ "products-galleria-10": {
+  "src": "/img/products-galleria-10.jpg",
+  "w": 2500,
+  "h": 1325,
+  "kind": "image",
+  "alt": "JUPITER coffee tables"
+ },
+ "products-galleria-11": {
+  "src": "/img/products-galleria-11.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "PLANETS pendant lamps"
+ },
+ "products-galleria-12": {
+  "src": "/img/products-galleria-12.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "ANTHANI lounge chair"
+ },
+ "products-galleria-13": {
+  "src": "/img/products-galleria-13.jpg",
+  "w": 2500,
+  "h": 1325,
+  "kind": "image",
+  "alt": "MERCEDES 100/70/55 round coffee tables"
+ },
+ "products-galleria-14": {
+  "src": "/img/products-galleria-14.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "FLIRTSTONE MATERIAL coffee tables"
+ },
+ "products-galleria-15": {
+  "src": "/img/products-galleria-15.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "KEPLER 22 sectional seating system"
+ },
+ "products-galleria-16": {
+  "src": "/img/products-galleria-16.jpg",
+  "w": 1600,
+  "h": 914,
+  "kind": "image",
+  "alt": "ORGANIC dining tables"
+ },
+ "products-galleria-17": {
+  "src": "/img/products-galleria-17.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "PTYX coffee tables"
+ },
+ "products-galleria-18": {
+  "src": "/img/products-galleria-18.jpg",
+  "w": 1600,
+  "h": 914,
+  "kind": "image",
+  "alt": "FILO ERBA floor arc lamp"
+ },
+ "products-galleria-19": {
+  "src": "/img/products-galleria-19.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "EERO armchair"
+ },
+ "products-galleria-20": {
+  "src": "/img/products-galleria-20.jpg",
+  "w": 2500,
+  "h": 1325,
+  "kind": "image",
+  "alt": "IL MONACO table lamp"
+ },
+ "products-galleria-21": {
+  "src": "/img/products-galleria-21.jpg",
+  "w": 1600,
+  "h": 914,
+  "kind": "image",
+  "alt": "002.09XP BASIC dining table"
+ },
+ "products-galleria-22": {
+  "src": "/img/products-galleria-22.jpg",
+  "w": 1600,
+  "h": 914,
+  "kind": "image",
+  "alt": "KEPLER 152 80/130 sunbeds"
+ },
+ "products-galleria-23": {
+  "src": "/img/products-galleria-23.jpg",
+  "w": 1600,
+  "h": 914,
+  "kind": "image",
+  "alt": "E.T. floor arc lamp"
+ },
+ "products-galleria-24": {
+  "src": "/img/products-galleria-24.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "SOFT PILL lounge chair"
+ },
+ "products-galleria-25": {
+  "src": "/img/products-galleria-25.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "HAL 9000 floor lamp"
+ },
+ "og-03": {
+  "src": "/img/og-03.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": ""
+ },
+ "studio-sfondo-01": {
+  "src": "/img/studio-sfondo-01.jpg",
+  "w": 1000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "filippo dellorto BW vert.jpg"
+ },
+ "og-04": {
+  "src": "/img/og-04.jpg",
+  "w": 1200,
+  "h": 900,
+  "kind": "image",
+  "alt": ""
+ },
+ "og-05": {
+  "src": "/img/og-05.jpg",
+  "w": 3470,
+  "h": 780,
+  "kind": "image",
+  "alt": ""
+ },
+ "contact-sfondo-01": {
+  "src": "/img/contact-sfondo-01.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "ingresso studio 1600x1600.jpg"
+ },
+ "og-06": {
+  "src": "/img/og-06.jpg",
+  "w": 2000,
+  "h": 1047,
+  "kind": "image",
+  "alt": ""
+ },
+ "og-07": {
+  "src": "/img/og-07.jpg",
+  "w": 3000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "KEPLER22 2SL LEATHER SOFA"
+ },
+ "shop-prodotto-01": {
+  "src": "/img/shop-prodotto-01.jpg",
+  "w": 3000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "KEPLER22 3SL LEATHER SOFA"
+ },
+ "shop-prodotto-02": {
+  "src": "/img/shop-prodotto-02.jpg",
+  "w": 2500,
+  "h": 2500,
+  "kind": "image",
+  "alt": "PLUMPSTONES LEATHER"
+ },
+ "shop-prodotto-03": {
+  "src": "/img/shop-prodotto-03.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "FARGO SOFT 150 sofa"
+ },
+ "shop-prodotto-04": {
+  "src": "/img/shop-prodotto-04.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "FARGO SOFT 80 COTTON"
+ },
+ "shop-prodotto-05": {
+  "src": "/img/shop-prodotto-05.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "SOFT PILL concrete armchair"
+ },
+ "shop-prodotto-06": {
+  "src": "/img/shop-prodotto-06.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "EERO velvet armchair"
+ },
+ "shop-prodotto-07": {
+  "src": "/img/shop-prodotto-07.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "LABIMBA VELVET"
+ },
+ "shop-prodotto-08": {
+  "src": "/img/shop-prodotto-08.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "FOXHOLE 120 leather armchair"
+ },
+ "shop-prodotto-09": {
+  "src": "/img/shop-prodotto-09.jpg",
+  "w": 3000,
+  "h": 3000,
+  "kind": "image",
+  "alt": "Moon Phase 160 round dining table"
+ },
+ "shop-prodotto-10": {
+  "src": "/img/shop-prodotto-10.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "Moon Phase 240 dining table"
+ },
+ "shop-prodotto-11": {
+  "src": "/img/shop-prodotto-11.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "ORGANIC OVAL dining table"
+ },
+ "shop-promotion-prodotto-01": {
+  "src": "/img/shop-promotion-prodotto-01.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "BABY FLIRTSTONE armchair and footstool"
+ },
+ "shop-promotion-prodotto-02": {
+  "src": "/img/shop-promotion-prodotto-02.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "FARGO SOFT 150 outdoor sofa"
+ },
+ "shop-promotion-prodotto-03": {
+  "src": "/img/shop-promotion-prodotto-03.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Fargo Soft 80 outdoor armchair"
+ },
+ "shop-promotion-prodotto-04": {
+  "src": "/img/shop-promotion-prodotto-04.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Fargo 80 armchair"
+ },
+ "shop-promotion-prodotto-05": {
+  "src": "/img/shop-promotion-prodotto-05.jpg",
+  "w": 2600,
+  "h": 2600,
+  "kind": "image",
+  "alt": "BODY armchair"
+ },
+ "shop-promotion-prodotto-06": {
+  "src": "/img/shop-promotion-prodotto-06.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "Body armchair"
+ },
+ "shop-promotion-prodotto-07": {
+  "src": "/img/shop-promotion-prodotto-07.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "VADER lounge chair"
+ },
+ "shop-promotion-prodotto-08": {
+  "src": "/img/shop-promotion-prodotto-08.jpg",
+  "w": 1600,
+  "h": 1600,
+  "kind": "image",
+  "alt": "LABIMBA Merit"
+ },
+ "shop-promotion-prodotto-09": {
+  "src": "/img/shop-promotion-prodotto-09.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "LABIMBA suede armchair"
+ },
+ "shop-promotion-prodotto-10": {
+  "src": "/img/shop-promotion-prodotto-10.jpg",
+  "w": 2000,
+  "h": 2000,
+  "kind": "image",
+  "alt": "BUCKET 90 felt armchair"
+ },
+ "scheda-prodotto-01": {
+  "src": "/img/scheda-prodotto-01.jpg",
+  "w": 3000,
+  "h": 1590,
+  "kind": "image",
+  "alt": "KEPLER22 2SL LEATHER SOFA"
+ },
+ "scheda-prodotto-02": {
+  "src": "/img/scheda-prodotto-02.jpg",
+  "w": 1660,
+  "h": 1660,
+  "kind": "image",
+  "alt": "KEPLER22 2SL LEATHER SOFA"
+ },
+ "chrome-img-01": {
+  "src": "/img/chrome-img-01.png",
+  "w": 1000,
+  "h": 491,
+  "kind": "image",
+  "alt": "PLAN B studio"
+ },
+ "social-01": {
+  "src": "/img/social-01.png",
+  "w": 201,
+  "h": 201,
+  "kind": "image",
+  "alt": "instagram"
+ },
+ "social-02": {
+  "src": "/img/social-02.png",
+  "w": 201,
+  "h": 201,
+  "kind": "image",
+  "alt": "pinterest"
+ },
+ "social-03": {
+  "src": "/img/social-03.png",
+  "w": 201,
+  "h": 200,
+  "kind": "image",
+  "alt": "facebook"
+ },
+ "social-04": {
+  "src": "/img/social-04.png",
+  "w": 200,
+  "h": 200,
+  "kind": "image",
+  "alt": "X"
+ },
+ "social-05": {
+  "src": "/img/social-05.png",
+  "w": 201,
+  "h": 201,
+  "kind": "image",
+  "alt": "youtube"
+ },
+ "social-06": {
+  "src": "/img/social-06.png",
+  "w": 201,
+  "h": 201,
+  "kind": "image",
+  "alt": "linkedin"
+ },
+ "social-07": {
+  "src": "/img/social-07.png",
+  "w": 201,
+  "h": 201,
+  "kind": "image",
+  "alt": "homify"
+ }
+}

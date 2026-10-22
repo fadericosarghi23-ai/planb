@@ -1,0 +1,452 @@
+{
+ "seo": {
+  "title": "CONTACT | PLAN B studio",
+  "description": "PLAN.B Design Studio provides comprehensive and unique product design and interior design services.",
+  "ogImage": "og-04"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 2204,
+  "m": 1355
+ },
+ "h": {
+  "d": "1979px",
+  "m": "329.375vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-01)",
+ "sections": [
+  {
+   "id": "comp-lg5u0ngy",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "1379px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "229.375vw"
+   },
+   "bg": {
+    "color": "var(--colore-06)"
+   },
+   "c": [
+    {
+     "id": "comp-l9xhskoo",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-l9xhskqg",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-16)"
+       },
+       "c": [
+        {
+         "id": "comp-l9xhskql",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "5.938vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 400,
+           "offscreen": true
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t54\"><span class=\"t55\"><span class=\"t56\"><span class=\"t57\"><span class=\"t57\">CONTACT</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-kdis27ep",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "200px"
+     },
+     "m": {
+      "l": "0",
+      "t": "25.313vw",
+      "w": "100%",
+      "h": "104.063vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-kdis27fx",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "200px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "104.063vw"
+       },
+       "bg": {
+        "color": "var(--colore-06)"
+       },
+       "c": [
+        {
+         "id": "comp-lk1u7fsj",
+         "k": "container",
+         "d": {
+          "l": "calc(50% - 360px)",
+          "t": "62px",
+          "w": "802px",
+          "h": "66px"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "11.563vw",
+          "w": "87.5vw",
+          "h": "80.313vw"
+         },
+         "c": [
+          {
+           "id": "comp-kdis5us3",
+           "k": "text",
+           "d": {
+            "l": "calc(50% - 401px)",
+            "t": "0px",
+            "w": "194px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "0vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t78\"><span class=\"t78\"><span class=\"t79\"><span class=\"t79\"><span class=\"t80\">ADDRESS</span></span></span></span></p>"
+          },
+          {
+           "id": "comp-kdis9nr5",
+           "k": "text",
+           "d": {
+            "l": "calc(50% - 401px)",
+            "t": "25px",
+            "w": "272px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "7.813vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t81\"><span class=\"t81\"><span class=\"t82\"><span class=\"t83\"><span class=\"t84\">via clerici 4 erba COMO / ITALY</span></span></span></span></p>"
+          },
+          {
+           "id": "comp-kdis3yd1",
+           "k": "text",
+           "d": {
+            "l": "calc(50% - 97px)",
+            "t": "0px",
+            "w": "200px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "30.313vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t78\"><span class=\"t78\"><span class=\"t79\"><span class=\"t80\"><span class=\"t80\"><span class=\"t80\">EMAIL</span></span></span></span></span></p>"
+          },
+          {
+           "id": "comp-kdis7t78",
+           "k": "text",
+           "d": {
+            "l": "calc(50% - 97px)",
+            "t": "25px",
+            "w": "272px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "38.125vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t81\"><a class=\"t81\" href=\"mailto:studio@filippodellorto.it\" target=\"_self\"><span class=\"t81\"><span class=\"t82\"><span class=\"t82\"><span class=\"t85\">studio@filippodellorto.it</span></span></span></span></a></p>"
+          },
+          {
+           "id": "comp-kdis6mfy",
+           "k": "text",
+           "d": {
+            "l": "calc(50% + 207px)",
+            "t": "0px",
+            "w": "194px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "60vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t78\"><span class=\"t78\"><span class=\"t79\"><span class=\"t79\"><span class=\"t80\">PHONE</span></span></span></span></p>"
+          },
+          {
+           "id": "comp-kdisaqk9",
+           "k": "text",
+           "d": {
+            "l": "calc(50% + 207px)",
+            "t": "25px",
+            "w": "194px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "67.813vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t81\"><a class=\"t81\" href=\"tel:+39 335 6208642\"><span class=\"t81\"><span class=\"t82\"><span class=\"t82\"><span class=\"t85\">+39 031 4681966</span></span></span></span></a></p>"
+          },
+          {
+           "id": "comp-lk1u2eut",
+           "k": "text",
+           "d": {
+            "l": "calc(50% + 207px)",
+            "t": "47px",
+            "w": "194px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "0",
+            "t": "74.375vw",
+            "w": "100%",
+            "h": "auto"
+           },
+           "html": "<p class=\"t81\"><a class=\"t81\" href=\"tel:+39 335 6208642\"><span class=\"t81\"><span class=\"t82\"><span class=\"t82\"><span class=\"t85\">+39 335 6208642</span></span></span></span></a></p>"
+          }
+         ]
+        },
+        {
+         "id": "comp-lqei1ryz",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 56px)",
+          "t": "109px",
+          "w": "272px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "56.25vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t81\"><a class=\"t81\" href=\"mailto:studio@filippodellorto.it\" target=\"_self\"><span class=\"t81\"><span class=\"t82\"><span class=\"t82\"><span class=\"t85\">studio@planb-studio.it</span></span></span></span></a></p>"
+        },
+        {
+         "id": "comp-lzg8rb0a",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 360px)",
+          "t": "109px",
+          "w": "272px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "25.938vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t81\"><span class=\"t81\"><span class=\"t82\"><span class=\"t83\"><span class=\"t84\">corso matteotti 64 seregno MONZA</span></span></span></span></p>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-mf8s4c59",
+     "k": "strip",
+     "d": {
+      "l": "calc(50% - 490px)",
+      "t": "399px",
+      "w": "980px",
+      "h": "980px"
+     },
+     "m": {
+      "l": "0",
+      "t": "129.375vw",
+      "w": "100%",
+      "h": "100vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-mf8s4c6x",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "980px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "100vw"
+       },
+       "bg": {
+        "color": "var(--colore-06)",
+        "image": "contact-sfondo-01",
+        "fit": "cover",
+        "pos": "50% 50%",
+        "mediaOpacity": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comp-lg5u0ngz",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "1379px",
+    "w": "100%",
+    "h": "600px"
+   },
+   "m": {
+    "l": "0",
+    "t": "229.375vw",
+    "w": "100%",
+    "h": "100vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-l9xhz378",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "600px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "100vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-l9xhz3am",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "600px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "100vw"
+       },
+       "bg": {
+        "color": "var(--colore-06)"
+       },
+       "c": [
+        {
+         "id": "comp-l9xhzhvz",
+         "k": "map",
+         "d": {
+          "l": "0",
+          "t": "0px",
+          "w": "100%",
+          "h": "600px"
+         },
+         "m": {
+          "l": "0",
+          "t": "0vw",
+          "w": "100%",
+          "h": "100vw"
+         },
+         "map": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

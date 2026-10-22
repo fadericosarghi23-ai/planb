@@ -1,0 +1,65 @@
+---
+// Pagina categoria: briciole, albero categorie e filtri a sinistra, griglia a 3 colonne.
+import Card from './Card.astro';
+interface Props { s: any }
+const { s } = Astro.props;
+const c = s.cls;
+---
+<div class="cat" style={`--card-bg:${c.cardBg};--ribbon-bg:${c.ribbonBg};--ribbon-bg-m:${c.ribbonBgM};--more-bg:${c.moreBg};--more-bg-m:${c.moreBgM};--more-border-m:${c.moreBorderM}`}>
+  <nav class="briciole" aria-label="Percorso">
+    {s.breadcrumb.map((b: string, i: number) => (
+      <>
+        {i > 0 && <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8.7 5 15.07 11.37l.71.7-.71.71L8.7 19.14 8 18.44l6.36-6.37L8 5.7z" /></svg>}
+        {i < s.breadcrumb.length - 1 ? <a href="/" class={s.breadcrumbCls}>{b}</a> : <span class={s.breadcrumbCls} aria-current="page">{b}</span>}
+      </>
+    ))}
+  </nav>
+  <aside class="lato">
+    <h2 class={`albero-t ${s.tree.titleCls}`}>{s.tree.title}</h2>
+    <ul class="albero">{s.tree.options.map((o: string) => <li><button type="button" class={s.optCls}>{o}</button></li>)}</ul>
+    <div class="gruppi">
+      {s.groups.map((g: any) => (
+        <div class="gruppo">
+          <div class="gruppo-t"><h3 class={s.groupTitleCls}>{g.title}</h3><span aria-hidden="true">−</span></div>
+          <ul>{g.options.map((o: string) => <li><label><span class="check"></span><span class={s.optCls}>{o}</span><input type="checkbox" /></label></li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </aside>
+  <div class="griglia">
+    {s.products.map((p: any, i: number) => <div class="cella"><Card p={p} cls={c} i={i} /></div>)}
+  </div>
+  <div class="altri"><button type="button" class={`altri-btn ${c.more}`}>{s.more}</button></div>
+</div>
+<style>
+  .cat { position: relative; height: 100%; --det-pad: 16px 15px 0; }
+  .briciole { position: absolute; left: 20px; top: 4px; display: flex; align-items: center; gap: 12px; color: var(--chiaro); }
+  .lato { position: absolute; left: 20px; top: 61px; width: 200px; }
+  .albero-t { height: 42px; }
+  .albero { list-style: none; margin-top: 10px; }
+  .albero li { height: 33px; }
+  .albero button { background: none; border: 0; padding: 0; cursor: pointer; }
+  .albero button:hover { text-decoration: underline; }
+  .gruppi { margin-top: 18px; border-top: 1px solid var(--store-line); }
+  .gruppo { border-bottom: 1px solid var(--store-line); padding: 16px 0; }
+  .gruppo-t { display: flex; justify-content: space-between; color: var(--scuro); margin-bottom: 13px; }
+  .gruppo ul { list-style: none; }
+  .gruppo li { height: 25px; }
+  .gruppo label { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  .gruppo input { position: absolute; opacity: 0; }
+  .check { width: 16px; height: 16px; border: 1px solid var(--store-check); }
+  .griglia { position: absolute; left: 241px; top: 61px; width: 997.4px; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 461.5px; }
+  .cella { padding: 30px 20px 30px; }
+  .altri { position: absolute; left: 241px; width: 997.4px; top: 1882px; display: flex; justify-content: center; }
+  .altri-btn { width: 211px; height: 45px; background: var(--more-bg); border: 0; cursor: pointer; }
+  .altri-btn:hover { opacity: .8; }
+  @media (max-width: 750px) {
+    .cat { --det-pad: 5vw 4.7vw 0; }
+    .briciole { left: 6.25vw; top: 3vw; }
+    .lato { display: none; }
+    .griglia { left: 6.25vw; top: 29vw; width: 87.5vw; grid-template-columns: 1fr; grid-auto-rows: 125vw; }
+    .cella { padding: 0; }
+    .altri { left: 0; width: 100%; top: auto; bottom: 0; }
+    .altri-btn { width: 67.2vw; height: 14vw; background: var(--more-bg-m); }
+  }
+</style>

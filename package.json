@@ -1,0 +1,24 @@
+{
+  "name": "base-interior-shop",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 4880",
+    "build": "astro build",
+    "preview": "astro preview --port 4881",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/arimo": "^5.2.5",
+    "@fontsource/jost": "^5.2.5",
+    "@fontsource/montserrat": "^5.2.5",
+    "@fontsource/nunito-sans": "^5.2.5",
+    "@fontsource/raleway": "^5.2.5",
+    "@fontsource/roboto": "^5.2.5",
+    "astro": "5.18.2"
+  },
+  "overrides": {
+    "rollup": "4.63.0"
+  }
+}

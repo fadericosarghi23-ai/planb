@@ -1,0 +1,33 @@
+---
+// Card prodotto della griglia: immagine quadrata (zoom al passaggio), nastro, nome, prezzo pieno e scontato.
+import media from '../../data/media.json';
+interface Props { p: any; cls: any; i: number }
+const { p, cls, i } = Astro.props;
+const M = media as Record<string, { src: string; w: number; h: number; alt: string }>;
+const im = M[p.img];
+const href = `/product-page/${p.slug}`;
+---
+<div class="card" data-i={i}>
+  <a class="card-img" href={href} tabindex="-1" aria-hidden="true">
+    <img src={im?.src} width={im?.w} height={im?.h} alt={im?.alt || p.name} loading="lazy" decoding="async" />
+    {p.ribbon && <span class={`nastro ${cls.ribbon}`}>{p.ribbon}</span>}
+  </a>
+  <a class="card-det" href={href}>
+    <h3 class={cls.name}>{p.name}</h3>
+    <p class="prezzi">
+      {p.before && <span class={cls.before}><span class="sr">Prezzo regolare</span>{p.before}</span>}
+      <span class={cls.price}>{p.before && <span class="sr">Prezzo scontato</span>}{p.price}</span>
+    </p>
+  </a>
+</div>
+<style>
+  .card { position: relative; background: var(--card-bg); height: 100%; }
+  .card-img { position: relative; display: block; aspect-ratio: 1; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .card:hover .card-img img { transform: scale(1.1); }
+  .nastro { position: absolute; left: 0; top: 0; padding: 2px 10px; background: var(--ribbon-bg); }
+  .card-det { display: block; padding: var(--det-pad); }
+  .prezzi { display: flex; gap: 4px; align-items: baseline; flex-wrap: wrap; margin-top: 4px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  @media (max-width: 750px) { .nastro { background: var(--ribbon-bg-m, var(--ribbon-bg)); padding: .6vw 3.1vw; } }
+</style>

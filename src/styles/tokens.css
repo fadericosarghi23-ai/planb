@@ -1,0 +1,36 @@
+/* Design system della base: font, misure fisse e colori di interfaccia.
+   La palette completa è in palette.css (un token per ogni colore usato). */
+@import '@fontsource/nunito-sans/300.css';
+@import '@fontsource/nunito-sans/400.css';
+@import '@fontsource/nunito-sans/700.css';
+@import '@fontsource/nunito-sans/800.css';
+@import '@fontsource/nunito-sans/900.css';
+@import '@fontsource/arimo/400.css';
+@import '@fontsource/arimo/700.css';
+@import '@fontsource/jost/300.css';
+@import '@fontsource/jost/400.css';
+@import '@fontsource/jost/600.css';
+@import '@fontsource/raleway/400.css';
+@import '@fontsource/raleway/700.css';
+@import '@fontsource/roboto/100.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/montserrat/800.css';
+@import './palette.css';
+
+:root {
+  /* famiglie (sostituti liberi dei font del sito di partenza) */
+  --font-avenir: 'Nunito Sans', 'Avenir Next', Avenir, sans-serif;
+  --font-sans: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-futura: Jost, Futura, sans-serif;
+  --font-raleway: Raleway, sans-serif;
+  --font-roboto: Roboto, sans-serif;
+  --font-display: Montserrat, sans-serif;
+
+  /* griglia: stage desktop 980px, layout mobile su base 320 */
+  --stage: 980px;
+  --header-h: 100.4px;
+  --header-h-m: 28.125vw;
+
+  /* curva delle animazioni d'ingresso (gli alias colore d'interfaccia sono in palette.css) */
+  --ease-wix: cubic-bezier(0.645, 0.045, 0.355, 1);
+}

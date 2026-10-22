@@ -1,0 +1,94 @@
+---
+// Rende un componente dell'albero di pagina (src/data/pagine/*.json) e, ricorsivamente, i suoi figli.
+// Posizione: --dl/--dt/--dw/--dh (desktop) e --ml/--mt/--mw/--mh (mobile, vw). Vedi styles/base.css.
+import media from '../data/media.json';
+import Sfondo from './Sfondo.astro';
+import Galleria from './Galleria.astro';
+import Menu from './Menu.astro';
+import Lingue from './Lingue.astro';
+import Campo from './Campo.astro';
+import Negozio from './negozio/Negozio.astro';
+import Mappa from './Mappa.astro';
+import { site } from '../data/site';
+
+interface Props { n: any; path?: string }
+const { n, path = '' } = Astro.props;
+const M = media as Record<string, { src: string; w: number; h: number; alt: string }>;
+
+const SCRUB = ['BgParallax', 'BgFade', 'BgPan', 'BgZoom'];
+const fxAttr = (f: any) => (f && !SCRUB.includes(f.type) ? [f.type, f.dir ?? '', f.dur ?? 1200, f.delay ?? 0, f.distance ?? '', f.offscreen ? 1 : 0].join('|') : undefined);
+const fxCls = [n.fx?.d && SCRUB.includes(n.fx.d.type) ? `fxd-${n.fx.d.type}` : '', n.fx?.m && SCRUB.includes(n.fx.m.type) ? `fxm-${n.fx.m.type}` : ''].join(' ');
+
+const m = n.m && n.m !== 'ghost' ? n.m : null;
+const vars = [`--dl:${n.d.l}`, `--dt:${n.d.t}`, `--dw:${n.d.w}`, `--dh:${n.d.h}`];
+if (m) vars.push(`--ml:${m.l}`, `--mt:${m.t}`, `--mw:${m.w}`, `--mh:${m.h}`);
+if (n.boxBg) vars.push(`background-color:${n.boxBg}`);
+const style = vars.join(';');
+const EXTRA: Record<string, string> = { text: 'wx-text', image: 'wx-img', button: 'wx-btn', cart: 'carrello', social: 'social', map: 'mappa' };
+const cls = ['wx', `k-${n.k}`, EXTRA[n.k] || '', n.m === null ? 'm-hide' : '', n.m === 'ghost' ? 'm-ghost' : '', fxCls].filter(Boolean).join(' ');
+const attrs: Record<string, any> = { id: n.id, class: cls, style, 'data-fxd': fxAttr(n.fx?.d), 'data-fxm': fxAttr(n.fx?.m) };
+// testo nascosto nel sito di partenza (es. messaggio di conferma del modulo): resta nel DOM, visibile solo dopo l'invio
+if (n.nascosto) { attrs.hidden = true; attrs.class += ' esito'; }
+if (n.grow) { attrs['data-hd'] = n.grow.hd; attrs['data-hm'] = n.grow.hm; }
+
+const img = n.img ? M[n.img] : null;
+const btn = n.btn;
+const btnStyle = btn ? [
+  style, `--b-bg:${btn.bg || 'transparent'}`, `--b-border:${btn.border}`, `--b-radius:${btn.radius}`, `--b-trans:${btn.transition}`,
+  btn.hover?.self?.['background-color'] ? `--bh-bg:${btn.hover.self['background-color']}` : '',
+  btn.hover?.label?.color ? `--bh-color:${btn.hover.label.color}` : '',
+  btn.hover?.label?.['font-weight'] ? `--bh-weight:${btn.hover.label['font-weight']}` : '',
+].filter(Boolean).join(';') : '';
+if (btn) attrs.style = btnStyle;
+const kids = n.c || [];
+---
+{n.k === 'text' ? (
+  <div {...attrs} set:html={n.html} />
+) : n.k === 'image' ? (
+  <div {...attrs}>
+    {n.href ? (
+      <a href={n.href} aria-label={img?.alt || 'Home'}><img src={img?.src} width={img?.w} height={img?.h} alt={img?.alt || ''} style={`object-fit:${n.fit};object-position:${n.pos}`} /></a>
+    ) : (
+      <img src={img?.src} width={img?.w} height={img?.h} alt={img?.alt || ''} loading="lazy" decoding="async" style={`object-fit:${n.fit};object-position:${n.pos}`} />
+    )}
+  </div>
+) : n.k === 'button' ? (
+  n.tag === 'BUTTON' ? (
+    <button {...attrs} type="submit"><span class={`lbl ${btn.lc}`}>{btn.label}</span></button>
+  ) : (
+    <a {...attrs} href={n.href} target={n.target === '_blank' ? '_blank' : undefined} rel={n.target === '_blank' ? 'noopener' : undefined}><span class={`lbl ${btn.lc}`}>{btn.label}</span></a>
+  )
+) : n.k === 'gallery' ? (
+  <div {...attrs}><Galleria n={n} /></div>
+) : n.k === 'menu' ? (
+  <nav {...attrs} aria-label="Menu principale"><Menu n={n} path={path} /></nav>
+) : n.k === 'lang' ? (
+  <div {...attrs}><Lingue n={n} /></div>
+) : n.k === 'login' ? (
+  <div {...attrs}><button class="login" type="button" aria-label={n.label}><Fragment set:html={n.svg} /><span class={n.cls}>{n.label}</span></button></div>
+) : n.k === 'cart' ? (
+  <a {...attrs} href="/shop" aria-label="Carrello" set:html={n.svg} />
+) : n.k === 'social' ? (
+  <div {...attrs}>
+    {n.links.map((l: any) => { const im = M[l.img]; return (
+      <a href={l.href} target="_blank" rel="noopener" aria-label={l.label} style={`left:${(l.r[0] / 270) * 100}%;width:${(l.r[2] / 270) * 100}%;height:100%`}><img src={im?.src} width={im?.w} height={im?.h} alt={l.label} loading="lazy" /></a>
+    ); })}
+  </div>
+) : n.k === 'map' ? (
+  <div {...attrs}><Mappa /></div>
+) : n.k === 'store' ? (
+  <div {...attrs}><Negozio s={n.store} /></div>
+) : ['input', 'date', 'time', 'upload'].includes(n.k) ? (
+  <div {...attrs}><Campo n={n} /></div>
+) : n.k === 'form' ? (
+  <form {...attrs} action={site.form.endpoint || undefined} method={site.form.metodo} data-endpoint={site.form.endpoint}>
+    <Sfondo bg={n.bg} />
+    {kids.map((c: any) => <Astro.self n={c} path={path} />)}
+  </form>
+) : (
+  <div {...attrs}>
+    <Sfondo bg={n.bg} cls={n.bgm ? 'only-d' : ''} />
+    {n.bgm && <Sfondo bg={n.bgm} cls="only-m" />}
+    {kids.map((c: any) => <Astro.self n={c} path={path} />)}
+  </div>
+)}

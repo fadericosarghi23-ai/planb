@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+---
+<Layout seo={{ title: `Pagina non trovata | ${site.nome}`, description: 'La pagina cercata non esiste.' }} noindex>
+  <main class="vuota">
+    <h1>404</h1>
+    <p>La pagina cercata non esiste.</p>
+    <a href="/">Torna alla home</a>
+  </main>
+</Layout>
+<style>
+  .vuota { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background: var(--grigio-scuro); color: var(--chiaro); font-family: var(--font-avenir); }
+  .vuota h1 { font: 800 70px/1 var(--font-avenir); }
+  .vuota a { text-decoration: underline; }
+</style>

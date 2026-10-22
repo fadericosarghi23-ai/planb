@@ -1,0 +1,99 @@
+{
+ "seo": {
+  "title": "KEPLER22 2SL LEATHER SOFA | PLAN B studio",
+  "description": "Raffinato e confortevole divano componibile con struttura in acciaio verniciato grafite e cuscini imbottiti rivestiti in pelle pregiata color seppia.",
+  "ogImage": "og-07"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 1037,
+  "m": 1296
+ },
+ "h": {
+  "d": "812px",
+  "m": "310.938vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-23)",
+ "sections": [
+  {
+   "id": "comp-m15i8ggu",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "812px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "310.938vw"
+   },
+   "bg": {
+    "color": "var(--colore-01)"
+   },
+   "c": [
+    {
+     "id": "prodotto-widget",
+     "k": "store",
+     "d": {
+      "l": "calc(50% - 490px)",
+      "t": "0px",
+      "w": "980px",
+      "h": "812px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0",
+      "w": "100%",
+      "h": "305.3125vw"
+     },
+     "store": {
+      "variant": "product",
+      "title": "KEPLER22 2SL LEATHER SOFA",
+      "before": "16.300,00 €",
+      "price": "8965,00 €",
+      "desc": "Raffinato e confortevole divano lineare componibile con struttura in acciaio verniciato grafite e cuscini imbottiti rivestiti in pelle pregiata color seppia.",
+      "images": [
+       "og-07",
+       "scheda-prodotto-01",
+       "scheda-prodotto-02"
+      ],
+      "qty": "Quantità",
+      "addToCart": "CARRELLO",
+      "buyNow": "ACQUISTA",
+      "info": [
+       {
+        "title": "DETTAGLI PRODOTTO",
+        "html": "<strong>KEPLER22 2SL</strong><p>Dim. 260x90 cm / H 73 cm - seat H 42cm</p>"
+       },
+       {
+        "title": "DESIGN",
+        "html": "<p>Filippo Dell'Orto</p>"
+       }
+      ],
+      "cls": {
+       "title": "t106",
+       "before": "t107",
+       "price": "t108",
+       "desc": "t109",
+       "qty": "t110",
+       "cart": "t111",
+       "buy": "t112",
+       "infoTitle": "t113",
+       "infoBody": "t114"
+      },
+      "cartBg": "var(--colore-29)",
+      "buyBg": "var(--colore-02)",
+      "line": "var(--colore-27)"
+     }
+    }
+   ]
+  }
+ ]
+}

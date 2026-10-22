@@ -1,0 +1,706 @@
+{
+ "seo": {
+  "title": "PRODUCTS | PLAN B studio",
+  "description": "Raffinatezza e proporzioni perfette, eleganza formale e innovazione stilistica sono i parametri distintivi dei progetti di Product e Industrial design di Filippo Dell'Orto.\nComplementi d'arredo progettati per i migliori brand internazionali del mobile di design contemporaneo.\n\nProduct and industrial design.",
+  "ogImage": "og-03"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 6063,
+  "m": 2117
+ },
+ "h": {
+  "d": "5837.4px",
+  "m": "567.563vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-01)",
+ "sections": [
+  {
+   "id": "comp-lg5u0ngb",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "5837.4px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "567.563vw"
+   },
+   "bg": {
+    "color": "var(--colore-15)"
+   },
+   "c": [
+    {
+     "id": "comp-l469md4r",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-l469md6l1",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bgm": null,
+       "c": [
+        {
+         "id": "comp-l469md6o1",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 400,
+           "offscreen": true
+          },
+          "m": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 200,
+           "offscreen": false
+          }
+         },
+         "html": "<h1 class=\"t32\"><span class=\"t2\"><span class=\"t3\"><span class=\"t4\"><span class=\"t4\">PRODUCT DESIGN</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lkd2irrl",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "153px"
+     },
+     "m": {
+      "l": "0",
+      "t": "25.313vw",
+      "w": "100%",
+      "h": "75.375vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lkd2iruj",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "153px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "75.375vw"
+       },
+       "bgm": null,
+       "c": [
+        {
+         "id": "comp-lkd2irum",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 400px)",
+          "t": "0px",
+          "w": "800px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "0vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1500,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1500,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t33\"><span class=\"t37\"><span class=\"t35\"><span class=\"t35\"><span class=\"t36\">Raffinatezza e proporzioni perfette, eleganza formale e innovazione stilistica sono i parametri distintivi dei progetti di Product e Industrial design di Filippo Dell'Orto.<br>\nComplementi d'arredo progettati per i migliori brand internazionali del mobile di design contemporaneo. Sedute, tavoli, tavolini, lampade e sistemi d'arredo pensati e sviluppati in ogni dettaglio per una produzione artigianale o industiale, con l'impiego di materiali pregiati o altamente tecnologici.</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-l2dpa70j",
+     "k": "gallery",
+     "d": {
+      "l": "0",
+      "t": "352.1px",
+      "w": "100%",
+      "h": "5485.4px"
+     },
+     "m": {
+      "l": "0",
+      "t": "100.688vw",
+      "w": "100%",
+      "h": "465.625vw"
+     },
+     "items": [
+      {
+       "img": "products-galleria-01",
+       "title": "INTERSECT 100/60 lamps",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 0,
+        "l": 0,
+        "w": 502,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-02",
+       "title": "BB 26/46 lamps",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 0,
+        "l": 504,
+        "w": 946,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-03",
+       "title": "MOON PHASE dining tables",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 503.66499666965916,
+        "l": 0,
+        "w": 922,
+        "h": 527
+       }
+      },
+      {
+       "img": "products-galleria-04",
+       "title": "PAR.XR WOOD dining table",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 503.66499666965916,
+        "l": 924,
+        "w": 526,
+        "h": 527
+       }
+      },
+      {
+       "img": "products-galleria-05",
+       "title": "LOST ISLAND outdoor seating system",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 1032.1981345181748,
+        "l": 0,
+        "w": 947,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-06",
+       "title": "TWIN PLANETS floor lamp",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 1032.1981345181748,
+        "l": 949,
+        "w": 501,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-07",
+       "title": "NS-L door handle",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 1535.863131187834,
+        "l": 0,
+        "w": 724,
+        "h": 384
+       }
+      },
+      {
+       "img": "products-galleria-08",
+       "title": "KEPLER 69C sectional sofa",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 1535.863131187834,
+        "l": 726,
+        "w": 724,
+        "h": 384
+       }
+      },
+      {
+       "img": "products-galleria-09",
+       "title": "K.22 MOTHER outdoor chair",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 1921.4450049961965,
+        "l": 0,
+        "w": 502,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-10",
+       "title": "JUPITER coffee tables",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 1921.4450049961965,
+        "l": 504,
+        "w": 946,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-11",
+       "title": "PLANETS pendant lamps",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 2425.1100016658556,
+        "l": 0,
+        "w": 947,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-12",
+       "title": "ANTHANI lounge chair",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 2425.1100016658556,
+        "l": 949,
+        "w": 501,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-13",
+       "title": "MERCEDES 100/70/55 round coffee tables",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 2928.7749983355147,
+        "l": 0,
+        "w": 947,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-14",
+       "title": "FLIRTSTONE MATERIAL coffee tables",
+       "desc": "",
+       "linkText": "manufacturer spHaus | year 2022",
+       "linkTo": "#",
+       "b": {
+        "t": 2928.7749983355147,
+        "l": 949,
+        "w": 501,
+        "h": 502
+       }
+      },
+      {
+       "img": "products-galleria-15",
+       "title": "KEPLER 22 sectional seating system",
+       "desc": "",
+       "linkText": "manufacturer spHaus | year 2021",
+       "linkTo": "#",
+       "b": {
+        "t": 3432.439995005174,
+        "l": 0,
+        "w": 751,
+        "h": 398
+       }
+      },
+      {
+       "img": "products-galleria-16",
+       "title": "ORGANIC dining tables",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 3432.439995005174,
+        "l": 753,
+        "w": 697,
+        "h": 398
+       }
+      },
+      {
+       "img": "products-galleria-17",
+       "title": "PTYX coffee tables",
+       "desc": "",
+       "linkText": "MORE DETAILS",
+       "linkTo": "#",
+       "b": {
+        "t": 3832.4295673163406,
+        "l": 0,
+        "w": 385,
+        "h": 385
+       }
+      },
+      {
+       "img": "products-galleria-18",
+       "title": "FILO ERBA floor arc lamp",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 3832.4295673163406,
+        "l": 387,
+        "w": 675,
+        "h": 385
+       }
+      },
+      {
+       "img": "products-galleria-19",
+       "title": "EERO armchair",
+       "desc": "",
+       "linkText": "manufacturer spHaus | year 2003",
+       "linkTo": "#",
+       "b": {
+        "t": 3832.4295673163406,
+        "l": 1064,
+        "w": 386,
+        "h": 385
+       }
+      },
+      {
+       "img": "products-galleria-20",
+       "title": "IL MONACO table lamp",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 4219.9161998246545,
+        "l": 0,
+        "w": 751,
+        "h": 398
+       }
+      },
+      {
+       "img": "products-galleria-21",
+       "title": "002.09XP BASIC dining table",
+       "desc": "",
+       "linkText": "https://www.sphaus.net/00209xp-basic",
+       "linkTo": "#",
+       "b": {
+        "t": 4219.9161998246545,
+        "l": 753,
+        "w": 697,
+        "h": 398
+       }
+      },
+      {
+       "img": "products-galleria-22",
+       "title": "KEPLER 152 80/130 sunbeds",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 4619.905772135821,
+        "l": 0,
+        "w": 724,
+        "h": 414
+       }
+      },
+      {
+       "img": "products-galleria-23",
+       "title": "E.T. floor arc lamp",
+       "desc": "",
+       "linkText": "manufacturer spHaus | year 2002",
+       "linkTo": "#",
+       "b": {
+        "t": 4619.905772135821,
+        "l": 726,
+        "w": 724,
+        "h": 414
+       }
+      },
+      {
+       "img": "products-galleria-24",
+       "title": "SOFT PILL lounge chair",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 5035.421557059653,
+        "l": 0,
+        "w": 450,
+        "h": 450
+       }
+      },
+      {
+       "img": "products-galleria-25",
+       "title": "HAL 9000 floor lamp",
+       "desc": "",
+       "linkText": "",
+       "linkTo": "",
+       "b": {
+        "t": 5035.421557059653,
+        "l": 452,
+        "w": 450,
+        "h": 450
+       }
+      }
+     ],
+     "mobile": {
+      "mode": "abs",
+      "rects": [
+       [
+        0,
+        0,
+        160,
+        160
+       ],
+       [
+        161,
+        0,
+        159,
+        84
+       ],
+       [
+        161,
+        85,
+        159,
+        91
+       ],
+       [
+        0,
+        161,
+        160,
+        160
+       ],
+       [
+        161,
+        177,
+        159,
+        84
+       ],
+       [
+        161,
+        262,
+        159,
+        159
+       ],
+       [
+        0,
+        322,
+        160,
+        85
+       ],
+       [
+        0,
+        408,
+        160,
+        85
+       ],
+       [
+        161,
+        422,
+        159,
+        159
+       ],
+       [
+        0,
+        494,
+        160,
+        85
+       ],
+       [
+        0,
+        580,
+        160,
+        85
+       ],
+       [
+        161,
+        582,
+        159,
+        159
+       ],
+       [
+        0,
+        666,
+        160,
+        85
+       ],
+       [
+        161,
+        742,
+        159,
+        159
+       ],
+       [
+        0,
+        752,
+        160,
+        85
+       ],
+       [
+        0,
+        838,
+        160,
+        91
+       ],
+       [
+        161,
+        902,
+        159,
+        159
+       ],
+       [
+        0,
+        930,
+        160,
+        91
+       ],
+       [
+        0,
+        1022,
+        160,
+        160
+       ],
+       [
+        161,
+        1062,
+        159,
+        84
+       ],
+       [
+        161,
+        1147,
+        159,
+        91
+       ],
+       [
+        0,
+        1183,
+        160,
+        91
+       ],
+       [
+        161,
+        1239,
+        159,
+        91
+       ],
+       [
+        0,
+        1275,
+        160,
+        160
+       ],
+       [
+        161,
+        1331,
+        159,
+        159
+       ]
+      ],
+      "h": 1490
+     },
+     "settings": {
+      "layout": 1,
+      "horizontal": false,
+      "click": "expand",
+      "autoSlide": false,
+      "speed": 36,
+      "overlay": "var(--colore-32)",
+      "margin": 2
+     }
+    }
+   ]
+  }
+ ]
+}

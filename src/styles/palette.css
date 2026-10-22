@@ -1,0 +1,60 @@
+/* Palette della base: ogni colore usato nel sito è un token (ordinati per frequenza d'uso).
+   Per un cliente nuovo si cambiano solo questi valori. */
+:root {
+  --colore-01: rgb(255, 255, 255);
+  --colore-02: rgb(51, 51, 51);
+  --colore-03: rgb(199, 199, 199);
+  --colore-04: rgb(154, 138, 120);
+  --colore-05: rgb(65, 65, 65);
+  --colore-06: rgb(61, 53, 53);
+  --colore-07: rgba(79, 29, 14, 0.2);
+  --colore-08: rgb(204, 204, 204);
+  --colore-09: rgb(102, 102, 102);
+  --colore-10: rgba(43, 83, 54, 0.5);
+  --colore-11: rgba(5, 25, 46, 0.8);
+  --colore-12: rgb(71, 71, 71);
+  --colore-13: rgb(0, 0, 0);
+  --colore-14: rgba(255, 255, 255, 0.2);
+  --colore-15: rgba(158, 59, 27, 0.8);
+  --colore-16: rgb(52, 46, 46);
+  --colore-17: rgba(51, 51, 51, 0.24);
+  --colore-18: rgba(38, 38, 38, 0.9);
+  --colore-19: rgba(255, 255, 255, 0.1);
+  --colore-20: rgba(102, 102, 102, 0.3);
+  --colore-21: rgba(255, 255, 255, 0.5);
+  --colore-22: rgba(255, 255, 255, 0.3);
+  --colore-23: rgb(153, 153, 153);
+  --colore-24: rgba(0, 0, 0, 0.5);
+  --colore-25: rgb(139, 0, 0);
+  --colore-26: rgba(5, 25, 46, 0.7);
+  --colore-27: rgba(51, 51, 51, 0.2);
+  --colore-28: rgb(81, 113, 162);
+  --colore-29: rgb(158, 59, 27);
+  --colore-30: rgba(167, 177, 153, 0.5);
+  --colore-31: rgba(153, 153, 153, 0.75);
+  --colore-32: rgba(51, 51, 51, 0.4);
+  --colore-33: rgba(255, 255, 255, 0.65);
+  --colore-34: rgba(51, 51, 51, 0.15);
+  --colore-35: rgba(51, 51, 51, 0.6);
+
+  /* alias d'interfaccia */
+  --menu-sel-bg: var(--colore-31);
+  --menu-sel-color: var(--colore-01);
+  --gal-overlay: var(--colore-32);
+  --lightbox-bg: var(--colore-01);
+  --lightbox-text: var(--colore-02);
+  --mobile-menu-item-bg: var(--colore-33);
+  --mobile-menu-line: var(--colore-34);
+  --mobile-menu-text: var(--colore-13);
+  --hamburger: var(--colore-02);
+  --store-line: var(--colore-27);
+  --store-check: var(--colore-35);
+  --chiaro: var(--colore-01);
+  --scuro: var(--colore-02);
+  --grigio-scuro: var(--colore-05);
+  --grigio-chiaro: var(--colore-08);
+  --grigio: var(--colore-09);
+  --nero: var(--colore-13);
+  --velo-chiaro: var(--colore-14);
+  --velo-menu: var(--colore-20);
+}

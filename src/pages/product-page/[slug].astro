@@ -1,0 +1,25 @@
+---
+// Scheda prodotto: un modello (data/pagine/product.json) applicato a ogni prodotto presente nelle griglie dello shop.
+import Pagina from '../../components/Pagina.astro';
+import modello from '../../data/pagine/product.json';
+import shop from '../../data/pagine/shop.json';
+import outlet from '../../data/pagine/shop-promotion.json';
+import categoria from '../../data/pagine/category.json';
+
+export function getStaticPaths() {
+  const trova = (nodi: any[]): any[] => nodi.flatMap((n) => (n.k === 'store' ? [n.store] : trova(n.c || [])));
+  const prodotti = new Map<string, any>();
+  for (const pg of [shop, outlet, categoria]) for (const s of trova(pg.sections)) for (const pr of s.products || []) if (pr.slug && !prodotti.has(pr.slug)) prodotti.set(pr.slug, pr);
+  return [...prodotti.values()].map((pr) => ({ params: { slug: pr.slug }, props: { pr } }));
+}
+const { pr } = Astro.props;
+const p = structuredClone(modello) as any;
+const w = p.sections[0].c[0].store;
+const proprio = w.title === pr.name;
+if (!proprio) {
+  w.title = pr.name; w.before = pr.before; w.price = pr.price;
+  w.images = [pr.img];
+}
+const seo = { ...p.seo, title: p.seo.title.replace(/^[^|]+/, `${pr.name} `) };
+---
+<Pagina p={p} seo={seo} />

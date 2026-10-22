@@ -1,0 +1,58 @@
+---
+import '../styles/tokens.css';
+import '../styles/testi.css';
+import '../styles/base.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import media from '../data/media.json';
+import { site } from '../data/site';
+
+interface Props { seo: { title: string; description: string; ogImage?: string | null }; chrome?: boolean; noindex?: boolean; bg?: string }
+const { seo, chrome = true, noindex = false, bg } = Astro.props;
+const M = media as Record<string, { src: string; w: number; h: number }>;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = new URL(Astro.url.pathname, site.dominio).href;
+const og = seo.ogImage ? M[seo.ogImage] : M['og-01'];
+const ogUrl = og ? new URL(og.src, site.dominio).href : undefined;
+const schema = {
+  '@context': 'https://schema.org/', '@type': 'LocalBusiness', name: site.ragioneSociale, url: site.dominio,
+  image: new URL(site.immagineSchema, site.dominio).href, telephone: site.telefono,
+  address: { '@type': 'PostalAddress', addressCountry: site.indirizzo.paese, addressLocality: site.indirizzo.citta, postalCode: site.indirizzo.cap, streetAddress: site.indirizzo.via },
+};
+---
+<!doctype html>
+<html lang={site.lingua}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.nome} />
+    <meta property="og:type" content="website" />
+    {ogUrl && <meta property="og:image" content={ogUrl} />}
+    {og && <meta property="og:image:width" content={String(og.w)} />}
+    {og && <meta property="og:image:height" content={String(og.h)} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body class="sito" style={bg ? `background:${bg}` : undefined}>
+    {chrome && <Header path={path} />}
+    <slot />
+    {chrome && <Footer />}
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Immagine ingrandita">
+      <div class="lb-media"><img alt="" /></div>
+      <div class="lb-info"><h2 class="lb-title"></h2><p class="lb-desc"></p><a class="lb-link" href="#"></a></div>
+      <button class="lb-close" type="button" aria-label="Chiudi"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20" stroke="currentColor" stroke-width="1.5" /></svg></button>
+      <button class="lb-prev" type="button" aria-label="Precedente"><svg viewBox="0 0 23 39" width="23" height="39" aria-hidden="true"><path d="M21 2 3 19.5 21 37" fill="none" stroke="currentColor" stroke-width="2" /></svg></button>
+      <button class="lb-next" type="button" aria-label="Successiva"><svg viewBox="0 0 23 39" width="23" height="39" aria-hidden="true"><path d="m2 2 18 17.5L2 37" fill="none" stroke="currentColor" stroke-width="2" /></svg></button>
+    </div>
+    <script src="../scripts/sito.js"></script>
+  </body>
+</html>

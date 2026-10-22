@@ -1,0 +1,15 @@
+---
+// Mappa della sede: embed solo se site.mappa.embed è valorizzato, altrimenti segnaposto delle stesse misure.
+import { site } from '../data/site';
+const embed = site.mappa?.embed;
+---
+{embed ? (
+  <iframe src={embed} title={site.mappa.titolo} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+) : (
+  <div class="mappa-vuota" role="img" aria-label={site.mappa?.titolo}>
+    <span>{site.mappa?.titolo}</span>
+  </div>
+)}
+<style>
+  .mappa-vuota { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--grigio-chiaro); color: var(--scuro); font: 400 16px var(--font-sans); text-align: center; padding: 20px; }
+</style>

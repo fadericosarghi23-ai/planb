@@ -1,0 +1,484 @@
+{
+ "header": {
+  "id": "SITE_HEADER",
+  "k": "header",
+  "d": {
+   "l": "0",
+   "t": "0px",
+   "w": "100%",
+   "h": "100.4px"
+  },
+  "m": {
+   "l": "0",
+   "t": "0vw",
+   "w": "100%",
+   "h": "28.125vw"
+  },
+  "bgm": {
+   "color": "var(--colore-20)"
+  },
+  "c": [
+   {
+    "id": "comp-kfzeal9e",
+    "k": "strip",
+    "d": {
+     "l": "0",
+     "t": "0px",
+     "w": "100%",
+     "h": "100.4px"
+    },
+    "m": "ghost",
+    "fx": {
+     "d": {
+      "type": "BgFade",
+      "dir": null,
+      "dur": null,
+      "delay": 0,
+      "speed": null,
+      "range": "in",
+      "distance": null,
+      "offscreen": null
+     },
+     "m": null
+    },
+    "bg": {
+     "color": "var(--colore-30)"
+    },
+    "c": [
+     {
+      "id": "comp-kfzealb8",
+      "k": "column",
+      "d": {
+       "l": "0%",
+       "t": "0px",
+       "w": "20%",
+       "h": "100.4px"
+      },
+      "m": "ghost",
+      "c": [
+       {
+        "id": "comp-li574ldw",
+        "k": "image",
+        "d": {
+         "l": "calc(50% - 102.5px)",
+         "t": "5px",
+         "w": "170px",
+         "h": "93px"
+        },
+        "m": {
+         "l": "4.688vw",
+         "t": "3.125vw",
+         "w": "40.625vw",
+         "h": "20vw"
+        },
+        "img": "chrome-img-01",
+        "fit": "cover",
+        "pos": "50% 50%",
+        "href": "/"
+       },
+       {
+        "id": "comp-lkogqglt",
+        "k": "lang",
+        "d": {
+         "l": "calc(50% + 129.5px)",
+         "t": "46px",
+         "w": "45px",
+         "h": "25px"
+        },
+        "m": null,
+        "langs": [
+         {
+          "label": "IT",
+          "cls": "t115"
+         },
+         {
+          "label": "EN",
+          "cls": "t116"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "comp-kfzeazpz",
+      "k": "column",
+      "d": {
+       "l": "20%",
+       "t": "0px",
+       "w": "70%",
+       "h": "100.4px"
+      },
+      "m": null,
+      "c": [
+       {
+        "id": "comp-kd4d6lqz",
+        "k": "menu",
+        "d": {
+         "l": "calc(50% - 218.9px)",
+         "t": "20px",
+         "w": "559px",
+         "h": "80px"
+        },
+        "m": null,
+        "fx": {
+         "d": {
+          "type": "RevealIn",
+          "dir": "left",
+          "dur": 1200,
+          "delay": 0,
+          "speed": null,
+          "range": null,
+          "distance": null,
+          "offscreen": null
+         },
+         "m": null
+        },
+        "items": [
+         {
+          "label": "INTERNI",
+          "href": "/interiors",
+          "sub": []
+         },
+         {
+          "label": "ARCHITETTURA",
+          "href": "/architecture",
+          "sub": []
+         },
+         {
+          "label": "PRODOTTI",
+          "href": "/products",
+          "sub": []
+         },
+         {
+          "label": "STUDIO",
+          "href": "/studio",
+          "sub": []
+         },
+         {
+          "label": "CONTATTO",
+          "href": "/contact",
+          "sub": []
+         },
+         {
+          "label": "SHOP",
+          "href": "/shop",
+          "sub": [
+           {
+            "label": "OUTLET",
+            "href": "/shop-promotion"
+           }
+          ]
+         }
+        ],
+        "cls": "t117",
+        "clsSel": "t117"
+       }
+      ]
+     },
+     {
+      "id": "comp-mf79gflq",
+      "k": "column",
+      "d": {
+       "l": "90%",
+       "t": "0px",
+       "w": "10%",
+       "h": "100.4px"
+      },
+      "m": null,
+      "c": [
+       {
+        "id": "comp-m15fc2yn",
+        "k": "container",
+        "d": {
+         "l": "calc(50% - 78.2px)",
+         "t": "40px",
+         "w": "40px",
+         "h": "40px"
+        },
+        "m": null,
+        "c": [
+         {
+          "id": "comp-m15fc2zp",
+          "k": "login",
+          "d": {
+           "l": "0",
+           "t": "0px",
+           "w": "100%",
+           "h": "40px"
+          },
+          "m": null,
+          "label": "LOGIN",
+          "cls": "t118",
+          "svg": "<svg data-bbox=\"0 0 50 50\" data-type=\"shape\" xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 50 50\"><g><path d=\"M25 48.077c-5.924 0-11.31-2.252-15.396-5.921 2.254-5.362 7.492-8.267 15.373-8.267 7.889 0 13.139 3.044 15.408 8.418-4.084 3.659-9.471 5.77-15.385 5.77m.278-35.3c4.927 0 8.611 3.812 8.611 8.878 0 5.21-3.875 9.456-8.611 9.456s-8.611-4.246-8.611-9.456c0-5.066 3.684-8.878 8.611-8.878M25 0C11.193 0 0 11.193 0 25c0 .915.056 1.816.152 2.705.032.295.091.581.133.873.085.589.173 1.176.298 1.751.073.338.169.665.256.997.135.515.273 1.027.439 1.529.114.342.243.675.37 1.01.18.476.369.945.577 1.406.149.331.308.657.472.98.225.446.463.883.714 1.313.182.312.365.619.56.922.272.423.56.832.856 1.237.207.284.41.568.629.841.325.408.671.796 1.02 1.182.22.244.432.494.662.728.405.415.833.801 1.265 1.186.173.154.329.325.507.475l.004-.011A24.886 24.886 0 0 0 25 50a24.881 24.881 0 0 0 16.069-5.861.126.126 0 0 1 .003.01c.172-.144.324-.309.49-.458.442-.392.88-.787 1.293-1.209.228-.232.437-.479.655-.72.352-.389.701-.78 1.028-1.191.218-.272.421-.556.627-.838.297-.405.587-.816.859-1.24a26.104 26.104 0 0 0 1.748-3.216c.208-.461.398-.93.579-1.406.127-.336.256-.669.369-1.012.167-.502.305-1.014.44-1.53.087-.332.183-.659.256-.996.126-.576.214-1.164.299-1.754.042-.292.101-.577.133-.872.095-.89.152-1.791.152-2.707C50 11.193 38.807 0 25 0\"></path></g></svg>"
+         }
+        ]
+       },
+       {
+        "id": "comp-mf79pidd",
+        "k": "cart",
+        "d": {
+         "l": "calc(50% + 15.8px)",
+         "t": "46px",
+         "w": "18px",
+         "h": "21.4px"
+        },
+        "m": null,
+        "href": "/cart-page",
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"100%\" height=\"100%\" viewBox=\"0 0 164.9 196.4\" preserveAspectRatio=\"xMinYMax meet\" data-hook=\"svg-icon-9\"><text x=\"82\" y=\"122\" dy=\".35em\" text-anchor=\"middle\" class=\"uxskpx M846Y_\" data-hook=\"items-count\">0</text><g clip-path=\"url(#clip0_800_867)\"><path d=\"M154.264 51C160.763 51 165.857 56.6869 165.06 63.1777L165.067 63.1848L152.504 186.435C152.5 186.48 152.489 186.524 152.483 186.569C151.729 191.949 147.178 195.999 141.701 196H23.6622C18.1839 196 13.6275 191.95 12.8728 186.569C12.8666 186.525 12.8631 186.479 12.8586 186.435L0.21769 63.1848L0.224784 63.1777C-0.572237 56.6869 4.52226 51 11.0213 51H154.264ZM11.0213 58.25C9.11528 58.25 7.57282 59.726 7.41066 61.5422L7.43194 62.3352L7.43904 62.4485L20.0658 185.564L20.2218 186.237C20.7174 187.742 22.0993 188.75 23.6622 188.75H141.701C143.485 188.749 145.028 187.433 145.29 185.564L157.846 62.4485L157.853 62.3352C158.14 60.1759 156.441 58.25 154.264 58.25H11.0213Z\" fill=\"black\"></path><path d=\"M114.961 40C114.961 21.9356 100.481 7.27273 82.6425 7.27273C64.8039 7.27273 50.3243 21.9356 50.3243 40V80H43.1425V40C43.1425 17.919 60.8374 0 82.6425 0C104.447 0 122.142 17.919 122.142 40V80H114.961V40Z\" fill=\"black\"></path></g><defs><clipPath id=\"clip0_800_867\"><rect width=\"164.9\" height=\"196.4\" fill=\"white\"></rect></clipPath></defs></svg>"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "footer": {
+  "id": "SITE_FOOTER",
+  "k": "footer",
+  "d": {
+   "l": "0",
+   "t": "0px",
+   "w": "100%",
+   "h": "125px"
+  },
+  "m": {
+   "l": "0",
+   "t": "0vw",
+   "w": "100%",
+   "h": "65.938vw"
+  },
+  "c": [
+   {
+    "id": "comp-lbploiwh",
+    "k": "strip",
+    "d": {
+     "l": "0",
+     "t": "0px",
+     "w": "100%",
+     "h": "125px"
+    },
+    "m": {
+     "l": "0",
+     "t": "0vw",
+     "w": "100%",
+     "h": "65.938vw"
+    },
+    "bg": {
+     "color": "var(--colore-05)"
+    },
+    "c": [
+     {
+      "id": "comp-lbploiyj",
+      "k": "column",
+      "d": {
+       "l": "0.1%",
+       "t": "1px",
+       "w": "59.7%",
+       "h": "123px"
+      },
+      "m": {
+       "l": "0",
+       "t": "0vw",
+       "w": "100%",
+       "h": "46.563vw"
+      },
+      "bg": {
+       "color": "var(--colore-18)"
+      },
+      "c": [
+       {
+        "id": "comp-lbploiyo1",
+        "k": "text",
+        "d": {
+         "l": "calc(50% - 331.8px)",
+         "t": "25px",
+         "w": "250px",
+         "h": "auto"
+        },
+        "m": {
+         "l": "0",
+         "t": "5.313vw",
+         "w": "100%",
+         "h": "auto"
+        },
+        "html": "<p class=\"t119\"><span class=\"t120\"><span class=\"t121\"><span class=\"t122\"><span class=\"t122\"><span class=\"t122\"><span class=\"t123\"><span class=\"t124\">PLAN</span>B filippo<span class=\"t124\">dellorto</span></span></span></span></span></span></span><span class=\"t120\"><span class=\"t121\"><span class=\"t122\"><span class=\"t122\"><span class=\"t122\"><span class=\"t123\">s</span></span></span></span></span></span><span class=\"t120\"><span class=\"t121\"><span class=\"t122\"><span class=\"t122\"><span class=\"t122\"><span class=\"t123\">tudio</span></span></span></span></span></span></p>"
+       },
+       {
+        "id": "comp-m4or7ich",
+        "k": "text",
+        "d": {
+         "l": "calc(50% - 68.9px)",
+         "t": "25px",
+         "w": "250px",
+         "h": "auto"
+        },
+        "m": {
+         "l": "0",
+         "t": "13.125vw",
+         "w": "100%",
+         "h": "auto"
+        },
+        "html": "<p class=\"t119\"><span class=\"t125\"><span class=\"t125\"><span class=\"t125\"><span class=\"t126\"><span class=\"t126\"><span class=\"t126\"><span class=\"t127\"><span class=\"t128\"><span class=\"t129\">via cler</span></span></span></span><span class=\"t126\"><span class=\"t127\"><span class=\"t128\"><span class=\"t129\">ici 4 22036 erba CO</span></span></span></span></span></span></span></span></span></p>"
+       },
+       {
+        "id": "comp-m4orcr1a",
+        "k": "text",
+        "d": {
+         "l": "calc(50% - 68.9px)",
+         "t": "46px",
+         "w": "250px",
+         "h": "auto"
+        },
+        "m": {
+         "l": "0",
+         "t": "18.125vw",
+         "w": "100%",
+         "h": "auto"
+        },
+        "html": "<p class=\"t119\"><span class=\"t125\"><span class=\"t125\"><span class=\"t125\"><span class=\"t126\"><span class=\"t126\"><span class=\"t126\"><span class=\"t127\"><span class=\"t128\"><span class=\"t129\">corso matteotti 64 20831 seregno MB</span></span></span></span></span></span></span></span></span></p>"
+       },
+       {
+        "id": "comp-lbploiyy1",
+        "k": "text",
+        "d": {
+         "l": "calc(50% - 67.9px)",
+         "t": "85px",
+         "w": "250px",
+         "h": "auto"
+        },
+        "m": {
+         "l": "0",
+         "t": "54.063vw",
+         "w": "100%",
+         "h": "auto"
+        },
+        "html": "<p class=\"t130\"><span class=\"t131\"><span class=\"t132\"><span class=\"t132\"><span class=\"t132\"><span class=\"t132\"><span class=\"t133\"><span class=\"t133\"><span class=\"t134\"><span class=\"t135\"><span class=\"t136\"><span class=\"t137\">©</span></span><span class=\"t138\">2026</span></span></span></span></span></span></span></span></span><span class=\"t132\"><span class=\"t132\"><span class=\"t132\"><span class=\"t132\"><span class=\"t133\"><span class=\"t133\"><span class=\"t134\"><span class=\"t135\"><span class=\"t136\"><span class=\"t137\"> <span class=\"t139\">PLAN</span>B all rights reserved</span></span></span></span></span></span></span></span></span></span></span></p>"
+       }
+      ]
+     },
+     {
+      "id": "comp-lbploiyw",
+      "k": "column",
+      "d": {
+       "l": "59.9%",
+       "t": "1px",
+       "w": "40%",
+       "h": "123px"
+      },
+      "m": {
+       "l": "0",
+       "t": "46.875vw",
+       "w": "100%",
+       "h": "18.75vw"
+      },
+      "bg": {
+       "color": "var(--colore-18)"
+      },
+      "c": [
+       {
+        "id": "comp-m4oqii47",
+        "k": "social",
+        "d": {
+         "l": "calc(50% - 57.9px)",
+         "t": "44px",
+         "w": "270px",
+         "h": "30px"
+        },
+        "m": {
+         "l": "7.813vw",
+         "t": "-16.25vw",
+         "w": "84.375vw",
+         "h": "9.375vw"
+        },
+        "links": [
+         {
+          "href": "https://www.instagram.com/interiordesignplanbstudio",
+          "label": "instagram",
+          "img": "social-01",
+          "r": [
+           0,
+           0,
+           30,
+           30
+          ]
+         },
+         {
+          "href": "https://it.pinterest.com/PLANBstudiofilippodellorto/",
+          "label": "pinterest",
+          "img": "social-02",
+          "r": [
+           40,
+           0,
+           30,
+           30
+          ]
+         },
+         {
+          "href": "https://www.facebook.com/filippodellortostudio",
+          "label": "facebook",
+          "img": "social-03",
+          "r": [
+           80,
+           0,
+           30,
+           30
+          ]
+         },
+         {
+          "href": "https://x.com/BPlan76654",
+          "label": "X",
+          "img": "social-04",
+          "r": [
+           120,
+           0,
+           30,
+           30
+          ]
+         },
+         {
+          "href": "https://www.youtube.com/@PLANB-designstudio",
+          "label": "youtube",
+          "img": "social-05",
+          "r": [
+           160,
+           0,
+           30,
+           30
+          ]
+         },
+         {
+          "href": "https://www.linkedin.com/in/filippodellorto-designstudio/",
+          "label": "linkedin",
+          "img": "social-06",
+          "r": [
+           200,
+           0,
+           30,
+           30
+          ]
+         },
+         {
+          "href": "https://www.homify.it/esperti/9514054/plan-b-studio",
+          "label": "homify",
+          "img": "social-07",
+          "r": [
+           240,
+           0,
+           30,
+           30
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "hD": 100.4,
+ "hM": 90,
+ "fD": 125,
+ "fM": 211,
+ "headerBgM": "var(--colore-20)"
+}

@@ -1,0 +1,16 @@
+---
+// Menu orizzontale desktop con sottomenu a tendina; la voce della pagina corrente è evidenziata.
+interface Props { n: any; path: string }
+const { n, path } = Astro.props;
+const isSel = (href: string) => href && href !== '/' && (path === href || path.startsWith(href + '/'));
+---
+<ul class="menu">
+  {n.items.map((it: any) => (
+    <li class={isSel(it.href) || it.sub.some((s: any) => isSel(s.href)) ? 'sel' : ''}>
+      <a href={it.href} aria-current={isSel(it.href) ? 'page' : undefined}><p class={n.cls}>{it.label}</p></a>
+      {it.sub.length > 0 && (
+        <ul class="sub">{it.sub.map((s: any) => <li><a href={s.href}><p class={n.cls}>{s.label}</p></a></li>)}</ul>
+      )}
+    </li>
+  ))}
+</ul>

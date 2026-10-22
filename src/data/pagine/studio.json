@@ -1,0 +1,360 @@
+{
+ "seo": {
+  "title": "STUDIO | PLAN B filippodellortostudio",
+  "description": "PLAN.B Design Studio provides comprehensive and unique product design and interior design services.",
+  "ogImage": "og-04"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 2029,
+  "m": 1552
+ },
+ "h": {
+  "d": "1804px",
+  "m": "390.938vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-01)",
+ "sections": [
+  {
+   "id": "comp-lg5u0nhc",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "885px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "312.813vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-ke0yi9bh",
+     "k": "strip",
+     "d": {
+      "l": "calc(50% - 552.5px)",
+      "t": "0px",
+      "w": "1105px",
+      "h": "885px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "312.813vw"
+     },
+     "bg": {
+      "color": "var(--colore-01)"
+     },
+     "c": [
+      {
+       "id": "comp-ke0yi9dq",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "50%",
+        "h": "885px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "187.813vw"
+       },
+       "bgm": null,
+       "c": [
+        {
+         "id": "comp-ke0yi9ds1",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 244.9px)",
+          "t": "104px",
+          "w": "490px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "7.813vw",
+          "t": "8.125vw",
+          "w": "84.375vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t38\"><span class=\"t39\"><span class=\"t39\"><span class=\"t40\"><span class=\"t41\">PLAN</span><span class=\"t42\"> </span><span class=\"t41\">B</span><span class=\"t40\"> </span><span class=\"t41\">STUDIO</span></span></span></span></h1>"
+        },
+        {
+         "id": "comp-ke0yrhlw",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 244.9px)",
+          "t": "239px",
+          "w": "490px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "7.813vw",
+          "t": "29.375vw",
+          "w": "84.375vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t44\">Filippo Dell'Orto vanta un'esperienza trentennale nel settore dell'interior design e del product design.</span></span></span></span></p>\n\n<p class=\"t45\"><span class=\"t45\"><span class=\"t45\">​</span></span></p>\n\n<p class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t44\">Dopo alcuni anni di formazione in studi di architettura e interior design di fama internazionale, tra cui Niemeyer Architects, Atelier De Portzamparc, Foster and Partners, nel 1999 apre il suo studio indipendente a Milano, realizzando interni per abitazioni private e spazi pubblici.</span></span></span></span></p>\n\n<p class=\"t45\"><span class=\"t45\"><span class=\"t45\">​</span></span></p>\n\n<p class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t44\">Nel 2004, per assecondare una grande passione per il design industriale, crea spHaus, un'azienda di mobili e complementi di design d'avanguardia. Per anni, come art director e product manager del brand, disegna e seleziona le collezioni e sviluppa l'immagine coordinata.</span></span></span></span></p>\n\n<p class=\"t43\"> </p>\n\n<p class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t43\"><span class=\"t44\">Il 2020 segna un nuovo inizio: si trasferisce da Milano nella tranquilla campagna di Erba vicino al Lago di Como e inaugura PLAN.B Design Studio, per fornire servizi completi e unici di product design e interior design.</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m3ycletk",
+         "k": "button",
+         "d": {
+          "l": "calc(50% - 70.9px)",
+          "t": "693px",
+          "w": "142px",
+          "h": "40px"
+         },
+         "m": {
+          "l": "25vw",
+          "t": "168.438vw",
+          "w": "50vw",
+          "h": "13.125vw"
+         },
+         "href": "/_files/ugd/bfc66b_772ee977f6584b79bf213c9384061178.pdf",
+         "target": "_blank",
+         "tag": "A",
+         "btn": {
+          "bg": "var(--colore-01)",
+          "border": "1px solid var(--colore-09)",
+          "radius": "0px",
+          "transition": "0.2s, visibility",
+          "label": "PORTFOLIO",
+          "lc": "t46",
+          "hover": {
+           "icon": {
+            "fill": "var(--colore-01)"
+           },
+           "self": {
+            "background-color": "var(--colore-09)"
+           },
+           "label": {
+            "color": "var(--colore-01)"
+           }
+          }
+         }
+        }
+       ]
+      },
+      {
+       "id": "comp-ke0ynqu0",
+       "k": "column",
+       "d": {
+        "l": "50%",
+        "t": "0px",
+        "w": "50%",
+        "h": "885px"
+       },
+       "m": {
+        "l": "0",
+        "t": "187.813vw",
+        "w": "100%",
+        "h": "125vw"
+       },
+       "bg": {
+        "color": "var(--colore-01)",
+        "image": "studio-sfondo-01",
+        "fit": "cover",
+        "pos": "50% 50%",
+        "mediaOpacity": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comp-ll5reovk",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "885px",
+    "w": "100%",
+    "h": "199px"
+   },
+   "m": {
+    "l": "0",
+    "t": "312.813vw",
+    "w": "100%",
+    "h": "21.875vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-ll5rfcxh",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "21.875vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-ll5rfd281",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "21.875vw"
+       },
+       "bg": {
+        "color": "var(--colore-05)"
+       },
+       "c": [
+        {
+         "id": "comp-ll5rfd2b",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.563vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t47\"><span class=\"t48\"><span class=\"t49\"><span class=\"t50\"><span class=\"t50\">PLAN</span></span></span><span class=\"t51\"><span class=\"t52\"><span class=\"t52\"> </span></span></span><span class=\"t49\"><span class=\"t50\"><span class=\"t50\">B</span></span></span><span class=\"t48\"><span class=\"t53\"><span class=\"t53\"> </span></span></span><span class=\"t49\"><span class=\"t50\"><span class=\"t50\">STUDIO TEAM</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comp-ll5p49qx",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "1084px",
+    "w": "100%",
+    "h": "720px"
+   },
+   "m": {
+    "l": "0",
+    "t": "334.688vw",
+    "w": "100%",
+    "h": "56.25vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-ll5p4v6h",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "720px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "56.25vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-ll5p4v7u",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "720px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "56.25vw"
+       },
+       "bg": {
+        "color": "var(--colore-24)",
+        "video": "home-video-01",
+        "poster": "home-poster-01",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0.9
+       },
+       "c": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

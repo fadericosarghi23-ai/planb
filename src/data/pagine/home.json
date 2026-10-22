@@ -1,0 +1,1372 @@
+{
+ "seo": {
+  "title": "PlanB studio, interior design, arredamento, architettura",
+  "description": "Interior design per rinnovare la tua casa con stile: dal progetto alla realizzazione.\nProgettazione architettonica.\nProduct design per l'industria del mobile.",
+  "ogImage": "og-01"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 4529,
+  "m": 2286
+ },
+ "h": {
+  "d": "4304px",
+  "m": "620.313vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-09)",
+ "sections": [
+  {
+   "id": "comp-lnxldqse",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "718px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "151.25vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-kcyra6e9",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "-100px",
+      "w": "100%",
+      "h": "818px"
+     },
+     "m": {
+      "l": "0",
+      "t": "-28.125vw",
+      "w": "100%",
+      "h": "179.375vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-kcyra6gk",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "818px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "179.375vw"
+       },
+       "bg": {
+        "color": "var(--colore-05)"
+       },
+       "c": [
+        {
+         "id": "comp-l2drihhf",
+         "k": "gallery",
+         "d": {
+          "l": "0",
+          "t": "0px",
+          "w": "100%",
+          "h": "817px"
+         },
+         "m": {
+          "l": "0",
+          "t": "0vw",
+          "w": "100%",
+          "h": "178.125vw"
+         },
+         "items": [
+          {
+           "img": "home-galleria-01",
+           "title": "Villa LaSalle",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 0,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-02",
+           "title": "villa verdi 76 - soggiorno con camino",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 1538,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-03",
+           "title": "villa verdi 76 - soggiorno",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 3076,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-04",
+           "title": "Cortile con Bar e sedute",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 4614,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-05",
+           "title": "Ufficio direzionale",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 6152,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-06",
+           "title": "attico - camera master",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 7690,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-07",
+           "title": "casa di campagna - soggiorno",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 9228,
+            "w": 816,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-08",
+           "title": "villa verdi 76 - giardino con piscina",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 10043,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-09",
+           "title": "villa verdi 76 - cucina",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 11581,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-10",
+           "title": "Villa project - Zurich",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 13119,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-11",
+           "title": "Villa LaSalle",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 14657,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-12",
+           "title": "Ingresso Bar",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 16195,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-13",
+           "title": "interior design - Loft Milano",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 17733,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-14",
+           "title": "interior design - soggiorno di una villa",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 19271,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-15",
+           "title": "interior design - appartamento bilocale",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 20809,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-16",
+           "title": "Private Villa - Como",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 22347,
+            "w": 1223,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-17",
+           "title": "villa verdi 76 - camera master",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 23569,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-18",
+           "title": "villa verdi 76 - bagno master",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 25107,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-19",
+           "title": "private house - staircase",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 26645,
+            "w": 544,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-20",
+           "title": "villa in Toscana",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 27188,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-21",
+           "title": "TROPICAL VILLA poolside",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 28726,
+            "w": 1539,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-22",
+           "title": "Private Villa - Como",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 30264,
+            "w": 1223,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-23",
+           "title": "interior design - Loft Milano",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 31486,
+            "w": 591,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-24",
+           "title": "spHaus booth - Kortrijk",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 32076,
+            "w": 1223,
+            "h": 816
+           }
+          },
+          {
+           "img": "home-galleria-25",
+           "title": "Country House Kitchen",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 0,
+            "l": 33298,
+            "w": 544,
+            "h": 816
+           }
+          }
+         ],
+         "mobile": {
+          "mode": "slider",
+          "h": 569
+         },
+         "settings": {
+          "layout": 4,
+          "horizontal": true,
+          "click": "none",
+          "autoSlide": true,
+          "speed": 36,
+          "overlay": "var(--colore-32)",
+          "margin": 2
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comp-lnxlq6xr",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "718px",
+    "w": "100%",
+    "h": "1189px"
+   },
+   "m": {
+    "l": "0",
+    "t": "151.25vw",
+    "w": "100%",
+    "h": "177.5vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-lnxlrxj8",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lnxlrxo5",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-05)"
+       },
+       "c": [
+        {
+         "id": "comp-lnxlrxo9",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t1\"><span class=\"t2\"><span class=\"t3\"><span class=\"t4\"><span class=\"t4\">EASY PLAN</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lnxlzxka",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "600px"
+     },
+     "m": {
+      "l": "0",
+      "t": "25.313vw",
+      "w": "100%",
+      "h": "71.875vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lnxlzxsl",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "600px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "71.875vw"
+       },
+       "fx": {
+        "d": {
+         "type": "BgParallax",
+         "dir": null,
+         "dur": null,
+         "delay": 0,
+         "speed": 0.2,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        },
+        "m": {
+         "type": "BgPan",
+         "dir": "right",
+         "dur": null,
+         "delay": 0,
+         "speed": 0.2,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        }
+       },
+       "bg": {
+        "video": "home-video-01",
+        "poster": "home-poster-01",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0.9
+       },
+       "bgm": {
+        "video": "home-video-01",
+        "poster": "home-poster-01",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0
+       },
+       "c": [
+        {
+         "id": "comp-lnxp33ah",
+         "k": "container",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "0px",
+          "w": "980px",
+          "h": "160px"
+         },
+         "m": {
+          "l": "0",
+          "t": "0vw",
+          "w": "100%",
+          "h": "28.75vw"
+         },
+         "fx": {
+          "d": {
+           "type": "SlideIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": null
+         },
+         "c": [
+          {
+           "id": "comp-lnxnjeqa",
+           "k": "text",
+           "d": {
+            "l": "calc(50% - 340px)",
+            "t": "15px",
+            "w": "680px",
+            "h": "auto"
+           },
+           "m": {
+            "l": "6.25vw",
+            "t": "3.125vw",
+            "w": "87.5vw",
+            "h": "auto"
+           },
+           "html": "<p class=\"t5\"><span class=\"t6\"><span class=\"t7\"><span class=\"t7\"><span class=\"t8\">Se devi ristrutturare il tuo appartamento,</span></span></span></span></p>\n\n<p class=\"t5\"><span class=\"t6\"><span class=\"t7\"><span class=\"t7\"><span class=\"t8\">avrai un progetto per ogni esigenza,</span></span></span></span></p>\n\n<p class=\"t5\"><span class=\"t6\"><span class=\"t7\"><span class=\"t7\"><span class=\"t8\">innovativo, funzionale e raffinato.</span></span></span></span></p>\n\n<p class=\"t5\"><span class=\"t6\"><span class=\"t7\"><span class=\"t7\"><span class=\"t8\">La casa dei tuoi sogni diventa reale.</span></span></span></span></p>"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-m2dy3xs1",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "799px",
+      "w": "100%",
+      "h": "390px"
+     },
+     "m": {
+      "l": "0",
+      "t": "97.188vw",
+      "w": "100%",
+      "h": "80.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-m2dy3y55",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "390px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "80.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-13)",
+        "image": "home-sfondo-01",
+        "fit": "cover",
+        "pos": "50% 50%",
+        "mediaOpacity": 0.5
+       },
+       "c": [
+        {
+         "id": "comp-m2dyhajj",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "39px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "5.938vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t9\"><span class=\"t9\"><span class=\"t10\"><span class=\"t11\"><span class=\"t12\">PRENOTA UNA CONSULENZA DEDICATA</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2dyoqkp",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "93px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "13.75vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t13\"><span class=\"t13\"><span class=\"t14\"><span class=\"t15\"><span class=\"t16\">Una video conferenza di un'ora per rispondere a tutte le tue domande e consigliarti in dettaglio ogni possibilità per ristrutturare e rinnovare gli interni della tua casa.</span></span></span></span></p>\n\n<p class=\"t13\"><span class=\"t13\"><span class=\"t14\"><span class=\"t15\"><span class=\"t16\">Ti offriremo le migliori soluzioni per un interior design unico, elegante e funzionale.</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2dz7jpn",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "244px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "51.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t17\"><span class=\"t17\"><span class=\"t18\"><span class=\"t19\"><span class=\"t20\">LA TUA SESSIONE DEDICATA DI INTERIOR DESIGN dura un'ora al costo di 150,00 €</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2enxmj6",
+         "k": "button",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "293px",
+          "w": "300px",
+          "h": "40px"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "66.563vw",
+          "w": "43.75vw",
+          "h": "7.5vw"
+         },
+         "href": "/consulenze",
+         "target": "_blank",
+         "tag": "A",
+         "btn": {
+          "bg": "transparent",
+          "border": "1px solid var(--colore-01)",
+          "radius": "0px",
+          "transition": "0.2s, visibility",
+          "label": "PRENOTA ORA",
+          "lc": "t21",
+          "hover": {
+           "self": {
+            "background-color": "var(--colore-14)"
+           }
+          }
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comp-lg5u0ngj",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "1907px",
+    "w": "100%",
+    "h": "2397px"
+   },
+   "m": {
+    "l": "0",
+    "t": "328.75vw",
+    "w": "100%",
+    "h": "291.563vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-lk0d29il",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lk0d29ps",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-05)"
+       },
+       "c": [
+        {
+         "id": "comp-lk0d29px",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t1\"><a class=\"t1\" href=\"/interiors\" target=\"_self\"><span class=\"t2\"><span class=\"t3\"><span class=\"t4\"><span class=\"t4\">INTERIOR DESIGN</span></span></span></span></a></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lk0dikaa",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "600px"
+     },
+     "m": {
+      "l": "0",
+      "t": "25.313vw",
+      "w": "100%",
+      "h": "71.875vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lk0dikds",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "600px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "71.875vw"
+       },
+       "fx": {
+        "d": {
+         "type": "BgParallax",
+         "dir": null,
+         "dur": null,
+         "delay": 0,
+         "speed": null,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        },
+        "m": {
+         "type": "BgPan",
+         "dir": "right",
+         "dur": null,
+         "delay": 0,
+         "speed": 0.2,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        }
+       },
+       "bg": {
+        "color": "var(--colore-21)",
+        "video": "home-video-02",
+        "poster": "home-poster-02",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0.9
+       },
+       "bgm": {
+        "color": "var(--colore-21)",
+        "video": "home-video-02",
+        "poster": "home-poster-02",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0
+       },
+       "c": [
+        {
+         "id": "comp-lkogisd2",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "220px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "27.813vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<p class=\"t22\"><span class=\"t23\"><span class=\"t23\"><span class=\"t24\"><span class=\"t25\">dal progetto</span></span></span></span></p>\n\n<p class=\"t22\"><span class=\"t23\"><span class=\"t23\"><span class=\"t24\"><span class=\"t25\">alla realizzazione</span></span></span></span></p>\n\n<p class=\"t22\"><span class=\"t23\"><span class=\"t23\"><span class=\"t24\"><span class=\"t25\">di interni unici</span></span></span></span></p>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lk1opfkc",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "799px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "97.188vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lk1opfn3",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-05)"
+       },
+       "c": [
+        {
+         "id": "comp-lk1opfn5",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t1\"><a class=\"t1\" href=\"/architecture\" target=\"_self\"><span class=\"t2\"><span class=\"t3\"><span class=\"t4\"><span class=\"t4\">ARCHITECTURE</span></span></span></span></a></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lk1ozhvs",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "998px",
+      "w": "100%",
+      "h": "600px"
+     },
+     "m": {
+      "l": "0",
+      "t": "122.5vw",
+      "w": "100%",
+      "h": "71.875vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lk1ozhym",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "600px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "71.875vw"
+       },
+       "fx": {
+        "d": {
+         "type": "BgParallax",
+         "dir": null,
+         "dur": null,
+         "delay": 0,
+         "speed": null,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        },
+        "m": {
+         "type": "BgPan",
+         "dir": "right",
+         "dur": null,
+         "delay": 0,
+         "speed": 0.2,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        }
+       },
+       "bg": {
+        "color": "var(--colore-22)",
+        "video": "home-video-03",
+        "poster": "home-poster-03",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0.9
+       },
+       "bgm": {
+        "color": "var(--colore-22)",
+        "video": "home-video-03",
+        "poster": "home-poster-03",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0
+       },
+       "c": [
+        {
+         "id": "comp-lkog557o",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "220px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "25.625vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<p class=\"t26\"><span class=\"t27\"><span class=\"t28\"><span class=\"t28\"><span class=\"t29\">PROGETTAZIONE</span></span></span></span></p>\n\n<p class=\"t26\"><span class=\"t27\"><span class=\"t28\"><span class=\"t28\"><span class=\"t29\">ARCHITETTONICA</span></span></span></span></p>\n\n<p class=\"t26\"><span class=\"t27\"><span class=\"t28\"><span class=\"t28\"><span class=\"t29\">sostenibile e funzionale</span></span></span></span></p>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lk4lyog6",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "1598px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "194.375vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lk4lyoj4",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-05)"
+       },
+       "c": [
+        {
+         "id": "comp-lk4lyoj81",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t1\"><span class=\"t30\"><a class=\"t30\" href=\"/products\" target=\"_self\"><span class=\"t31\"><span class=\"t4\"><span class=\"t4\">PRODUCT DESIGN</span></span></span></a></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lk4lyt7m",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "1797px",
+      "w": "100%",
+      "h": "600px"
+     },
+     "m": {
+      "l": "0",
+      "t": "219.688vw",
+      "w": "100%",
+      "h": "71.875vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lk4lyta0",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "600px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "71.875vw"
+       },
+       "fx": {
+        "d": {
+         "type": "BgParallax",
+         "dir": null,
+         "dur": null,
+         "delay": 0,
+         "speed": null,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        },
+        "m": {
+         "type": "BgPan",
+         "dir": "right",
+         "dur": null,
+         "delay": 0,
+         "speed": 0.2,
+         "range": null,
+         "distance": null,
+         "offscreen": null
+        }
+       },
+       "bg": {
+        "image": "home-sfondo-02",
+        "fit": "cover",
+        "pos": "50% 100%",
+        "mediaOpacity": 0.9
+       },
+       "c": [
+        {
+         "id": "comp-lkoi8903",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "220px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "27.813vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<p class=\"t22\"><span class=\"t23\"><span class=\"t24\"><span class=\"t24\"><span class=\"t25\">product design</span></span></span></span></p>\n\n<p class=\"t22\"><span class=\"t23\"><span class=\"t24\"><span class=\"t24\"><span class=\"t25\">innovativo di assoluta</span></span></span></span></p>\n\n<p class=\"t22\"><span class=\"t23\"><span class=\"t24\"><span class=\"t24\"><span class=\"t25\">perfezione formale</span></span></span></span></p>"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

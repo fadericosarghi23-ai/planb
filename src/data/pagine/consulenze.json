@@ -1,0 +1,2269 @@
+{
+ "seo": {
+  "title": "consulenze | PLAN B studio",
+  "description": "Prenota la tua conulenza dedicata di interior design di un'ora al costo di 150 euro",
+  "ogImage": "og-05"
+ },
+ "chrome": false,
+ "docH": {
+  "d": 1501,
+  "m": 1787
+ },
+ "h": {
+  "d": "1501px",
+  "m": "558.313vw"
+ },
+ "top": {
+  "d": 0,
+  "m": 0
+ },
+ "bodyBg": "var(--colore-01)",
+ "sections": [
+  {
+   "id": "comp-m2em0jv3",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "1501px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "558.313vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-m2em0jve",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "38.438vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-m2em0jvp2",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "38.438vw"
+       },
+       "bg": {
+        "color": "var(--colore-16)"
+       },
+       "c": [
+        {
+         "id": "comp-m2em0jvs",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "5.938vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": null,
+          "m": {
+           "type": "RevealIn",
+           "dir": "bottom",
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t54\"><span class=\"t55\"><span class=\"t56\"><span class=\"t57\"><span class=\"t57\">PRENOTA UNA CONSULENZA</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-m2em3xfl",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "1302px"
+     },
+     "m": {
+      "l": "0",
+      "t": "38.438vw",
+      "w": "100%",
+      "h": "519.875vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-m2em3xjv",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "1302px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "519.875vw"
+       },
+       "bg": {
+        "color": "var(--colore-12)"
+       },
+       "c": [
+        {
+         "id": "comp-m2em3xjz",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "46px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "5.625vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t13\"><span class=\"t13\"><span class=\"t14\"><span class=\"t15\"><span class=\"t16\">Una video call di un'ora per rispondere a tutte le tue domande e consigliarti in dettaglio ogni possibilità per ristrutturare e rinnovare gli interni della tua casa.</span></span></span></span></p>\n\n<p class=\"t13\"><span class=\"t13\"><span class=\"t14\"><span class=\"t15\"><span class=\"t16\">Ti offriremo le migliori soluzioni per un interior design unico, elegante e funzionale. Ti illustreremo come ridistribuire e ottimizzare gli ambienti, ti suggeriremo come arredarli e quali materiali scegliere.</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2em3xk02",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "177px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "49.688vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t58\"><span class=\"t58\"><span class=\"t59\"><span class=\"t60\"><span class=\"t61\">LA TUA SESSIONE DEDICATA DI INTERIOR DESIGN dura un'ora al costo di 150,00 €</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2f74xs1",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "291px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "76.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t62\"><span class=\"t62\"><span class=\"t63\"><span class=\"t64\"><span class=\"t65\">PRIMA DI PROCEDERE CON LA CONFERMA considera i seguenti punti:</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2f7gcqp",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 432px)",
+          "t": "334px",
+          "w": "864px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "92.813vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "html": "<p class=\"t66\"><span class=\"t66\"><span class=\"t67\"><span class=\"t68\"><span class=\"t69\">1. Il servizio di consulenza dedicata si può prenotare solo in lingua italiana</span></span></span></span></p>\n\n<p class=\"t66\"><span class=\"t66\">​</span>​</p>\n\n<p class=\"t66\"><span class=\"t66\"><span class=\"t67\"><span class=\"t68\"><span class=\"t69\">2. La prenotazione deve essere effettuata con almeno due giorni di anticipo</span></span></span></span></p>\n\n<p class=\"t66\"><span class=\"t66\">​</span>​</p>\n\n<p class=\"t70\"><span class=\"t70\"><span class=\"t71\"><span class=\"t72\"><span class=\"t73\">3. Carica nelle apposite caselle UPLOAD questi file:</span></span></span></span></p>\n\n<p class=\"t70\"><span class=\"t70\"><span class=\"t71\"><span class=\"t72\"><span class=\"t73\">    a. una pianta in scala o quotata del tuo immobile</span></span></span></span></p>\n\n<p class=\"t70\"><span class=\"t70\"><span class=\"t71\"><span class=\"t72\"><span class=\"t73\">    b. alcune foto degli ambienti che desideri rinnovare</span></span></span></span></p>\n\n<p class=\"t70\"><span class=\"t70\"><span class=\"t71\"><span class=\"t72\"><span class=\"t73\">    c. una descrizione sintetica dell'intervento e l'indirizzo</span></span></span></span></p>"
+        },
+        {
+         "id": "comp-m2gmx52m",
+         "k": "upload",
+         "d": {
+          "l": "calc(50% - 417px)",
+          "t": "561px",
+          "w": "180px",
+          "h": "122px"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "150.813vw",
+          "w": "87.5vw",
+          "h": "38.75vw"
+         },
+         "fields": [
+          {
+           "tag": "label",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "PIANTA",
+           "required": false,
+           "rect": {
+            "x": 215.5,
+            "y": 760,
+            "w": 180,
+            "h": 14
+           },
+           "s": 40,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(255, 255, 255)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "static",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "input",
+           "type": "file",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": true,
+           "rect": {
+            "x": 215.5,
+            "y": 881,
+            "w": 180,
+            "h": 1
+           },
+           "s": 41,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "absolute",
+            "overflow": "clip",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "hidden",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "UPLOAD",
+           "required": false,
+           "rect": {
+            "x": 215.5,
+            "y": 780,
+            "w": 180,
+            "h": 71
+           },
+           "s": 42,
+           "box": {
+            "background-color": "rgba(170, 170, 170, 0.2)",
+            "border-top": "1px solid rgb(204, 204, 204)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "flex"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": false,
+           "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+           },
+           "s": 0,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "6px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "none"
+           }
+          }
+         ],
+         "texts": [
+          {
+           "t": "PIANTA",
+           "s": 40,
+           "rect": {
+            "x": 215.5,
+            "y": 760,
+            "w": 180,
+            "h": 14
+           }
+          },
+          {
+           "t": "UPLOAD",
+           "s": 43,
+           "rect": {
+            "x": 257.8,
+            "y": 807.1,
+            "w": 72.5,
+            "h": 16.8
+           }
+          },
+          {
+           "t": "carica max 3 file JEG o PDF",
+           "s": 44,
+           "rect": {
+            "x": 232.6,
+            "y": 858.1,
+            "w": 145.9,
+            "h": 16.8
+           }
+          }
+         ],
+         "fieldsM": [
+          {
+           "tag": "label",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "PIANTA",
+           "required": false,
+           "rect": {
+            "x": 20,
+            "y": 605.6,
+            "w": 280,
+            "h": 16
+           },
+           "s": 38,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(255, 255, 255)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "static",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "input",
+           "type": "file",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": true,
+           "rect": {
+            "x": 20,
+            "y": 728.6,
+            "w": 280,
+            "h": 1
+           },
+           "s": 39,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "absolute",
+            "overflow": "clip",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "hidden",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "UPLOAD",
+           "required": false,
+           "rect": {
+            "x": 20,
+            "y": 627.6,
+            "w": 280,
+            "h": 71
+           },
+           "s": 40,
+           "box": {
+            "background-color": "rgba(170, 170, 170, 0.2)",
+            "border-top": "1px solid rgb(204, 204, 204)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "flex"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": false,
+           "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+           },
+           "s": 41,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "6px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "none"
+           }
+          }
+         ],
+         "textsM": [
+          {
+           "t": "PIANTA",
+           "s": 38,
+           "rect": {
+            "x": 20,
+            "y": 605.6,
+            "w": 280,
+            "h": 16
+           }
+          },
+          {
+           "t": "UPLOAD",
+           "s": 42,
+           "rect": {
+            "x": 109.2,
+            "y": 654,
+            "w": 78.5,
+            "h": 18.2
+           }
+          },
+          {
+           "t": "carica max 3 file JEG o PDF",
+           "s": 43,
+           "rect": {
+            "x": 81,
+            "y": 705.6,
+            "w": 158,
+            "h": 18.2
+           }
+          }
+         ]
+        },
+        {
+         "id": "comp-m2go51qm",
+         "k": "upload",
+         "d": {
+          "l": "calc(50% - 206px)",
+          "t": "561px",
+          "w": "180px",
+          "h": "122px"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "197.063vw",
+          "w": "87.5vw",
+          "h": "38.75vw"
+         },
+         "fields": [
+          {
+           "tag": "label",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "FOTOGRAFIE",
+           "required": false,
+           "rect": {
+            "x": 426.5,
+            "y": 760,
+            "w": 180,
+            "h": 14
+           },
+           "s": 40,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(255, 255, 255)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "static",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "input",
+           "type": "file",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": true,
+           "rect": {
+            "x": 426.5,
+            "y": 881,
+            "w": 180,
+            "h": 1
+           },
+           "s": 41,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "absolute",
+            "overflow": "clip",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "hidden",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "UPLOAD",
+           "required": false,
+           "rect": {
+            "x": 426.5,
+            "y": 780,
+            "w": 180,
+            "h": 71
+           },
+           "s": 42,
+           "box": {
+            "background-color": "rgba(170, 170, 170, 0.2)",
+            "border-top": "1px solid rgb(204, 204, 204)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "flex"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": false,
+           "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+           },
+           "s": 0,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "6px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "none"
+           }
+          }
+         ],
+         "texts": [
+          {
+           "t": "FOTOGRAFIE",
+           "s": 40,
+           "rect": {
+            "x": 426.5,
+            "y": 760,
+            "w": 180,
+            "h": 14
+           }
+          },
+          {
+           "t": "UPLOAD",
+           "s": 43,
+           "rect": {
+            "x": 468.8,
+            "y": 807.1,
+            "w": 72.5,
+            "h": 16.8
+           }
+          },
+          {
+           "t": "carica max 10 file JEG o PDF",
+           "s": 44,
+           "rect": {
+            "x": 440.4,
+            "y": 858.1,
+            "w": 152.1,
+            "h": 16.8
+           }
+          }
+         ],
+         "fieldsM": [
+          {
+           "tag": "label",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "FOTOGRAFIE",
+           "required": false,
+           "rect": {
+            "x": 20,
+            "y": 753.6,
+            "w": 280,
+            "h": 16
+           },
+           "s": 38,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(255, 255, 255)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "static",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "input",
+           "type": "file",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": true,
+           "rect": {
+            "x": 20,
+            "y": 876.6,
+            "w": 280,
+            "h": 1
+           },
+           "s": 39,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "absolute",
+            "overflow": "clip",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "hidden",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "UPLOAD",
+           "required": false,
+           "rect": {
+            "x": 20,
+            "y": 775.6,
+            "w": 280,
+            "h": 71
+           },
+           "s": 40,
+           "box": {
+            "background-color": "rgba(170, 170, 170, 0.2)",
+            "border-top": "1px solid rgb(204, 204, 204)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "flex"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": false,
+           "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+           },
+           "s": 41,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "6px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "none"
+           }
+          }
+         ],
+         "textsM": [
+          {
+           "t": "FOTOGRAFIE",
+           "s": 38,
+           "rect": {
+            "x": 20,
+            "y": 753.6,
+            "w": 280,
+            "h": 16
+           }
+          },
+          {
+           "t": "UPLOAD",
+           "s": 42,
+           "rect": {
+            "x": 109.2,
+            "y": 802,
+            "w": 78.5,
+            "h": 18.2
+           }
+          },
+          {
+           "t": "carica max 10 file JEG o PDF",
+           "s": 43,
+           "rect": {
+            "x": 77.6,
+            "y": 853.6,
+            "w": 164.8,
+            "h": 18.2
+           }
+          }
+         ]
+        },
+        {
+         "id": "comp-m2goa1sr",
+         "k": "upload",
+         "d": {
+          "l": "calc(50% + 5px)",
+          "t": "561px",
+          "w": "180px",
+          "h": "122px"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "243.313vw",
+          "w": "87.5vw",
+          "h": "38.75vw"
+         },
+         "fields": [
+          {
+           "tag": "label",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "DESCRIZIONE",
+           "required": false,
+           "rect": {
+            "x": 637.5,
+            "y": 760,
+            "w": 180,
+            "h": 14
+           },
+           "s": 40,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(255, 255, 255)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "static",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "input",
+           "type": "file",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": true,
+           "rect": {
+            "x": 637.5,
+            "y": 881,
+            "w": 180,
+            "h": 1
+           },
+           "s": 41,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "absolute",
+            "overflow": "clip",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "hidden",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "UPLOAD",
+           "required": false,
+           "rect": {
+            "x": 637.5,
+            "y": 780,
+            "w": 180,
+            "h": 71
+           },
+           "s": 42,
+           "box": {
+            "background-color": "rgba(170, 170, 170, 0.2)",
+            "border-top": "1px solid rgb(204, 204, 204)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "flex"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": false,
+           "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+           },
+           "s": 0,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "6px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "none"
+           }
+          }
+         ],
+         "texts": [
+          {
+           "t": "DESCRIZIONE",
+           "s": 40,
+           "rect": {
+            "x": 637.5,
+            "y": 760,
+            "w": 180,
+            "h": 14
+           }
+          },
+          {
+           "t": "UPLOAD",
+           "s": 43,
+           "rect": {
+            "x": 679.8,
+            "y": 807.1,
+            "w": 72.5,
+            "h": 16.8
+           }
+          },
+          {
+           "t": "carica un file WORD o PDF",
+           "s": 44,
+           "rect": {
+            "x": 656.1,
+            "y": 858.1,
+            "w": 142.7,
+            "h": 16.8
+           }
+          }
+         ],
+         "fieldsM": [
+          {
+           "tag": "label",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "DESCRIZIONE",
+           "required": false,
+           "rect": {
+            "x": 20,
+            "y": 901.6,
+            "w": 280,
+            "h": 16
+           },
+           "s": 38,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(255, 255, 255)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "static",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "input",
+           "type": "file",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": true,
+           "rect": {
+            "x": 20,
+            "y": 1024.6,
+            "w": 280,
+            "h": 1
+           },
+           "s": 39,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "absolute",
+            "overflow": "clip",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "hidden",
+            "display": "block"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "UPLOAD",
+           "required": false,
+           "rect": {
+            "x": 20,
+            "y": 923.6,
+            "w": 280,
+            "h": 71
+           },
+           "s": 40,
+           "box": {
+            "background-color": "rgba(170, 170, 170, 0.2)",
+            "border-top": "1px solid rgb(204, 204, 204)",
+            "border-radius": "0px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "flex"
+           }
+          },
+          {
+           "tag": "div",
+           "type": "",
+           "name": "",
+           "ph": "",
+           "text": "",
+           "required": false,
+           "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0
+           },
+           "s": 41,
+           "box": {
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top": "0px none rgb(0, 0, 0)",
+            "border-radius": "6px",
+            "box-shadow": "none",
+            "opacity": "1",
+            "position": "relative",
+            "overflow": "visible",
+            "transform": "none",
+            "z-index": "auto",
+            "visibility": "visible",
+            "display": "none"
+           }
+          }
+         ],
+         "textsM": [
+          {
+           "t": "DESCRIZIONE",
+           "s": 38,
+           "rect": {
+            "x": 20,
+            "y": 901.6,
+            "w": 280,
+            "h": 16
+           }
+          },
+          {
+           "t": "UPLOAD",
+           "s": 42,
+           "rect": {
+            "x": 109.2,
+            "y": 950,
+            "w": 78.5,
+            "h": 18.2
+           }
+          },
+          {
+           "t": "carica un file WORD o PDF",
+           "s": 43,
+           "rect": {
+            "x": 82.7,
+            "y": 1001.6,
+            "w": 154.6,
+            "h": 18.2
+           }
+          }
+         ]
+        },
+        {
+         "id": "comp-m2em3xk2",
+         "k": "container",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "759px",
+          "w": "980px",
+          "h": "543px"
+         },
+         "m": {
+          "l": "0",
+          "t": "292.062vw",
+          "w": "100%",
+          "h": "227.813vw"
+         },
+         "c": [
+          {
+           "id": "comp-m2em3xk33",
+           "k": "form",
+           "d": {
+            "l": "0",
+            "t": "0px",
+            "w": "100%",
+            "h": "543px"
+           },
+           "m": {
+            "l": "0",
+            "t": "0vw",
+            "w": "100%",
+            "h": "227.813vw"
+           },
+           "boxBg": "var(--colore-09)",
+           "fields": [],
+           "texts": [],
+           "fieldsM": [],
+           "textsM": [],
+           "c": [
+            {
+             "id": "comp-m2em3xk61",
+             "k": "input",
+             "d": {
+              "l": "calc(50% - 429px)",
+              "t": "38px",
+              "w": "400px",
+              "h": "51px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "10vw",
+              "w": "87.5vw",
+              "h": "15.625vw"
+             },
+             "fields": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "NOME",
+               "required": false,
+               "rect": {
+                "x": 203.5,
+                "y": 996,
+                "w": 400,
+                "h": 12
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "text",
+               "name": "nome",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 203.5,
+                "y": 1018,
+                "w": 400,
+                "h": 29
+               },
+               "s": 46,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "texts": [
+              {
+               "t": "NOME",
+               "s": 45,
+               "rect": {
+                "x": 203.5,
+                "y": 996,
+                "w": 400,
+                "h": 12
+               }
+              }
+             ],
+             "fieldsM": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "NOME",
+               "required": false,
+               "rect": {
+                "x": 20,
+                "y": 1089.6,
+                "w": 280,
+                "h": 12
+               },
+               "s": 44,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "text",
+               "name": "nome",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 20,
+                "y": 1111.6,
+                "w": 280,
+                "h": 28
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "textsM": [
+              {
+               "t": "NOME",
+               "s": 44,
+               "rect": {
+                "x": 20,
+                "y": 1089.6,
+                "w": 280,
+                "h": 12
+               }
+              }
+             ]
+            },
+            {
+             "id": "comp-m2em3xkc1",
+             "k": "input",
+             "d": {
+              "l": "calc(50% - 429px)",
+              "t": "109px",
+              "w": "400px",
+              "h": "51px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "56.25vw",
+              "w": "87.5vw",
+              "h": "15.625vw"
+             },
+             "fields": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "EMAIL",
+               "required": false,
+               "rect": {
+                "x": 203.5,
+                "y": 1067,
+                "w": 400,
+                "h": 12
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "email",
+               "name": "email",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 203.5,
+                "y": 1089,
+                "w": 400,
+                "h": 29
+               },
+               "s": 46,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "texts": [
+              {
+               "t": "EMAIL",
+               "s": 45,
+               "rect": {
+                "x": 203.5,
+                "y": 1067,
+                "w": 400,
+                "h": 12
+               }
+              }
+             ],
+             "fieldsM": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "EMAIL",
+               "required": false,
+               "rect": {
+                "x": 20,
+                "y": 1237.6,
+                "w": 280,
+                "h": 12
+               },
+               "s": 44,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "email",
+               "name": "email",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 20,
+                "y": 1259.6,
+                "w": 280,
+                "h": 28
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "textsM": [
+              {
+               "t": "EMAIL",
+               "s": 44,
+               "rect": {
+                "x": 20,
+                "y": 1237.6,
+                "w": 280,
+                "h": 12
+               }
+              }
+             ]
+            },
+            {
+             "id": "comp-m2em3xkf1",
+             "k": "input",
+             "d": {
+              "l": "calc(50% + 31px)",
+              "t": "38px",
+              "w": "400px",
+              "h": "51px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "33.125vw",
+              "w": "87.5vw",
+              "h": "15.625vw"
+             },
+             "fields": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "COGNOME",
+               "required": false,
+               "rect": {
+                "x": 663.5,
+                "y": 996,
+                "w": 400,
+                "h": 12
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "text",
+               "name": "cognome",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 663.5,
+                "y": 1018,
+                "w": 400,
+                "h": 29
+               },
+               "s": 46,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "texts": [
+              {
+               "t": "COGNOME",
+               "s": 45,
+               "rect": {
+                "x": 663.5,
+                "y": 996,
+                "w": 400,
+                "h": 12
+               }
+              }
+             ],
+             "fieldsM": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "COGNOME",
+               "required": false,
+               "rect": {
+                "x": 20,
+                "y": 1163.6,
+                "w": 280,
+                "h": 12
+               },
+               "s": 44,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "text",
+               "name": "cognome",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 20,
+                "y": 1185.6,
+                "w": 280,
+                "h": 28
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "textsM": [
+              {
+               "t": "COGNOME",
+               "s": 44,
+               "rect": {
+                "x": 20,
+                "y": 1163.6,
+                "w": 280,
+                "h": 12
+               }
+              }
+             ]
+            },
+            {
+             "id": "comp-m2em3xkl1",
+             "k": "input",
+             "d": {
+              "l": "calc(50% + 31px)",
+              "t": "109px",
+              "w": "400px",
+              "h": "51px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "79.688vw",
+              "w": "87.5vw",
+              "h": "15.625vw"
+             },
+             "fields": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "TELEFONO",
+               "required": false,
+               "rect": {
+                "x": 663.5,
+                "y": 1067,
+                "w": 400,
+                "h": 12
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "tel",
+               "name": "phone",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 663.5,
+                "y": 1089,
+                "w": 400,
+                "h": 29
+               },
+               "s": 46,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "texts": [
+              {
+               "t": "TELEFONO",
+               "s": 45,
+               "rect": {
+                "x": 663.5,
+                "y": 1067,
+                "w": 400,
+                "h": 12
+               }
+              }
+             ],
+             "fieldsM": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "TELEFONO",
+               "required": false,
+               "rect": {
+                "x": 20,
+                "y": 1312.6,
+                "w": 280,
+                "h": 12
+               },
+               "s": 44,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "tel",
+               "name": "phone",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 20,
+                "y": 1334.6,
+                "w": 280,
+                "h": 28
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgb(51, 51, 51)",
+                "border-top": "0px solid rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "inline-block"
+               }
+              }
+             ],
+             "textsM": [
+              {
+               "t": "TELEFONO",
+               "s": 44,
+               "rect": {
+                "x": 20,
+                "y": 1312.6,
+                "w": 280,
+                "h": 12
+               }
+              }
+             ]
+            },
+            {
+             "id": "comp-m2em3xkq1",
+             "k": "date",
+             "d": {
+              "l": "calc(50% - 429px)",
+              "t": "208px",
+              "w": "190px",
+              "h": "72px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "116.25vw",
+              "w": "87.5vw",
+              "h": "22.5vw"
+             },
+             "fields": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "DATA * required",
+               "required": false,
+               "rect": {
+                "x": 203.5,
+                "y": 1166,
+                "w": 190,
+                "h": 12
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "text",
+               "name": "",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 203.5,
+                "y": 1188,
+                "w": 134,
+                "h": 50
+               },
+               "s": 47,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgba(0, 0, 0, 0)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "button",
+               "type": "button",
+               "name": "",
+               "ph": "",
+               "text": "",
+               "required": false,
+               "rect": {
+                "x": 357.5,
+                "y": 1205,
+                "w": 16,
+                "h": 16
+               },
+               "s": 48,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(0, 0, 0)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "absolute",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              }
+             ],
+             "texts": [
+              {
+               "t": "*",
+               "s": 45,
+               "rect": {
+                "x": 229.9,
+                "y": 1164,
+                "w": 11.2,
+                "h": 16
+               }
+              },
+              {
+               "t": "required",
+               "s": 45,
+               "rect": {
+                "x": 240.1,
+                "y": 1165,
+                "w": 1,
+                "h": 1
+               }
+              }
+             ],
+             "fieldsM": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "DATA * required",
+               "required": false,
+               "rect": {
+                "x": 20,
+                "y": 1429.6,
+                "w": 280,
+                "h": 12
+               },
+               "s": 44,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "input",
+               "type": "text",
+               "name": "",
+               "ph": "",
+               "text": "",
+               "required": true,
+               "rect": {
+                "x": 20,
+                "y": 1451.6,
+                "w": 224,
+                "h": 50
+               },
+               "s": 46,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgba(0, 0, 0, 0)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "button",
+               "type": "button",
+               "name": "",
+               "ph": "",
+               "text": "",
+               "required": false,
+               "rect": {
+                "x": 264,
+                "y": 1468.6,
+                "w": 16,
+                "h": 16
+               },
+               "s": 47,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(0, 0, 0)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "absolute",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              }
+             ],
+             "textsM": [
+              {
+               "t": "*",
+               "s": 44,
+               "rect": {
+                "x": 46.4,
+                "y": 1427.6,
+                "w": 11.2,
+                "h": 16
+               }
+              },
+              {
+               "t": "required",
+               "s": 44,
+               "rect": {
+                "x": 56.6,
+                "y": 1428.6,
+                "w": 1,
+                "h": 1
+               }
+              }
+             ]
+            },
+            {
+             "id": "comp-m2em3xks3",
+             "k": "time",
+             "d": {
+              "l": "calc(50% - 219px)",
+              "t": "208px",
+              "w": "190px",
+              "h": "72px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "143.125vw",
+              "w": "87.5vw",
+              "h": "22.5vw"
+             },
+             "fields": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "ORARIO",
+               "required": false,
+               "rect": {
+                "x": 413.5,
+                "y": 1166,
+                "w": 190,
+                "h": 12
+               },
+               "s": 45,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "select",
+               "type": "select-one",
+               "name": "",
+               "ph": "",
+               "text": "16:0017:0017:0018:00",
+               "required": true,
+               "rect": {
+                "x": 413.5,
+                "y": 1188,
+                "w": 190,
+                "h": 50
+               },
+               "s": 49,
+               "box": {
+                "background-color": "rgb(255, 255, 255)",
+                "border-top": "1px solid rgb(118, 118, 118)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "0",
+                "position": "absolute",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              }
+             ],
+             "texts": [
+              {
+               "t": "ORARIO",
+               "s": 45,
+               "rect": {
+                "x": 413.5,
+                "y": 1166,
+                "w": 190,
+                "h": 12
+               }
+              },
+              {
+               "t": "SCEGLI UN ORARIO",
+               "s": 47,
+               "rect": {
+                "x": 413.5,
+                "y": 1204.6,
+                "w": 161,
+                "h": 16.8
+               }
+              }
+             ],
+             "fieldsM": [
+              {
+               "tag": "label",
+               "type": "",
+               "name": "",
+               "ph": "",
+               "text": "ORARIO",
+               "required": false,
+               "rect": {
+                "x": 20,
+                "y": 1515.6,
+                "w": 280,
+                "h": 12
+               },
+               "s": 44,
+               "box": {
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-top": "0px none rgb(255, 255, 255)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "1",
+                "position": "static",
+                "overflow": "visible",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              },
+              {
+               "tag": "select",
+               "type": "select-one",
+               "name": "",
+               "ph": "",
+               "text": "16:0017:0017:0018:00",
+               "required": true,
+               "rect": {
+                "x": 20,
+                "y": 1537.6,
+                "w": 280,
+                "h": 50
+               },
+               "s": 48,
+               "box": {
+                "background-color": "rgb(255, 255, 255)",
+                "border-top": "1px solid rgb(118, 118, 118)",
+                "border-radius": "0px",
+                "box-shadow": "none",
+                "opacity": "0",
+                "position": "absolute",
+                "overflow": "clip",
+                "transform": "none",
+                "z-index": "auto",
+                "visibility": "visible",
+                "display": "block"
+               }
+              }
+             ],
+             "textsM": [
+              {
+               "t": "ORARIO",
+               "s": 44,
+               "rect": {
+                "x": 20,
+                "y": 1515.6,
+                "w": 280,
+                "h": 12
+               }
+              },
+              {
+               "t": "SCEGLI UN ORARIO",
+               "s": 46,
+               "rect": {
+                "x": 20,
+                "y": 1553.5,
+                "w": 251,
+                "h": 18.2
+               }
+              }
+             ]
+            },
+            {
+             "id": "comp-m2em3xkw1",
+             "k": "button",
+             "d": {
+              "l": "calc(50% - 150px)",
+              "t": "378px",
+              "w": "300px",
+              "h": "60px"
+             },
+             "m": {
+              "l": "6.25vw",
+              "t": "193.125vw",
+              "w": "87.5vw",
+              "h": "9.375vw"
+             },
+             "href": null,
+             "target": null,
+             "tag": "BUTTON",
+             "btn": {
+              "bg": "var(--colore-02)",
+              "border": "1px solid var(--colore-01)",
+              "radius": "0px",
+              "transition": "border-color 0.4s, background-color 0.4s",
+              "label": "CONFERMA",
+              "lc": "t74",
+              "hover": {
+               "self": {
+                "background-color": null,
+                "border-top-color": null,
+                "border-right-color": null,
+                "border-bottom-color": null,
+                "border-left-color": null
+               },
+               "icon": {
+                "color": null
+               }
+              }
+             }
+            },
+            {
+             "id": "comp-m2em3xl21",
+             "k": "text",
+             "d": {
+              "l": "calc(50% - 210px)",
+              "t": "453px",
+              "w": "420px",
+              "h": "auto"
+             },
+             "m": null,
+             "nascosto": true,
+             "html": "<p class=\"t75\"><span class=\"t75\"><span class=\"t75\"><span class=\"t76\"><span class=\"t77\">Grazie per la prenotazione. </span></span></span></span><span class=\"t75\"><span class=\"t75\"><span class=\"t76\"><span class=\"t77\">A breve riceverai una email di conferma per la consulenza dedicata e i dettagli per la video call.</span></span></span></span></p>"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

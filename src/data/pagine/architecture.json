@@ -1,0 +1,351 @@
+{
+ "seo": {
+  "title": "ARCHITECTURE | PLAN B studio",
+  "description": "Per costruire un nuovo edificio, residenziale o commerciale,&nbsp;PLAN B STUDIO ti offre un servizio completo di progettazione architettonica di altissima qualità e all'avanguardia.\nProgettiamo con la massima attenzione alla sostenibilità ambientale, con materiali ecologici e le migliori tecnologie, per un'architettura contemporanea a impatto zero e in perfetta armonia con la natura.",
+  "ogImage": "interiors-galleria-11"
+ },
+ "chrome": true,
+ "docH": {
+  "d": 1744,
+  "m": 1636
+ },
+ "h": {
+  "d": "1518.8px",
+  "m": "417.188vw"
+ },
+ "top": {
+  "d": 100.4,
+  "m": 90
+ },
+ "bodyBg": "var(--colore-01)",
+ "sections": [
+  {
+   "id": "comp-lzn3ps4d",
+   "k": "section",
+   "d": {
+    "l": "0",
+    "t": "0px",
+    "w": "100%",
+    "h": "1518.8px"
+   },
+   "m": {
+    "l": "0",
+    "t": "0vw",
+    "w": "100%",
+    "h": "417.188vw"
+   },
+   "bgm": null,
+   "c": [
+    {
+     "id": "comp-lzn3ps4h",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "0px",
+      "w": "100%",
+      "h": "199px"
+     },
+     "m": {
+      "l": "0",
+      "t": "0vw",
+      "w": "100%",
+      "h": "25.313vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lzn3ps4l",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "199px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "25.313vw"
+       },
+       "bg": {
+        "color": "var(--colore-11)"
+       },
+       "c": [
+        {
+         "id": "comp-lzn3ps4n1",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 490px)",
+          "t": "57px",
+          "w": "980px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "6.875vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 400,
+           "offscreen": true
+          },
+          "m": {
+           "type": "GlitchIn",
+           "dir": 90,
+           "dur": 1200,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": 200,
+           "offscreen": false
+          }
+         },
+         "html": "<h1 class=\"t32\"><span class=\"t2\"><span class=\"t3\"><span class=\"t4\"><span class=\"t4\">ARCHITETTURA</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lzn3ps4s2",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "199px",
+      "w": "100%",
+      "h": "152px"
+     },
+     "m": {
+      "l": "0",
+      "t": "25.313vw",
+      "w": "100%",
+      "h": "69.375vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lzn3ps4u",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "152px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "69.375vw"
+       },
+       "bg": {
+        "color": "var(--colore-11)"
+       },
+       "c": [
+        {
+         "id": "comp-lzn3ps4w",
+         "k": "text",
+         "d": {
+          "l": "calc(50% - 400px)",
+          "t": "0px",
+          "w": "800px",
+          "h": "auto"
+         },
+         "m": {
+          "l": "6.25vw",
+          "t": "0vw",
+          "w": "87.5vw",
+          "h": "auto"
+         },
+         "fx": {
+          "d": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1500,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          },
+          "m": {
+           "type": "RevealIn",
+           "dir": "left",
+           "dur": 1500,
+           "delay": 0,
+           "speed": null,
+           "range": null,
+           "distance": null,
+           "offscreen": null
+          }
+         },
+         "html": "<h1 class=\"t33\"><span class=\"t37\"><span class=\"t35\"><span class=\"t35\"><span class=\"t36\">Per costruire un nuovo edificio, residenziale o commerciale, </span></span></span></span><span class=\"t34\"><span class=\"t34\"><span class=\"t35\"><span class=\"t36\">PLAN B STUDIO ti offre un servizio completo di progettazione architettonica di altissima qualità e all'avanguardia.</span></span></span></span><br>\n<br>\n<span class=\"t37\"><span class=\"t35\"><span class=\"t35\"><span class=\"t36\">Progettiamo con la massima attenzione alla sostenibilità ambientale, con materiali ecologici e le migliori tecnologie, per un'architettura contemporanea a impatto zero e in perfetta armonia con la natura.</span></span></span></span></h1>"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-lzn3ps511",
+     "k": "strip",
+     "d": {
+      "l": "0",
+      "t": "351.1px",
+      "w": "100%",
+      "h": "1167.7px"
+     },
+     "m": {
+      "l": "0",
+      "t": "94.688vw",
+      "w": "100%",
+      "h": "322.5vw"
+     },
+     "bgm": null,
+     "c": [
+      {
+       "id": "comp-lzn3ps53",
+       "k": "column",
+       "d": {
+        "l": "0%",
+        "t": "0px",
+        "w": "100%",
+        "h": "1167.7px"
+       },
+       "m": {
+        "l": "0",
+        "t": "0vw",
+        "w": "100%",
+        "h": "322.5vw"
+       },
+       "bg": {
+        "color": "var(--colore-11)"
+       },
+       "c": [
+        {
+         "id": "comp-lzn3ps55",
+         "k": "gallery",
+         "d": {
+          "l": "0",
+          "t": "0px",
+          "w": "100%",
+          "h": "1154.7px"
+         },
+         "m": {
+          "l": "0",
+          "t": "0vw",
+          "w": "100%",
+          "h": "320.313vw"
+         },
+         "items": [
+          {
+           "img": "home-galleria-11",
+           "title": "Villa LaSalle / Venezia Lido",
+           "desc": "Progetto architettonico di una villa contemporanea al Lido di Venezia: due piani fuori terra e uno interrato con piscina e giardino.\n\nLa nuova abitazione è stata progettata per rispondere all'esigenza espositiva del committente, un collezionista d'arte svizzero. \n\nAl piano terra è collocata la galleria principale: un ampio corridoio di 13 metri di lunghezza per 2,5 metri di larghezza, direttamente accessibile dall'ingresso principale, funge da raccordo tra il soggiorno, la grande cucina con zona pranzo, la zona notte ospiti con camera e bagno e una serie di vani di servizio.\nLe due pareti che delimitano longitudinalmente la galleria sono dedicate all'esposizione delle opere pittoriche, lo spazio centrale è dedicato alla scultura.\n\nUna seconda galleria si sviluppa al primo piano, in adiacenza al vano scala. Uno spazio di 10 metri di lunghezza e 3 di larghezza, con la parete maggiore interamente dedicata alle opere d'arte. Mentre una serie di scaffalature ad incasso a tutta altezza definiscono la zona studio.\nDalla galleria si passa alla zona notte: dove troviamo la camera da letto padronale con cabina armadio e bagno in suite e due camere da letto con relativi bagni e spazio armadi. Tutte le camere affacciano sull'ampio roof garden.\n\nIl piano interrato ospita l'area fitness, la SPA e i locali di servizio con lavanderia e centrale termica.\n\nIl giardino con piscina rettangolare e autorimessa completano la proprietà che si sviluppa su un'area fondiaria di 1300 mq.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 0,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "architecture-galleria-01",
+           "title": "Verdi 76 | Villa con giardino e piscina / Seregno",
+           "desc": "Recupero architettonico e interior design di un complesso abitativo tardo ottocentesco con villa, dependance, autorimessa e giardino.\n\nIl progetto, tramite l'aggiunta di un nuovo volume angolare, prevede l'unione dei due edifici abitativi attualmente separati, in un’unica grande villa disposta su due livelli.\nIl nuovo volume è un parallelepipedo in muratura di due piani con ampie finestrature a tutta altezza e copertura piana adatta ad ospitare l’impianto di climatizzazione.\nIl progetto architettonico si completa con una piscina rettangolare, posizionata al centro del giardino piantumato e un grande garage per tre auto.\n\nIl progetto di interior design, contemporaneo e funzionale, riorganizza gli spazi abitativi.\nAl piano terra: un foyer d’ingresso con accesso al vano scala, un soggiorno doppio con camino e area home cinema, una sala da pranzo, una cucina abitabile con isola, una serie di locali di servizio con bagno di cortesia, dispensa, lavanderia e deposito cappotti. Il piano terra si completa con un appartamento servitù con accesso indipendente.\nAl primo piano: due camere da letto con bagni in suite e un grande appartamento padronale con camera da letto e terrazza, cabina armadi e bagno in suite.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 0,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "architecture-galleria-02",
+           "title": "House with Garden / Lecco",
+           "desc": "Progetto architettonico e di interior design di una casa su due livelli con giardino e box auto al piano interrato.\n\nDa una struttura al rustico, parte di un complesso bifamiliare, edificata una trentina di anni fa e mai ultimata, abbiamo progettato un'abitazione raffinata, elegante e contemporanea con materiali ecologici e il massimo dell'efficenza energetica per vivere ad impatto zero.\n\nIl piano terra è un open space dove il soggiorno, la zona pranzo e la cucina si sviluppano in un percorso senza interruzioni attorno al blocco centrale, che funge da disimpegno di servizio.\n\nIl primo piano è dedicato alla zona notte con tre camere da letto e due bagni. La camera da letto padronale si affaccia su un terrazzo tramite una porta finestra scorrevole a tutta parete. E' dotata di cabina armadio e bagno in suite.",
+           "linkText": "VEDI IL PROGETTO IN DETTAGLIO",
+           "linkTo": "#",
+           "b": {
+            "t": 385.5818738083625,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "architecture-galleria-03",
+           "title": "Private Villa / Zurich",
+           "desc": "Abbiamo progettato questa grande casa privata nell'esclusiva area residenziale dell'East Bank sul lago di Zurigo.\n\nLa residenza, con pianta ad L aperta, si sviluppa su due piani per una superfice complessiva di 700 mq.\n\nLe grandi aperture vetrate consentono a tutti gli ambienti della casa di godere della vista spettacolare di un'area paesaggistica unica.",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 385.5818738083625,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "home-galleria-20",
+           "title": "",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 771.163747616725,
+            "l": 0,
+            "w": 724,
+            "h": 384
+           }
+          },
+          {
+           "img": "architecture-galleria-04",
+           "title": "",
+           "desc": "",
+           "linkText": "",
+           "linkTo": "",
+           "b": {
+            "t": 771.163747616725,
+            "l": 726,
+            "w": 724,
+            "h": 384
+           }
+          }
+         ],
+         "mobile": {
+          "mode": "column",
+          "w": 320,
+          "h": 170,
+          "gap": 1
+         },
+         "settings": {
+          "layout": 1,
+          "horizontal": false,
+          "click": "expand",
+          "autoSlide": false,
+          "speed": 36,
+          "overlay": "var(--colore-32)",
+          "margin": 2
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+---
+// Footer dall'albero di chrome.json (dati studio, sedi, copyright, social).
+import chrome from '../data/chrome.json';
+import Nodo from './Nodo.astro';
+const f = chrome.footer as any;
+---
+<footer class="sito-footer" style={`--fd:${chrome.fD}px;--fm:${(chrome.fM * 100) / 320}vw`}>
+  {f.c.map((c: any) => <Nodo n={c} />)}
+</footer>
+<style>
+  .sito-footer { position: relative; height: var(--fd); }
+  @media (max-width: 750px) { .sito-footer { height: var(--fm); } }
+</style>

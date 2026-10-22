@@ -1,0 +1,56 @@
+---
+// Shop / outlet: filtro a colonna (desktop) o pannello "Filtra" (mobile) + griglia a 3 colonne + "altri prodotti".
+import Card from './Card.astro';
+interface Props { s: any }
+const { s } = Astro.props;
+const c = s.cls;
+---
+<div class="shop" style={`--card-bg:${c.cardBg};--ribbon-bg:${c.ribbonBg};--ribbon-bg-m:${c.ribbonBgM};--more-bg:${c.moreBg};--more-bg-m:${c.moreBgM};--more-border-m:${c.moreBorderM}`}>
+  <button class="filtra-m" type="button" data-apri-filtri><span class={s.filter.titleCls}>FILTRA</span></button>
+  <aside class="filtri" data-filtri>
+    <div class="filtri-testa">
+      <h2 class={s.filter.titleCls}>{s.filter.title}</h2>
+      <button class="chiudi-filtri" type="button" data-chiudi-filtri aria-label="Chiudi">
+        <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M15.5,10 L15.5,11 L4.5,11 L4.5,10 L15.5,10 Z"></path></svg>
+      </button>
+    </div>
+    <ul class="opzioni" role="radiogroup">
+      {s.filter.options.map((o: string, i: number) => (
+        <li><label><input type="radio" name={`filtro-${s.filter.title}`} checked={i === 0} /><span class={i === 0 ? s.filter.optSelCls : s.filter.optCls}>{o}</span></label></li>
+      ))}
+    </ul>
+  </aside>
+  <div class="griglia">
+    {s.products.map((p: any, i: number) => <div class="cella"><Card p={p} cls={c} i={i} /></div>)}
+  </div>
+  <div class="altri"><button type="button" class={`altri-btn ${c.more}`}>{s.more}</button></div>
+</div>
+<style>
+  .shop { position: relative; height: 100%; --det-pad: 16px 15px 0; }
+  .filtra-m { display: none; }
+  .filtri { position: absolute; left: 20px; top: 45px; width: 200px; }
+  .filtri-testa { display: flex; justify-content: space-between; align-items: center; height: 19px; }
+  .chiudi-filtri { background: none; border: 0; padding: 0; color: var(--chiaro); cursor: pointer; }
+  .opzioni { list-style: none; margin-top: 19px; }
+  .opzioni li { height: 23.8px; }
+  .opzioni label { cursor: pointer; display: block; line-height: 23.8px; }
+  .opzioni input { position: absolute; opacity: 0; }
+  .opzioni label:hover span { opacity: .7; }
+  .griglia { position: absolute; left: 241px; top: 0; width: 1003px; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 413.3px; }
+  .cella { padding: 10px; }
+  .altri { position: absolute; left: 241px; width: 1003px; top: 1678px; display: flex; justify-content: center; }
+  .altri-btn { width: 216.7px; height: 42px; background: var(--more-bg); border: 0; cursor: pointer; transition: opacity .2s; }
+  .altri-btn:hover { opacity: .8; }
+  @media (max-width: 750px) {
+    .shop { --det-pad: 5vw 3.125vw 0; }
+    .filtra-m { display: flex; align-items: center; justify-content: center; position: absolute; left: 3.125vw; width: 81.25vw; top: 6.25vw; height: 12.5vw; background: none; border: 1px solid var(--chiaro); cursor: pointer; }
+    .filtri { position: fixed; z-index: 60; inset: 0; left: auto; width: 85vw; padding: 26.5vw 6.25vw; background: var(--chiaro); transform: translateX(100%); transition: transform .3s ease; }
+    .filtri.open { transform: none; }
+    .filtri :global(h2), .filtri :global(.opzioni span) { color: var(--scuro) !important; }
+    .chiudi-filtri { color: var(--scuro); }
+    .griglia { position: absolute; left: 3.125vw; top: 20vw; width: 81.25vw; grid-template-columns: 1fr; grid-auto-rows: auto; row-gap: 12.5vw; }
+    .cella { padding: 0; }
+    .altri { left: 0; width: 100%; top: auto; bottom: 0; }
+    .altri-btn { width: 67.2vw; height: 13.125vw; background: var(--more-bg-m); border: var(--more-border-m); }
+  }
+</style>

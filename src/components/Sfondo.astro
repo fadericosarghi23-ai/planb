@@ -1,0 +1,20 @@
+---
+// Livelli di sfondo di un contenitore: colore, immagine o video (con poster), velatura.
+import media from '../data/media.json';
+interface Props { bg: any; cls?: string }
+const { bg, cls = '' } = Astro.props;
+const M = media as Record<string, { src: string; w: number; h: number; alt: string }>;
+const img = bg?.image ? M[bg.image] : null;
+const vid = bg?.video ? M[bg.video] : null;
+const poster = bg?.poster ? M[bg.poster] : null;
+const mediaStyle = `object-fit:${bg?.fit || 'cover'};object-position:${bg?.pos || '50% 50%'};opacity:${bg?.mediaOpacity ?? 1}`;
+---
+{bg && (
+  <div class={`bg ${cls}`} style={bg.color ? `background-color:${bg.color}` : undefined}>
+    {img && <img class="bg-media" src={img.src} width={img.w} height={img.h} alt={img.alt || ''} loading="lazy" decoding="async" style={mediaStyle} />}
+    {vid && (
+      <video class="bg-media" src={vid.src} poster={poster?.src} width={vid.w} height={vid.h} autoplay muted loop playsinline preload="metadata" style={mediaStyle} aria-hidden="true"></video>
+    )}
+    {bg.overlay && <div class="bg-ov" style={`background:${bg.overlay}`}></div>}
+  </div>
+)}

@@ -1,0 +1,11 @@
+---
+// Widget dello shop: smista per variante (griglia con filtro, pagina categoria, scheda prodotto).
+import Griglia from './Griglia.astro';
+import Categoria from './Categoria.astro';
+import Scheda from './Scheda.astro';
+interface Props { s: any }
+const { s } = Astro.props;
+---
+{s.variant === 'shop' && <Griglia s={s} />}
+{s.variant === 'category' && <Categoria s={s} />}
+{s.variant === 'product' && <Scheda s={s} />}

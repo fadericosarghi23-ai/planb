@@ -1,0 +1,9 @@
+---
+// Pagina categoria dello shop (un'unica categoria nel sito di partenza: tutti i prodotti).
+import Pagina from '../../components/Pagina.astro';
+import p from '../../data/pagine/category.json';
+export function getStaticPaths() {
+  return [{ params: { slug: 'all-products' } }];
+}
+---
+<Pagina p={p} />

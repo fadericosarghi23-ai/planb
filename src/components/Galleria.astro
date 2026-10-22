@@ -1,0 +1,42 @@
+---
+// Galleria fotografica: a righe (posizioni proporzionali alla larghezza, come il layout di partenza)
+// oppure slider orizzontale continuo (home). Clic → lightbox con titolo, descrizione e link.
+import media from '../data/media.json';
+interface Props { n: any }
+const { n } = Astro.props;
+const M = media as Record<string, { src: string; w: number; h: number; alt: string }>;
+const items = n.items.map((it: any) => ({ ...it, m: M[it.img] }));
+const slider = n.settings?.layout === 4 || n.mobile?.mode === 'slider';
+const W = Math.max(...items.map((i: any) => (i.b ? i.b.l + i.b.w : 0)));
+const H = Math.max(...items.map((i: any) => (i.b ? i.b.t + i.b.h : 0)));
+const pc = (v: number, t: number) => `${+((v / t) * 100).toFixed(4)}%`;
+const vw = (v: number) => `${+((v * 100) / 320).toFixed(3)}vw`;
+// mobile: colonna singola (misure costanti) oppure posizioni assolute rilevate
+const mob = n.mobile || { mode: 'column', w: 320, h: 170, gap: 1 };
+const mRect = (i: number) => mob.mode === 'abs' ? mob.rects[i] : [0, i * (mob.h + mob.gap), mob.w, mob.h];
+const mH = mob.mode === 'abs' ? mob.h : items.length * (mob.h + mob.gap) - mob.gap;
+const lb = JSON.stringify(items.map((i: any) => ({ src: i.m?.src, w: i.m?.w, h: i.m?.h, alt: i.m?.alt, title: i.title, desc: i.desc, link: i.linkText ? { text: i.linkText, href: i.linkTo } : null })));
+---
+{slider ? (
+  <div class="gal slider" data-speed={n.settings?.speed || 36} data-click={n.settings?.click}>
+    <div class="slider-track">
+      {items.map((i: any, k: number) => (
+        <figure style={`--ar:${i.m?.w} / ${i.m?.h}`}><img src={i.m?.src} width={i.m?.w} height={i.m?.h} alt={i.m?.alt || ''} loading={k < 3 ? 'eager' : 'lazy'} decoding="async" /></figure>
+      ))}
+    </div>
+    <button class="freccia prev" type="button" aria-label="Precedente"><svg viewBox="0 0 23 39" width="23" height="39"><path d="M21 2 3 19.5 21 37" fill="none" stroke="currentColor" stroke-width="2.5" /></svg></button>
+    <button class="freccia next" type="button" aria-label="Successiva"><svg viewBox="0 0 23 39" width="23" height="39"><path d="m2 2 18 17.5L2 37" fill="none" stroke="currentColor" stroke-width="2.5" /></svg></button>
+  </div>
+) : (
+  <div class="gal gal-rows" data-click={n.settings?.click} data-lb={lb} data-gd={H} data-gm={mH} style={`--gw:${W};--gh:${H};--gmh:${vw(mH)}`}>
+    <div class="gal-in">
+      {items.map((i: any, k: number) => { const r = mRect(k); return (
+        <a class="gal-it" href="#" data-i={k} aria-label={i.title || i.m?.alt}
+          style={`left:${pc(i.b.l, W)};top:${pc(i.b.t, H)};width:${pc(i.b.w, W)};height:${pc(i.b.h, H)};--ml:${vw(r[0])};--mt:${vw(r[1])};--mw:${vw(r[2])};--mh:${vw(r[3])}`}>
+          <img src={i.m?.src} width={i.m?.w} height={i.m?.h} alt={i.m?.alt || ''} loading="lazy" decoding="async" />
+          <span class="gal-ov"><span class="gal-t">{i.title}</span></span>
+        </a>
+      ); })}
+    </div>
+  </div>
+)}

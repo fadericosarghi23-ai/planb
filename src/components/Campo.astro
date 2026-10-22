@@ -1,0 +1,56 @@
+---
+// Campo del modulo di prenotazione: testo, email, telefono, data, orario, caricamento file.
+// Misure e stili del modulo di partenza (desktop px, mobile vw). Il modulo non invia: vedi data/site.ts → form.
+interface Props { n: any }
+const { n } = Astro.props;
+const f = n.fields || [];
+const label = (f.find((x: any) => x.tag === 'label')?.text || '').replace(/\s*\*\s*required$/, '');
+const input = f.find((x: any) => x.tag === 'input' || x.tag === 'select');
+const required = !!input?.required || true;
+const help = n.k === 'upload' ? (n.texts || []).find((t: any) => t.t !== label && t.t !== 'UPLOAD')?.t : '';
+const opts = n.k === 'time' ? ['16:00', '17:00', '18:00'] : [];
+const id = `f-${n.id}`;
+---
+<div class={`campo campo-${n.k}`}>
+  <label for={id} class="campo-lbl">{label}{n.k === 'date' && <span aria-hidden="true"> *</span>}</label>
+  {n.k === 'upload' ? (
+    <>
+      <label class="upload-btn" for={id}>
+        <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><rect x="6" y="1" width="3" height="13" /><rect x="1" y="6" width="13" height="3" /></svg>
+        <span>UPLOAD</span>
+      </label>
+      <input id={id} type="file" class="vh" required={required} multiple />
+      {help && <p class="upload-help">{help}</p>}
+    </>
+  ) : n.k === 'time' ? (
+    <select id={id} required={required}><option value="">SCEGLI UN ORARIO</option>{opts.map((o) => <option>{o}</option>)}</select>
+  ) : n.k === 'date' ? (
+    <div class="data"><input id={id} type="date" required={required} /></div>
+  ) : (
+    <input id={id} type={input?.type || 'text'} name={input?.name || undefined} required={required} />
+  )}
+</div>
+
+<style>
+  .campo { display: flex; flex-direction: column; height: 100%; }
+  .campo-lbl { font: 300 12px/12px var(--font-futura); color: var(--chiaro); margin-bottom: 10px; }
+  .campo input:not([type=file]), .campo select { width: 100%; height: 29px; border: 0; padding: 3px 20px 0; background: var(--scuro); color: var(--chiaro); font: 400 14px/19.6px var(--font-futura); outline: none; }
+  .campo input:focus { box-shadow: inset 0 -1px 0 var(--chiaro); }
+  .campo-date .data input, .campo-time select { height: 50px; }
+  .campo-date .data input { background: transparent; border-bottom: 1px solid var(--chiaro); font: 300 12px var(--font-futura); color-scheme: dark; }
+  .campo-time select { background: var(--chiaro); color: var(--nero); border: 1px solid var(--grigio); font: 400 13px var(--font-sans); padding: 0 12px; }
+  .campo-upload .campo-lbl { font: 300 14px/1.4 var(--font-avenir); margin-bottom: 6px; }
+  .upload-btn { display: flex; align-items: center; justify-content: center; gap: 8px; height: 71px; background: var(--velo-chiaro); border: 1px solid var(--grigio-chiaro); color: var(--chiaro); font: 800 12px/1.4 var(--font-display); letter-spacing: .1em; cursor: pointer; transition: background-color .2s; }
+  .upload-btn svg { fill: currentColor; }
+  .upload-btn:hover { background: var(--grigio); }
+  .upload-help { margin-top: 6px; font: 300 12px/1.4 var(--font-avenir); color: var(--chiaro); text-align: center; }
+  .vh { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  @media (max-width: 750px) {
+    .campo-lbl { font-size: 3.75vw; line-height: 3.75vw; margin-bottom: 3.125vw; }
+    .campo input:not([type=file]), .campo select { height: 8.75vw; font-size: 4.375vw; padding: .9vw 6.25vw 0; }
+    .campo-date .data input, .campo-time select { height: 15.625vw; }
+    .campo-upload .campo-lbl { font-size: 5vw; margin-bottom: 2vw; }
+    .upload-btn { height: 22vw; font-size: 3.75vw; }
+    .upload-help { font-size: 3.75vw; }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+// Selettore lingua (solo grafico: la base è in una lingua).
+interface Props { n: any }
+const { n } = Astro.props;
+---
+<div class="lingue">
+  {n.langs.map((l: any, i: number) => (
+    <>
+      {i > 0 && <span class="sep" aria-hidden="true"></span>}
+      <button type="button" class={l.cls} aria-current={i === 0 ? 'true' : undefined}>{l.label}</button>
+    </>
+  ))}
+</div>
