@@ -158,17 +158,39 @@ const path = '/';
       if (nuova !== attiva) { attiva = nuova; pannelli.forEach((el, k) => el.classList.toggle('attivo', k === attiva)); }
       punti.forEach((b, k) => b.classList.toggle('attivo', k === ultimaStanza));
     };
-    const ciclo = () => {
+    // ammorbidimento a tempo (uguale a 30 o 120 fps)
+    let prima = performance.now();
+    const ciclo = (ora: number) => {
+      const dt = Math.min(0.1, Math.max(0, (ora - prima) / 1000)); prima = ora;
       const d = obiettivo - att;
-      if (Math.abs(d) > 0.0005) { att += d * (ridotto ? 1 : 0.12); disegna(); }
+      if (Math.abs(d) > 0.0005) { att += d * (ridotto ? 1 : 1 - Math.exp(-dt * 8)); disegna(); }
       requestAnimationFrame(ciclo);
     };
     window.addEventListener('scroll', leggi, { passive: true });
     window.addEventListener('resize', () => { leggi(); disegna(); });
     leggi(); att = obiettivo; disegna(); requestAnimationFrame(ciclo);
+    // punto di lettura di ogni tappa (pannello visibile, camera ferma)
+    const fermata = (f: number) => inizio() + (inizi[f] + F[f].lung * 0.15) * window.innerHeight;
     punti.forEach((b, k) => b.addEventListener('click', () => {
       const f = F.findIndex((x) => x.stanza === k);
-      window.scrollTo({ top: inizio() + (inizi[f] + F[f].lung * 0.15) * window.innerHeight, behavior: 'smooth' });
+      window.scrollTo({ top: fermata(f), behavior: 'smooth' });
     }));
+    // frecce, PagSu/PagGiù e spazio: una tappa alla volta finché si è dentro il viaggio
+    const AVANTI = ['ArrowDown', 'PageDown', ' '], INDIETRO = ['ArrowUp', 'PageUp'];
+    window.addEventListener('keydown', (e) => {
+      const avanti = AVANTI.includes(e.key), indietro = INDIETRO.includes(e.key);
+      if ((!avanti && !indietro) || e.altKey || e.ctrlKey || e.metaKey || (e.key === ' ' && e.shiftKey)) return;
+      const el = document.activeElement as HTMLElement | null;
+      if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return;
+      const y = window.scrollY, fine = inizio() + (corsa - 1) * window.innerHeight;
+      if (y < inizio() - window.innerHeight * 0.5 || y > fine + 2) return; // fuori dal viaggio: scroll normale
+      const qui = F.reduce((a, _, f) => (fermata(f) <= y + 4 ? f : a), -1);
+      const dest = avanti
+        ? (qui + 1 < F.length ? fermata(qui + 1) : null)
+        : (qui > 0 && y - fermata(qui) < 8 ? fermata(qui - 1) : qui >= 0 ? fermata(qui) : null);
+      if (dest === null) return; // prima della prima o dopo l'ultima tappa: scroll normale
+      e.preventDefault();
+      window.scrollTo({ top: dest, behavior: ridotto ? 'auto' : 'smooth' });
+    });
   }
 </script>

@@ -39,6 +39,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.AgXToneMapping; renderer.toneMappingExposure = 1.15;
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.autoUpdate = false; // sole e casa sono fermi: le ombre si calcolano solo finché la scena si carica
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#b9cfe0');
@@ -214,7 +215,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
         sh.vertexShader = sh.vertexShader.replace('#include <uv_vertex>', '#include <uv_vertex>\n vUv = uv;');
         sh.vertexShader = 'varying vec2 vUv;\n' + sh.vertexShader; sh.fragmentShader = 'varying vec2 vUv;\n' + sh.fragmentShader;
       };
-      const N = mobile ? 90000 : 360000, R = 30, cx = 0, cz = 2;
+      const N = mobile ? 60000 : 200000, R = 30, cx = 0, cz = 2;
       const erba = new THREE.InstancedMesh(ciuffo, mat, N); const o = new THREE.Object3D(); const col = new THREE.Color();
       let k = 0, tent = 0;
       while (k < N && tent < N * 4) {
@@ -225,7 +226,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
         const [rr, gg, bb] = cc;
         if (!(gg > rr * 0.95 && gg > bb * 1.05)) continue; // solo dove la foto è prato
         o.position.set(x, 0, z); o.rotation.set(0, rnd(0, 6.3), 0);
-        const h = rnd(0.07, 0.15); o.scale.set(rnd(1.2, 1.8), h, 1); o.updateMatrix();
+        const h = rnd(0.07, 0.15); o.scale.set(rnd(1.6, 2.4), h, 1); o.updateMatrix();
         erba.setMatrixAt(k, o.matrix);
         col.setRGB(rr / 255, gg / 255, bb / 255, THREE.SRGBColorSpace).multiplyScalar(rnd(0.9, 1.15)); erba.setColorAt(k, col);
         k++;
@@ -451,11 +452,31 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   };
   const orologio = new THREE.Clock();
   let attivo = true, pronto = false;
+  // qualità adattiva: se il computer non regge i 40 fps si spegne prima l'occlusione, poi scende la risoluzione
+  const maxPR = renderer.getPixelRatio();
+  let livello = 0, campioni = 0, somma = 0, attesa = 0;
+  const qualita = (dtv) => {
+    if (!pronto || document.hidden || dtv > 0.25 || livello >= 4) return;
+    if ((attesa += dtv) < 2) return; // i primi istanti dopo il caricamento compilano gli shader
+    somma += dtv; if (++campioni < 45) return;
+    const media = somma / campioni; campioni = 0; somma = 0;
+    if (media < 1 / 40) return;
+    livello++; attesa = 1.5;
+    if (gtao) { composer.removePass(gtao); gtao.dispose(); gtao = null; return; }
+    renderer.setPixelRatio(Math.max(0.5, maxPR * [1, 0.85, 0.72, 0.6, 0.5][livello])); resize();
+  };
+  // fuori schermo non si disegna
+  let inVista = true;
+  new IntersectionObserver(([e]) => { inVista = e.isIntersecting; }).observe(canvas);
   const ciclo = () => {
     if (!attivo) return;
-    const dt = Math.min(0.05, orologio.getDelta());
-    tAtt += (tTarget - tAtt) * Math.min(1, dt * 4.5);
+    const dtv = orologio.getDelta(), dt = Math.min(0.05, dtv);
+    if (!inVista) { requestAnimationFrame(ciclo); return; }
+    qualita(dtv);
+    // lo scroll arriva già ammorbidito dal viaggio: qui solo un filtro breve contro gli scatti
+    tAtt += (tTarget - tAtt) * Math.min(1, dt * 14);
     colloca(tAtt);
+    if (!pronto) renderer.shadowMap.needsUpdate = true;
     // nelle stanze il render deve restare identico alla foto: niente tone mapping né occlusione
     const dentro = dentroStanza(camera.position);
     renderer.toneMapping = dentro ? THREE.NoToneMapping : THREE.AgXToneMapping;
@@ -465,8 +486,8 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     composer.render();
     requestAnimationFrame(ciclo);
   };
-  if (import.meta.env?.DEV) window.__villa3d = { scene, camera, modelli };
-  manager.onLoad = () => { if (pronto) return; pronto = true; fogliame(); prato(); renderer.compile(scene, camera); onPronto?.(); };
+  if (import.meta.env?.DEV) window.__villa3d = { scene, camera, modelli, renderer };
+  manager.onLoad = () => { if (pronto) return; pronto = true; fogliame(); prato(); renderer.compile(scene, camera); renderer.shadowMap.needsUpdate = true; onPronto?.(); };
   colloca(0); requestAnimationFrame(ciclo);
 
   return {
