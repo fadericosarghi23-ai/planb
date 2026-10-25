@@ -21,6 +21,15 @@ const aerea = M[viaggio.fotoAerea];
 const dati = fotogrammi.map((f) => ({ tipo: f.tipo || 'img', lung: f.lung, sosta: f.sosta ?? 0, tappa: f.tappa ?? 0, stanza: f.stanza ?? -1 }));
 const stanze3d = (viaggio as any).stanze3d.map((s: any) => ({ ...s, src: M[s.img].src, w: M[s.img].w, h: M[s.img].h }));
 const path = '/';
+// Landing mobile corta e pulita (senza 3D): hero + griglia di aree + contatti.
+const claimMobile = 'Interior design, architettura e arredamento';
+const heroMobile = M['home-galleria-01'] || aerea;
+const grigliaMobile = [
+  { nome: 'Interni', href: '/interiors', img: M['home-galleria-02'] },
+  { nome: 'Architettura', href: '/architecture', img: M['architecture-galleria-01'] },
+  { nome: 'Prodotti', href: '/products', img: M['home-galleria-24'] },
+  { nome: 'Studio', href: '/studio', img: M['home-galleria-16'] },
+].filter((g) => g.img);
 ---
 <div class="viaggio" style={`--corsa:${corsa}`} data-fotogrammi={JSON.stringify(dati)} data-stanze3d={JSON.stringify(stanze3d)}>
   <div class="v-palco">
@@ -45,11 +54,40 @@ const path = '/';
       {stanze.map((s, i) => <button type="button" data-vai={i} class={i === 0 ? 'attivo' : ''} aria-label={s.nome}><span>{s.nome}</span></button>)}
     </nav>
   </div>
+  <div class="v-mobile">
+    <section class="vm-hero" aria-label="Plan B">
+      <img class="vm-bg" src={heroMobile.src} width={heroMobile.w} height={heroMobile.h} alt={heroMobile.alt || ''} fetchpriority="high" decoding="async" />
+      <div class="vm-vel" aria-hidden="true"></div>
+      <div class="vm-hero-cont">
+        <p class="vm-marchio">PLAN B</p>
+        <p class="vm-claim">{claimMobile}</p>
+        <div class="vm-cta">
+          <a class="vm-btn vm-btn-chiaro" href="#vm-progetti">Progetti</a>
+          <a class="vm-btn vm-btn-bordo" href="/contact">Contatti</a>
+        </div>
+      </div>
+    </section>
+    <section class="vm-progetti" id="vm-progetti" aria-label="Progetti">
+      <h2 class="vm-tit">Progetti</h2>
+      <div class="vm-griglia">
+        {grigliaMobile.map((g) => (
+          <a class="vm-tile" href={g.href} aria-label={g.nome}>
+            <img src={g.img.src} width={g.img.w} height={g.img.h} alt={g.img.alt || ''} loading="lazy" decoding="async" />
+            <span class="vm-tile-nome">{g.nome}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+    <section class="vm-contatti" aria-label="Contatti">
+      <p class="vm-ct-claim">Parliamo del tuo progetto.</p>
+      <a class="vm-btn vm-btn-chiaro" href="/contact">Contattaci</a>
+    </section>
+  </div>
 </div>
 
 <style>
-  .viaggio { position: relative; height: calc((var(--corsa) + 1) * 100vh); margin-top: calc(var(--header-h) * -1); }
-  .v-palco { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--nero); }
+  .viaggio { position: relative; height: calc((var(--corsa) + 1) * 100vh); height: calc((var(--corsa) + 1) * 100dvh); margin-top: calc(var(--header-h) * -1); }
+  .v-palco { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; background: var(--nero); }
   .v-f { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: transform, opacity, filter; backface-visibility: hidden; }
   .v-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .v-aerea { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .6s linear; }
@@ -76,25 +114,45 @@ const path = '/';
   .v-indice button.attivo { background: var(--chiaro); transform: scale(1.25); }
   .v-indice span { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); white-space: nowrap; font: 300 12px var(--font-avenir); letter-spacing: .1em; color: var(--chiaro); opacity: 0; transition: opacity .3s; pointer-events: none; }
   .v-indice button:hover span, .v-indice button.attivo span { opacity: 1; }
+  /* versione mobile semplice (senza modellino): nascosta su desktop */
+  .v-mobile { display: none; }
   @media (max-width: 750px) {
-    .viaggio { margin-top: calc(var(--header-h-m) * -1); }
-    .v-pannello { width: calc(100% - 12.5vw); bottom: 5vh; }
-    .v-pannello :global(.wx) { max-width: none; }
-    .v-pannello :global(.wx-btn) { width: var(--mw); height: var(--mh); }
-    .v-nome { font-size: 3.4vw; margin-bottom: 3vw; }
-    .v-indice { right: 3vw; gap: 3vw; }
-    .v-indice span { display: none; }
+    .viaggio { margin-top: calc(var(--header-h-m) * -1); height: auto; min-height: 0; }
+    .v-palco { display: none; } /* su mobile niente viaggio 3D: solo le sezioni foto */
+    .v-mobile { display: block; background: var(--chiaro); }
+    .vm-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* hero */
+    .vm-hero { position: relative; min-height: 92svh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .vm-vel { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .22) 38%, rgba(0, 0, 0, .6)); }
+    .vm-hero-cont { position: relative; z-index: 1; color: var(--chiaro); padding: 0 8vw; }
+    .vm-marchio { font: 300 12vw/1 var(--font-avenir); letter-spacing: .14em; }
+    .vm-claim { margin: 4vw auto 0; max-width: 78vw; font: 300 4vw/1.5 var(--font-avenir); letter-spacing: .03em; opacity: .9; }
+    .vm-cta { margin-top: 8vw; display: flex; gap: 3.5vw; justify-content: center; }
+    .vm-btn { display: inline-flex; align-items: center; justify-content: center; padding: 3.6vw 7vw; font: 400 3.3vw/1 var(--font-avenir); letter-spacing: .2em; text-transform: uppercase; }
+    .vm-btn-chiaro { background: var(--chiaro); color: var(--scuro); }
+    .vm-btn-bordo { border: 1px solid var(--colore-33); color: var(--chiaro); }
+    /* griglia progetti */
+    .vm-progetti { padding: calc(var(--header-h-m) + 9vw) 5vw 16vw; background: var(--chiaro); color: var(--scuro); scroll-margin-top: var(--header-h-m); }
+    .vm-tit { text-align: center; font: 300 6vw/1 var(--font-avenir); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 8vw; }
+    .vm-griglia { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; }
+    .vm-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+    .vm-tile img { width: 100%; height: 100%; object-fit: cover; }
+    .vm-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0) 55%); }
+    .vm-tile-nome { position: absolute; left: 4.5vw; bottom: 4vw; z-index: 1; color: var(--chiaro); font: 400 3.6vw/1 var(--font-avenir); letter-spacing: .15em; text-transform: uppercase; }
+    /* contatti */
+    .vm-contatti { padding: 16vw 8vw; text-align: center; background: var(--scuro); color: var(--chiaro); }
+    .vm-ct-claim { margin-bottom: 7vw; font: 300 5.6vw/1.35 var(--font-avenir); letter-spacing: .02em; }
   }
   @media (prefers-reduced-motion: reduce) { .v-pannello, .v-pannello.attivo { transition: none; } .v-invito svg { animation: none; } }
 </style>
 
 <script>
-  import { avviaVilla } from '../scripts/villa3d.js';
-
-  // Scroll → posizione nel viaggio. Nei fotogrammi 3D lo scroll muove la camera nel modello;
-  // nei render la camera avanza verso il punto d'ingresso, poi sfuma nel fotogramma successivo.
+  // Desktop: viaggio 3D nel modello. villa3d.js (con Three.js) si carica SOLO qui, con import dinamico,
+  // così su mobile (<=750px) non si scarica né parte alcun WebGL: lì vale la home semplice .v-mobile.
+  // Scroll → posizione nel viaggio: lo scroll muove la camera nel modello, un gesto = un passaggio.
   const root = document.querySelector('.viaggio') as HTMLElement;
-  if (root) {
+  const esMobile = window.matchMedia('(max-width: 750px)').matches;
+  if (root && !esMobile) import('../scripts/villa3d.js').then(({ avviaVilla }) => {
     type F = { tipo: string; lung: number; sosta: number; tappa: number; stanza: number };
     const F: F[] = JSON.parse(root.dataset.fotogrammi!);
     const strato3d = root.querySelector('.v-3d') as HTMLElement;
@@ -175,22 +233,59 @@ const path = '/';
       const f = F.findIndex((x) => x.stanza === k);
       window.scrollTo({ top: fermata(f), behavior: 'smooth' });
     }));
-    // frecce, PagSu/PagGiù e spazio: una tappa alla volta finché si è dentro il viaggio
+    // UN GESTO = UN PASSAGGIO: tastiera, rotella e swipe portano a una tappa alla volta finché si è
+    // dentro il viaggio; prima della prima o dopo l'ultima tappa lo scroll torna normale (si esce).
+    const dentroViaggio = (y: number) => {
+      const fine = inizio() + (corsa - 1) * window.innerHeight;
+      return y >= inizio() - window.innerHeight * 0.5 && y <= fine + 2;
+    };
+    const destDa = (y: number, avanti: boolean): number | null => {
+      const qui = F.reduce((a, _, f) => (fermata(f) <= y + 4 ? f : a), -1);
+      return avanti
+        ? (qui + 1 < F.length ? fermata(qui + 1) : null)
+        : (qui > 0 && y - fermata(qui) < 8 ? fermata(qui - 1) : qui >= 0 ? fermata(qui) : null);
+    };
+    let bloccato = false; // un solo passaggio per gesto: ignora i gesti finché l'animazione non è finita
+    const vaiA = (dest: number) => {
+      bloccato = true;
+      window.scrollTo({ top: dest, behavior: ridotto ? 'auto' : 'smooth' });
+      window.setTimeout(() => { bloccato = false; }, ridotto ? 140 : 720);
+    };
+    // tastiera: frecce, PagSu/PagGiù e spazio
     const AVANTI = ['ArrowDown', 'PageDown', ' '], INDIETRO = ['ArrowUp', 'PageUp'];
     window.addEventListener('keydown', (e) => {
       const avanti = AVANTI.includes(e.key), indietro = INDIETRO.includes(e.key);
       if ((!avanti && !indietro) || e.altKey || e.ctrlKey || e.metaKey || (e.key === ' ' && e.shiftKey)) return;
       const el = document.activeElement as HTMLElement | null;
       if (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName))) return;
-      const y = window.scrollY, fine = inizio() + (corsa - 1) * window.innerHeight;
-      if (y < inizio() - window.innerHeight * 0.5 || y > fine + 2) return; // fuori dal viaggio: scroll normale
-      const qui = F.reduce((a, _, f) => (fermata(f) <= y + 4 ? f : a), -1);
-      const dest = avanti
-        ? (qui + 1 < F.length ? fermata(qui + 1) : null)
-        : (qui > 0 && y - fermata(qui) < 8 ? fermata(qui - 1) : qui >= 0 ? fermata(qui) : null);
-      if (dest === null) return; // prima della prima o dopo l'ultima tappa: scroll normale
+      if (!dentroViaggio(window.scrollY)) return; // fuori dal viaggio: scroll normale
+      const dest = destDa(window.scrollY, avanti);
+      if (dest === null) return;
       e.preventDefault();
-      window.scrollTo({ top: dest, behavior: ridotto ? 'auto' : 'smooth' });
+      if (!bloccato) vaiA(dest);
     });
-  }
+    // rotella del mouse / trackpad: un passaggio per scatto
+    window.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || Math.abs(e.deltaY) < 1) return; // pizzico-zoom o rumore
+      if (!dentroViaggio(window.scrollY)) return; // fuori dal viaggio: scroll normale
+      const dest = destDa(window.scrollY, e.deltaY > 0);
+      if (dest === null) return; // ai margini: lo scroll normale fa uscire dal viaggio
+      e.preventDefault();
+      if (!bloccato) vaiA(dest);
+    }, { passive: false });
+    // swipe (mobile): uno swipe = un passaggio
+    let ty0: number | null = null, usato = false;
+    window.addEventListener('touchstart', (e) => { ty0 = e.touches.length === 1 ? e.touches[0].clientY : null; usato = false; }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (ty0 === null || !dentroViaggio(window.scrollY)) return; // fuori dal viaggio: scroll normale
+      const dy = ty0 - e.touches[0].clientY; // >0 = swipe verso l'alto = avanti
+      const dest = destDa(window.scrollY, dy > 0);
+      if (dest === null) return; // ai margini: scroll normale, si esce dal viaggio
+      e.preventDefault(); // dentro il viaggio il movimento nativo è sostituito dai passaggi
+      if (usato || bloccato || Math.abs(dy) < 26) return;
+      usato = true;
+      vaiA(dest);
+    }, { passive: false });
+    window.addEventListener('touchend', () => { ty0 = null; }, { passive: true });
+  });
 </script>

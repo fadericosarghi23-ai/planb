@@ -33,12 +33,15 @@ function uvMondo(geo, w, h, d, tile) {
 }
 
 export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
-  const mobile = window.matchMedia('(max-width: 750px)').matches || navigator.hardwareConcurrency <= 4;
+  const mobile = window.matchMedia('(max-width: 750px)').matches || (navigator.hardwareConcurrency || 8) <= 4;
+  // GPU integrata o poca RAM: percorso leggero (meno erba, niente occlusione, risoluzione più bassa)
+  const gpuDebole = () => { try { const gl = document.createElement('canvas').getContext('webgl'); const d = gl && gl.getExtension('WEBGL_debug_renderer_info'); return /Intel|UHD|HD Graphics|Iris|Mali|Adreno|PowerVR|llvmpipe|SwiftShader/i.test(d ? gl.getParameter(d.UNMASKED_RENDERER_WEBGL) : ''); } catch { return false; } };
+  const leggero = mobile || gpuDebole() || (navigator.deviceMemory || 8) <= 4;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.25 : 1.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, leggero ? 0.85 : 1.35));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.AgXToneMapping; renderer.toneMappingExposure = 1.15;
-  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = leggero ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
   renderer.shadowMap.autoUpdate = false; // sole e casa sono fermi: le ombre si calcolano solo finché la scena si carica
 
   const scene = new THREE.Scene();
@@ -58,9 +61,9 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   // sole da nord-est come nella foto (ombre verso sud-ovest)
   const sole = new THREE.DirectionalLight('#fff1dc', 3.2);
   sole.position.set(30, 44, -24); sole.castShadow = true;
-  sole.shadow.mapSize.set(mobile ? 2048 : 4096, mobile ? 2048 : 4096);
+  sole.shadow.mapSize.set(leggero ? 1024 : 2560, leggero ? 1024 : 2560);
   Object.assign(sole.shadow.camera, { left: -34, right: 34, top: 34, bottom: -34, near: 1, far: 140 });
-  sole.shadow.bias = -0.00025; sole.shadow.normalBias = 0.02; sole.shadow.radius = 3;
+  sole.shadow.bias = -0.00025; sole.shadow.normalBias = 0.02; sole.shadow.radius = leggero ? 1 : 3;
   scene.add(sole);
   scene.add(new THREE.HemisphereLight('#dbe7f5', '#4d5a33', 0.25));
 
@@ -83,7 +86,9 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     scuro: new THREE.MeshStandardMaterial({ color: '#2f2d2b', roughness: 0.45 }),
     ottone: new THREE.MeshStandardMaterial({ color: '#c09a5b', roughness: 0.25, metalness: 1 }),
     tronco: new THREE.MeshStandardMaterial({ color: '#4f3d2c', roughness: 0.95 }),
-    vetro: new THREE.MeshPhysicalMaterial({ color: '#dfe9ec', roughness: 0.02, metalness: 0, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, envMapIntensity: 1.6, specularIntensity: 1, clearcoat: 1 }),
+    vetro: leggero
+      ? new THREE.MeshStandardMaterial({ color: '#dfe9ec', roughness: 0.08, metalness: 0, transparent: true, opacity: 0.34, depthWrite: false, side: THREE.DoubleSide, envMapIntensity: 1.2 })
+      : new THREE.MeshPhysicalMaterial({ color: '#dfe9ec', roughness: 0.02, metalness: 0, transparent: true, opacity: 0.32, depthWrite: false, side: THREE.DoubleSide, envMapIntensity: 1.6, specularIntensity: 1, clearcoat: 1 }),
     vasca: new THREE.MeshStandardMaterial({ color: '#6fbcc4', roughness: 0.3 }),
     luce: new THREE.MeshStandardMaterial({ color: '#fff8ea', emissive: '#ffe9c8', emissiveIntensity: 3 }),
   };
@@ -94,7 +99,9 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     for (let i = 0; i < 260; i++) { g.strokeStyle = `rgba(${110 + rnd(-20, 30)},${110 + rnd(-20, 30)},255,.35)`; g.lineWidth = rnd(1, 3); g.beginPath(); g.arc(rnd(0, 256), rnd(0, 256), rnd(5, 28), 0, 7); g.stroke(); }
     const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(4, 2); return t;
   })();
-  M.acqua = new THREE.MeshPhysicalMaterial({ color: '#2a8f9c', roughness: 0.06, metalness: 0, normalMap: ondeTex, normalScale: new THREE.Vector2(0.2, 0.2), clearcoat: 0.25, clearcoatRoughness: 0.05, envMapIntensity: 0.35, transparent: true, opacity: 0.93 });
+  M.acqua = leggero
+    ? new THREE.MeshStandardMaterial({ color: '#2a8f9c', roughness: 0.1, metalness: 0, normalMap: ondeTex, normalScale: new THREE.Vector2(0.2, 0.2), envMapIntensity: 0.35, transparent: true, opacity: 0.93 })
+    : new THREE.MeshPhysicalMaterial({ color: '#2a8f9c', roughness: 0.06, metalness: 0, normalMap: ondeTex, normalScale: new THREE.Vector2(0.2, 0.2), clearcoat: 0.25, clearcoatRoughness: 0.05, envMapIntensity: 0.35, transparent: true, opacity: 0.93 });
 
   const box = (w, h, d, mat, x, y, z, { ombra = true, ricevi = true, parent = scene, tile = 2 } = {}) => {
     const g = new THREE.BoxGeometry(w, h, d); if (mat.map || mat.normalMap) uvMondo(g, w, h, d, tile);
@@ -113,7 +120,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
       const o = src.clone(true);
       o.traverse((n) => { if (!n.isMesh) return; n.castShadow = true; n.receiveShadow = true;
         // foglie ritagliate: copertura alfa con MSAA, così le chiome non spariscono da lontano
-        if (n.material.alphaTest > 0 && !n.material.userData.ok) { n.material.alphaTest = 0.3; n.material.alphaToCoverage = !mobile; n.material.userData.ok = true; } });
+        if (n.material.alphaTest > 0 && !n.material.userData.ok) { n.material.alphaTest = 0.3; n.material.alphaToCoverage = !leggero; n.material.userData.ok = true; } });
       g.add(o);
     };
     if (modelli[id]?.scene) metti(modelli[id].scene);
@@ -215,7 +222,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
         sh.vertexShader = sh.vertexShader.replace('#include <uv_vertex>', '#include <uv_vertex>\n vUv = uv;');
         sh.vertexShader = 'varying vec2 vUv;\n' + sh.vertexShader; sh.fragmentShader = 'varying vec2 vUv;\n' + sh.fragmentShader;
       };
-      const N = mobile ? 60000 : 200000, R = 30, cx = 0, cz = 2;
+      const N = leggero ? 26000 : 50000, R = 30, cx = 0, cz = 2;
       const erba = new THREE.InstancedMesh(ciuffo, mat, N); const o = new THREE.Object3D(); const col = new THREE.Color();
       let k = 0, tent = 0;
       while (k < N && tent < N * 4) {
@@ -237,12 +244,12 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   const fogliame = () => {
     let mat; modelli.shrub_02?.scene?.traverse((n) => { if (n.isMesh && !mat && (n.material.alphaTest > 0 || n.material.transparent || n.material.alphaMap)) mat = n.material; });
     if (!mat) return;
-    const m = mat.clone(); m.side = THREE.DoubleSide; m.alphaTest = 0.45; m.alphaToCoverage = !mobile; m.color.set('#b4d47a');
+    const m = mat.clone(); m.side = THREE.DoubleSide; m.alphaTest = 0.45; m.alphaToCoverage = !leggero; m.color.set('#b4d47a');
     // maschera tonda e frastagliata: ogni carta diventa un ciuffo di foglie invece di un quadrato
     const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d');
     for (let i = 0; i < 70; i++) { const r = rnd(6, 20), an = rnd(0, 6.3), d = rnd(0, 40); g.fillStyle = '#fff'; g.beginPath(); g.arc(64 + Math.cos(an) * d, 64 + Math.sin(an) * d, r, 0, 7); g.fill(); }
     m.alphaMap = new THREE.CanvasTexture(c);
-    const per = mobile ? 150 : 280, o = new THREE.Object3D();
+    const per = leggero ? 85 : 160, o = new THREE.Object3D();
     const inst = new THREE.InstancedMesh(new THREE.PlaneGeometry(1, 1), m, chiome.length * per); let k = 0;
     for (const [x, z, r] of chiome) for (let i = 0; i < per; i++) {
       const u = Math.pow(rnd(0, 1), 0.3), th = rnd(0, Math.PI * 2), ph = Math.acos(rnd(-1, 1));
@@ -422,22 +429,24 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   const fovAt = (t) => { const f = t * n, i = Math.min(n - 1, Math.floor(f)); return THREE.MathUtils.lerp(K[i][2], K[i + 1][2], f - i); };
 
   // ---------------------------------------------------------------- rendering (con occlusione ambientale)
-  const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: mobile ? 0 : 4 }));
-  composer.addPass(new RenderPass(scene, camera));
-  let gtao = null;
-  if (!mobile) {
+  // Percorso leggero: rendering diretto a schermo (niente EffectComposer: si risparmia il render target
+  // half-float e la passata fullscreen di output). Percorso pieno: composer con occlusione ambientale e MSAA.
+  let composer = null, gtao = null;
+  if (!leggero) {
+    composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 2 }));
+    composer.addPass(new RenderPass(scene, camera));
     gtao = new GTAOPass(scene, camera, 1, 1);
     gtao.updateGtaoMaterial({ radius: 0.5, distanceExponent: 1.5, thickness: 1.2, scale: 1.1, samples: 12 });
     gtao.blendIntensity = 0.85;
     composer.addPass(gtao);
+    composer.addPass(new OutputPass());
   }
-  composer.addPass(new OutputPass());
 
   let tAtt = 0, tTarget = 0;
   const dir = new THREE.Vector3(), look = new THREE.Vector3();
   const resize = () => {
     const w = canvas.clientWidth, h = canvas.clientHeight;
-    renderer.setSize(w, h, false); composer.setSize(w, h); composer.setPixelRatio(renderer.getPixelRatio());
+    renderer.setSize(w, h, false); composer?.setSize(w, h); composer?.setPixelRatio(renderer.getPixelRatio());
     camera.aspect = w / h; camera.updateProjectionMatrix();
   };
   window.addEventListener('resize', resize); resize();
@@ -458,9 +467,9 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   const qualita = (dtv) => {
     if (!pronto || document.hidden || dtv > 0.25 || livello >= 4) return;
     if ((attesa += dtv) < 2) return; // i primi istanti dopo il caricamento compilano gli shader
-    somma += dtv; if (++campioni < 45) return;
+    somma += dtv; if (++campioni < 30) return;
     const media = somma / campioni; campioni = 0; somma = 0;
-    if (media < 1 / 40) return;
+    if (media < 1 / 48) return;
     livello++; attesa = 1.5;
     if (gtao) { composer.removePass(gtao); gtao.dispose(); gtao = null; return; }
     renderer.setPixelRatio(Math.max(0.5, maxPR * [1, 0.85, 0.72, 0.6, 0.5][livello])); resize();
@@ -483,7 +492,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     if (gtao) gtao.enabled = !dentro;
     vento.value += dt;
     ondeTex.offset.x += dt * 0.015; ondeTex.offset.y += dt * 0.01;
-    composer.render();
+    if (composer) composer.render(); else renderer.render(scene, camera);
     requestAnimationFrame(ciclo);
   };
   if (import.meta.env?.DEV) window.__villa3d = { scene, camera, modelli, renderer };
