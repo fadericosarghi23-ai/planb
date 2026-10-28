@@ -508,11 +508,23 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   if (import.meta.env?.DEV) window.__villa3d = { scene, camera, modelli, renderer };
   // a caricamento finito gli shader si compilano in modo asincrono (renderer.compile bloccava il browser per
   // secondi su Windows); la scena compare, e le ombre si calcolano, solo quando è tutto pronto
+  // Le texture si caricano sulla scheda video una per fotogramma: tutte insieme (circa 25, alcune 3000 px)
+  // bloccavano la pagina proprio quando il 3D compariva.
   let caricato = false;
   manager.onLoad = () => {
     if (caricato) return; caricato = true;
     fogliame(); prato();
-    renderer.compileAsync(scene, camera).catch(() => {}).finally(() => { renderer.shadowMap.needsUpdate = true; pronto = true; onPronto?.(); });
+    const texture = new Set();
+    scene.traverse((o) => {
+      for (const m of [o.material].flat().filter(Boolean)) {
+        for (const k of ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'alphaMap', 'emissiveMap']) if (m[k]) texture.add(m[k]);
+        if (m.uniforms?.map?.value) texture.add(m.uniforms.map.value);
+      }
+    });
+    const coda = [...texture];
+    const fine = () => renderer.compileAsync(scene, camera).catch(() => {}).finally(() => { renderer.shadowMap.needsUpdate = true; pronto = true; onPronto?.(); });
+    const carica = () => { const t = coda.shift(); if (!t) return fine(); renderer.initTexture(t); requestAnimationFrame(carica); };
+    requestAnimationFrame(carica);
   };
   colloca(0); requestAnimationFrame(ciclo);
 

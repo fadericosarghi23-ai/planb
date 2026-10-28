@@ -64,8 +64,8 @@ html.js [data-fxd].fx-wait, html.js [data-fxm].fx-wait { opacity: 0; }
 .wx-btn:hover { background: var(--bh-bg, var(--b-bg)); }
 .wx-btn:hover .lbl { color: var(--bh-color, inherit) !important; font-weight: var(--bh-weight, inherit) !important; }
 
-/* ---- tasto fisso WhatsApp (in basso a destra, su tutte le pagine) ---- */
-.whatsapp { position: fixed; right: 24px; bottom: 24px; z-index: 55; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: var(--chiaro); box-shadow: 0 6px 20px rgba(0, 0, 0, .28); transition: transform .25s, box-shadow .25s; }
+/* ---- tasto fisso WhatsApp (in basso a destra, su tutte le pagine): grigio struttura della palette, icona bianca ---- */
+.whatsapp { position: fixed; right: 24px; bottom: 24px; z-index: 55; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--grigio-scuro); color: var(--chiaro); border: 1px solid rgba(255, 255, 255, .22); box-shadow: 0 6px 20px rgba(0, 0, 0, .28); transition: transform .25s, box-shadow .25s; }
 .whatsapp:hover { transform: scale(1.08); box-shadow: 0 8px 26px rgba(0, 0, 0, .35); }
 .menu-aperto .whatsapp, .lightbox.open ~ .whatsapp { display: none; }
 @media (max-width: 750px) { .whatsapp { right: 4.5vw; bottom: 4.5vw; width: 13vw; height: 13vw; } .whatsapp svg { width: 7vw; height: 7vw; } }
@@ -124,10 +124,10 @@ html.js [data-fxd].fx-wait, html.js [data-fxm].fx-wait { opacity: 0; }
 .menu-mobile .mm-sub a { font-size: 3.75vw; padding-left: 9vw; }
 .menu-mobile .mm-lingue { position: absolute; left: 61.875vw; top: 8.75vw; }
 .menu-mobile .mm-lingue span { color: var(--chiaro) !important; } /* IT/EN leggibili sull'header scuro */
-.menu-mobile .mm-lista { width: 100%; } /* tendina a tutta larghezza sotto l'header */
+.menu-mobile .mm-lista { width: 100%; bottom: 0; background: var(--mobile-menu-item-bg); overflow-y: auto; } /* menu a tutto schermo sotto l'header, pieno */
 .menu-mobile .mm-lista svg { fill: currentColor; }
 .menu-aperto .menu-mobile { visibility: visible; pointer-events: auto; }
-.menu-aperto .menu-mobile .mm-bg { opacity: 1; }
+.menu-aperto .menu-mobile .mm-bg { opacity: 0; } /* il pannello copre già tutto: niente velo, l'header resta del suo grigio */
 .menu-aperto .menu-mobile .mm-lista { transform: none; }
 @media (min-width: 751px) { .menu-mobile, .hamb { display: none !important; } }
 

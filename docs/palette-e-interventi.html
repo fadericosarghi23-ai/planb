@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>PLAN B · Il nuovo sito</title>
+<style>
+  /* Stessa identità del sito: Figtree (sostituto di Avenir) a 300 per il testo e 800 maiuscolo per i titoli,
+     etichette maiuscole spaziate, grigio di struttura e un colore per area. */
+  @font-face { font-family: Figtree; font-weight: 300; src: url('../node_modules/@fontsource/figtree/files/figtree-latin-300-normal.woff2') format('woff2'); }
+  @font-face { font-family: Figtree; font-weight: 400; src: url('../node_modules/@fontsource/figtree/files/figtree-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family: Figtree; font-weight: 700; src: url('../node_modules/@fontsource/figtree/files/figtree-latin-700-normal.woff2') format('woff2'); }
+  @font-face { font-family: Figtree; font-weight: 800; src: url('../node_modules/@fontsource/figtree/files/figtree-latin-800-normal.woff2') format('woff2'); }
+
+  :root {
+    --struttura: #414141; --chiaro: #fff; --scuro: #333;
+    --verde: #617667; --blu: #374758; --terracotta: #A84F32; --bruno: #493F3D; --scheda: #595959;
+    --sel: rgba(153, 153, 153, .75); --linea: rgba(0, 0, 0, .12); --linea-chiara: rgba(255, 255, 255, .18);
+    --f: Figtree, 'Avenir Next', Avenir, sans-serif;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 300 9.4pt/1.7 var(--f); color: var(--scuro); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pagina { width: 210mm; height: 297mm; position: relative; overflow: hidden; break-after: page; background: #fff; }
+  .pagina:last-child { break-after: auto; }
+  b, strong { font-weight: 700; }
+
+  /* barra = header del sito: grigio pieno, logo bianco, voce attiva evidenziata */
+  .barra { height: 17mm; background: var(--struttura); display: flex; align-items: stretch; justify-content: space-between; padding: 0 12mm; color: var(--chiaro); }
+  .barra img { height: 8.4mm; align-self: center; filter: brightness(0) invert(1); }
+  .barra nav { display: flex; }
+  .barra nav span { display: flex; align-items: center; padding: 0 3.6mm; font: 300 6.6pt/1 var(--f); text-transform: uppercase; letter-spacing: .04em; }
+  .barra nav span.on { background: var(--sel); }
+  .barra .meta { align-self: center; font: 300 6.6pt/1 var(--f); letter-spacing: .25em; text-transform: uppercase; }
+
+  /* testata = testata delle pagine del sito: colore dell'area, occhiello numerato, titolo 800 maiuscolo */
+  .testata { color: var(--chiaro); text-align: center; padding: 11mm 22mm 10mm; }
+  .occhiello { font: 300 7pt/1 var(--f); letter-spacing: .25em; text-transform: uppercase; }
+  .occhiello b { font-weight: 800; margin-right: 2.4mm; }
+  h1 { font: 800 27pt/1.04 var(--f); letter-spacing: -.02em; text-transform: uppercase; margin: 4mm 0 4mm; }
+  .testata p { max-width: 142mm; margin: 0 auto; font-size: 9.6pt; opacity: .92; }
+
+  .corpo { padding: 9mm 16mm 0; }
+  .etichetta { font: 300 6.6pt/1 var(--f); letter-spacing: .22em; text-transform: uppercase; color: var(--struttura); opacity: .75; padding-bottom: 2.4mm; border-bottom: 1px solid var(--linea); margin-bottom: 4mm; }
+  .due { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; }
+
+  .piede { position: absolute; left: 16mm; right: 16mm; bottom: 8mm; display: flex; justify-content: space-between; padding-top: 2.6mm; border-top: 1px solid var(--linea); font: 300 6.2pt/1 var(--f); letter-spacing: .16em; text-transform: uppercase; color: #6b6b6b; }
+  .piede b { font-weight: 700; }
+
+  /* ---------- copertina: come l'apertura della landing ---------- */
+  .foto-cop { position: absolute; top: 17mm; left: 0; right: 0; bottom: 0; background: url('../public/img/home-galleria-01.jpg') center 38% / cover; }
+  .velo { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .78), rgba(0, 0, 0, .2) 52%, rgba(0, 0, 0, 0) 70%), linear-gradient(to bottom, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0) 20%); }
+  .indice { position: absolute; right: 9mm; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 4.2mm; color: var(--chiaro); }
+  .indice div { display: flex; align-items: center; justify-content: flex-end; gap: 3.4mm; font: 300 6.8pt/1 var(--f); letter-spacing: .1em; }
+  .indice i { width: 2.6mm; height: 2.6mm; border-radius: 50%; border: 1px solid var(--chiaro); }
+  .indice .on i { background: var(--chiaro); transform: scale(1.25); }
+  .cop-testo { position: absolute; left: 50%; bottom: 22mm; transform: translateX(-50%); width: 158mm; text-align: center; color: var(--chiaro); }
+  .cop-testo h1 { font-size: 31pt; margin: 5mm 0 5mm; }
+  .cop-testo p { font-size: 10pt; max-width: 128mm; margin: 0 auto; opacity: .92; }
+  .invito { margin-top: 6mm; font: 300 8pt/1 var(--f); letter-spacing: .08em; display: flex; flex-direction: column; align-items: center; gap: 2.4mm; }
+  .cop-testo .invito { margin: 8mm auto 0; }
+  .cop-piede { position: absolute; left: 16mm; right: 16mm; bottom: 8mm; display: flex; justify-content: space-between; font: 300 6.2pt/1 var(--f); letter-spacing: .16em; text-transform: uppercase; color: rgba(255, 255, 255, .78); }
+
+  /* ---------- tipografia ---------- */
+  .scala > div { display: grid; grid-template-columns: 22mm 1fr; gap: 3mm; padding: 3.4mm 0; border-bottom: 1px solid var(--linea); align-items: baseline; }
+  .scala > div:last-child { border-bottom: 0; }
+  .scala .liv { font: 300 6.2pt/1.3 var(--f); letter-spacing: .18em; text-transform: uppercase; color: #6b6b6b; }
+  .spec { font: 300 6.8pt/1.4 var(--f); color: #6b6b6b; margin-top: 1.4mm; }
+  .es-titolo { font: 800 19pt/1 var(--f); letter-spacing: -.02em; text-transform: uppercase; color: var(--struttura); }
+  .es-occhiello { font: 300 8pt/1 var(--f); letter-spacing: .25em; text-transform: uppercase; color: var(--struttura); }
+  .es-occhiello b { font-weight: 800; margin-right: 2.4mm; }
+  .es-testo { font: 300 9.4pt/1.7 var(--f); color: var(--scuro); }
+  .es-nome { font: 700 10pt/1.3 var(--f); color: var(--struttura); display: block; }
+  .es-luogo { font: 300 6.8pt/1.4 var(--f); letter-spacing: .18em; text-transform: uppercase; color: #6b6b6b; }
+  .bottone { display: inline-flex; align-items: center; justify-content: center; height: 8mm; padding: 0 6mm; font: 300 7pt/1 var(--f); letter-spacing: .2em; text-transform: uppercase; }
+  .bottone.filo { border: 1px solid currentColor; }
+  .bottone.pieno { background: var(--chiaro); color: var(--scuro); }
+
+  /* ---------- colori: mostrati come nel sito, con il testo bianco sopra ---------- */
+  .colore { height: 17.5mm; display: flex; justify-content: space-between; align-items: flex-end; padding: 2.8mm 3.4mm; color: var(--chiaro); margin-bottom: 2.6mm; }
+  .colore .n { font: 700 8.6pt/1.2 var(--f); display: block; }
+  .colore .u { font: 300 7pt/1.35 var(--f); opacity: .9; }
+  .colore .v { text-align: right; font: 300 7pt/1.4 var(--f); letter-spacing: .06em; }
+  .colore .v b { display: block; font-weight: 700; letter-spacing: .02em; }
+  .colore.bianco { color: var(--scuro); border: 1px solid var(--linea); }
+
+  /* ---------- componenti ---------- */
+  .tavole { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm 5mm; }
+  .tavola { display: flex; flex-direction: column; }
+  .scena { height: 44mm; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--chiaro); }
+  .tavola .nome { font: 700 8pt/1.3 var(--f); color: var(--struttura); margin-top: 2.4mm; }
+  .tavola .uso { font: 300 7pt/1.4 var(--f); color: #6b6b6b; }
+  .foto { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .scena .velo { background: linear-gradient(to top, rgba(0, 0, 0, .66), rgba(0, 0, 0, .15) 60%); }
+  .mini-barra { position: absolute; left: 0; right: 0; top: 0; height: 11mm; background: var(--struttura); display: flex; align-items: stretch; justify-content: flex-end; padding-right: 3mm; }
+  .mini-barra span { display: flex; align-items: center; padding: 0 2.2mm; font: 300 5.6pt/1 var(--f); text-transform: uppercase; }
+  .mini-barra span.on { background: var(--sel); }
+  .mini-barra img { position: absolute; left: 3mm; top: 3mm; height: 5mm; filter: brightness(0) invert(1); }
+  .vetro { position: relative; width: 70%; padding: 3.4mm 3.6mm; background: rgba(20, 20, 20, .42); border: 1px solid var(--linea-chiara); backdrop-filter: blur(6px); }
+  .vetro .t { font: 800 12pt/1 var(--f); letter-spacing: -.01em; }
+  .vetro .c { font: 300 5.4pt/1 var(--f); letter-spacing: .14em; text-transform: uppercase; margin-top: 3mm; padding-bottom: 1.6mm; border-bottom: 1px solid rgba(255, 255, 255, .45); }
+  .punti { position: absolute; right: 3.2mm; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.8mm; }
+  .punti i { width: 1.8mm; height: 1.8mm; border-radius: 50%; border: 1px solid var(--chiaro); }
+  .punti i.on { background: var(--chiaro); }
+  .filtro { width: 74%; font: 300 7.4pt/1 var(--f); }
+  .filtro .leg { font-size: 5.4pt; letter-spacing: .2em; text-transform: uppercase; opacity: .65; margin-bottom: 2mm; }
+  .filtro div { display: flex; align-items: center; padding: 1.1mm 0; }
+  .filtro em { margin-left: auto; font-style: normal; opacity: .55; font-size: 6.4pt; }
+  .filtro .on { font-weight: 700; }
+  .filtro .on::before { content: ''; width: 3.4mm; height: 1px; background: currentColor; margin-right: 1.8mm; }
+  .nastro { position: absolute; left: 0; top: 0; background: var(--terracotta); padding: .8mm 2.4mm; font: 300 6pt/1.3 var(--f); }
+  .wa { width: 12mm; height: 12mm; border-radius: 50%; background: var(--struttura); border: 1px solid rgba(255, 255, 255, .22); display: flex; align-items: center; justify-content: center; box-shadow: 0 1.5mm 4mm rgba(0, 0, 0, .28); }
+  .mm { position: absolute; inset: 0; display: flex; flex-direction: column; }
+  .mm span { flex: 1; display: flex; align-items: center; padding: 0 3.4mm; background: var(--struttura); border-bottom: 1px solid rgba(255, 255, 255, .1); font: 300 7pt/1 var(--f); text-transform: uppercase; }
+
+  /* ---------- tono ---------- */
+  .tono { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 6mm; }
+  .tono div { padding-left: 3.4mm; border-left: 1px solid var(--verde); }
+  .tono h3 { font: 700 8pt/1.3 var(--f); color: var(--struttura); }
+  .tono q { display: block; font: 300 9.2pt/1.45 var(--f); color: var(--scuro); margin: 1.4mm 0 1.4mm; quotes: '«' '»'; }
+  .tono .fonte { font: 300 6.2pt/1 var(--f); letter-spacing: .18em; text-transform: uppercase; color: #6b6b6b; }
+
+  /* ---------- pagine del sito ---------- */
+  .schermo { display: block; width: 100%; border: 1px solid var(--linea); }
+  .didas { margin: 2.2mm 0 0; }
+  .didas .es-nome { font-size: 8.6pt; }
+  .mobili { display: grid; grid-template-columns: repeat(3, 26mm) 1fr; gap: 0 5mm; align-items: start; }
+  .mobili img { width: 26mm; display: block; border: 1px solid var(--linea); }
+
+  /* ---------- interventi ---------- */
+  .numeri { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; margin-bottom: 7mm; }
+  .numeri div { border-top: 2px solid var(--struttura); padding-top: 2.6mm; }
+  .numeri b { display: block; font: 800 20pt/1 var(--f); letter-spacing: -.02em; color: var(--struttura); }
+  .numeri span { display: block; font: 300 7.2pt/1.4 var(--f); color: #6b6b6b; margin-top: 1.6mm; }
+  .voci div { position: relative; padding: 1.5mm 0 1.5mm 6mm; border-bottom: 1px solid var(--linea); font-size: 8.4pt; line-height: 1.5; }
+  .voci div::before { content: ''; position: absolute; left: 0; top: 3.9mm; width: 3.4mm; height: 1px; background: var(--struttura); }
+  .voci div:last-child { border-bottom: 0; }
+  .pannello { background: var(--struttura); color: var(--chiaro); padding: 6mm 6mm 4mm; }
+  .pannello .etichetta { color: var(--chiaro); opacity: .8; border-bottom-color: var(--linea-chiara); }
+  .pannello .voci div { border-bottom-color: rgba(255, 255, 255, .12); color: rgba(255, 255, 255, .92); }
+  .pannello .voci div::before { background: var(--chiaro); }
+  .pannello b { color: var(--chiaro); }
+  /* chiusura: foto con velo e testo centrato, come le aperture del sito */
+  .chiusura { position: absolute; left: 0; right: 0; bottom: 19mm; height: 50mm; color: var(--chiaro); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .chiusura .foto { background-position: center 55%; }
+  .chiusura .velo { background: linear-gradient(to top, rgba(0, 0, 0, .62), rgba(0, 0, 0, .35)); }
+  .chiusura > :not(.foto):not(.velo) { position: relative; }
+  .chiusura .frase { font: 800 17pt/1.1 var(--f); letter-spacing: -.01em; text-transform: uppercase; margin: 3.4mm 0 4.4mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · COPERTINA ============ -->
+<section class="pagina">
+  <div class="barra"><img src="../public/img/chrome-img-01.png" alt="PLAN B" /><span class="meta">Documento di consegna · Ottobre 2026</span></div>
+  <div class="foto-cop"></div>
+  <div class="velo" style="top:17mm"></div>
+  <div class="indice">
+    <div class="on">Il nuovo sito<i></i></div>
+    <div>Identità e tono<i></i></div>
+    <div>Componenti<i></i></div>
+    <div>Le pagine<i></i></div>
+    <div>Interventi<i></i></div>
+  </div>
+  <div class="cop-testo">
+    <p class="occhiello"><b>01</b>Il nuovo sito</p>
+    <h1>Un sito che si attraversa come una casa</h1>
+    <p>Il nuovo sito di PLAN B Filippo Dell'Orto Design Studio: l'identità visiva, i componenti, le pagine e gli interventi fatti, con quello che resta da completare prima della pubblicazione.</p>
+    <p class="invito">Interior design, architettura e arredamento<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="#fff" stroke-width="1.5" /></svg></p>
+  </div>
+  <div class="cop-piede"><span>PLAN B · Erba e Seregno</span><span>Sito realizzato da <b>BDTR</b></span><span>01 / 05</span></div>
+</section>
+
+<!-- ============ 2 · IDENTITÀ E TONO ============ -->
+<section class="pagina">
+  <div class="barra"><img src="../public/img/chrome-img-01.png" alt="PLAN B" /><nav><span class="on">Identità e tono</span><span>Componenti</span><span>Le pagine</span><span>Interventi</span></nav></div>
+  <header class="testata" style="background:var(--verde)">
+    <p class="occhiello"><b>02</b>Identità e tono</p>
+    <h1>Carattere, colore e tono</h1>
+    <p>L'identità del sito non è solo una palette: è un carattere usato sempre allo stesso modo, una gerarchia riconoscibile, pochi colori con un compito preciso e un modo di parlare.</p>
+  </header>
+  <div class="corpo due">
+    <div>
+      <p class="etichetta">Tipografia e gerarchia</p>
+      <div class="scala">
+        <div><span class="liv">Titolo</span><div><span class="es-titolo">Interior design</span><p class="spec">Figtree 800, maiuscolo, spaziatura stretta. Uno solo per pagina, in apertura.</p></div></div>
+        <div><span class="liv">Occhiello</span><div><span class="es-occhiello"><b>01</b>La casa</span><p class="spec">300 maiuscolo, spaziatura ampia; il numero in 800. Dice dove si è.</p></div></div>
+        <div><span class="liv">Testo</span><div><span class="es-testo">Ristrutturare e arredare la tua casa, una villa o un appartamento.</span><p class="spec">300, interlinea ampia, righe corte e centrate nelle testate.</p></div></div>
+        <div><span class="liv">Didascalia</span><div><span class="es-nome">Attico con terrazza</span><span class="es-luogo">Seregno MB</span><p class="spec">Nome in 700, luogo in 300 maiuscolo spaziato. Sotto ogni progetto.</p></div></div>
+        <div><span class="liv">Comando</span><div><span class="bottone filo" style="color:var(--struttura)">Invia</span><p class="spec">300 maiuscolo spaziato, bordo sottile. Nessun angolo arrotondato.</p></div></div>
+      </div>
+      <p class="spec" style="margin-top:3mm">Figtree sostituisce l'Avenir del sito di partenza: proporzioni quasi uguali, licenza libera per il web. È l'unico carattere del sito.</p>
+    </div>
+    <div>
+      <p class="etichetta">Colore, con il contrasto misurato</p>
+      <div class="colore" style="background:var(--struttura)"><div><span class="n">Grigio struttura</span><span class="u">Header, menu, tasto WhatsApp, scritte sul fondo chiaro</span></div><div class="v"><b>#414141</b>10,2 : 1 · AAA</div></div>
+      <div class="colore" style="background:var(--verde)"><div><span class="n">Verde salvia · Interni</span><span class="u">Testata e fondo della pagina Interni</span></div><div class="v"><b>#617667</b>4,9 : 1 · AA</div></div>
+      <div class="colore" style="background:var(--blu)"><div><span class="n">Blu notte · Architettura</span><span class="u">Testata e fondo della pagina Architettura</span></div><div class="v"><b>#374758</b>9,5 : 1 · AAA</div></div>
+      <div class="colore" style="background:var(--terracotta)"><div><span class="n">Terracotta · Prodotti</span><span class="u">Pagina Prodotti e nastro "special price"</span></div><div class="v"><b>#A84F32</b>5,5 : 1 · AA</div></div>
+      <div class="colore" style="background:var(--bruno)"><div><span class="n">Bruno caldo · Shop</span><span class="u">Fondo dello shop e dell'outlet</span></div><div class="v"><b>#493F3D</b>10,2 : 1 · AAA</div></div>
+      <div class="colore bianco"><div><span class="n">Bianco</span><span class="u">Testo sui colori, fondo delle schede prodotto</span></div><div class="v"><b>#FFFFFF</b>testo #333 · 12,6 : 1</div></div>
+      <p class="spec">Contrasto del testo bianco su ciascun colore, misurato sulle pagine del sito (soglia WCAG AA 4,5 : 1). Anche il tasto WhatsApp usa il grigio struttura: nessun colore estraneo alla palette.</p>
+    </div>
+  </div>
+  <div class="corpo" style="padding-top:6mm">
+    <p class="etichetta" style="margin-top:0">Tono</p>
+    <div class="tono">
+      <div><h3>Frasi brevi, che invitano</h3><q>Scorri per entrare nella casa.</q><span class="fonte">Home · apertura</span></div>
+      <div><h3>Il tu, con garbo</h3><q>Raccontaci il tuo progetto: ti ricontattiamo entro due giorni lavorativi.</q><span class="fonte">Contatti · modulo</span></div>
+      <div><h3>Il lessico del progetto</h3><q>Raffinatezza e proporzioni perfette, eleganza formale e innovazione stilistica.</q><span class="fonte">Prodotti · introduzione</span></div>
+      <div><h3>Maiuscole per orientare, mai per alzare la voce</h3><q>Parliamo del tuo progetto.</q><span class="fonte">Home mobile · chiusura</span></div>
+    </div>
+  </div>
+  <div class="piede"><span>PLAN B · Identità e tono</span><span>Sito realizzato da <b>BDTR</b></span><span>02 / 05</span></div>
+</section>
+
+<!-- ============ 3 · COMPONENTI ============ -->
+<section class="pagina">
+  <div class="barra"><img src="../public/img/chrome-img-01.png" alt="PLAN B" /><nav><span>Identità e tono</span><span class="on">Componenti</span><span>Le pagine</span><span>Interventi</span></nav></div>
+  <header class="testata" style="background:var(--blu)">
+    <p class="occhiello"><b>03</b>Componenti</p>
+    <h1>Gli stessi gesti, in ogni pagina</h1>
+    <p>Pochi elementi, ripetuti con coerenza: chi visita impara il sito alla prima pagina e lo ritrova uguale nelle altre.</p>
+  </header>
+  <div class="corpo">
+    <p class="etichetta">Componenti</p>
+    <div class="tavole">
+      <div class="tavola"><div class="scena" style="background:#e9e9e7"><div class="mini-barra"><img src="../public/img/chrome-img-01.png" alt="" /><span class="on">Interni</span><span>Architettura</span><span>Shop</span></div></div>
+        <span class="nome">Header pieno</span><span class="uso">Grigio struttura, logo e voci in bianco; la sezione aperta è evidenziata.</span></div>
+      <div class="tavola"><div class="scena"><div class="foto" style="background-image:url('../public/img/home-galleria-03.jpg')"></div><div class="velo"></div>
+          <p class="occhiello" style="position:absolute;bottom:4mm;font-size:6.4pt"><b>03</b>Soggiorno</p><div class="punti"><i></i><i></i><i class="on"></i><i></i><i></i></div></div>
+        <span class="nome">Occhiello e indice a punti</span><span class="uso">Le tappe del viaggio nella home: numero, nome della stanza, punto attivo.</span></div>
+      <div class="tavola"><div class="scena"><div class="foto" style="background-image:url('../public/img/contact-sfondo-01.jpg');background-position:30% 40%"></div>
+          <div class="vetro"><div class="t">Scrivici</div><div class="c">Nome e cognome</div><div class="c" style="margin-top:2mm">Email</div></div></div>
+        <span class="nome">Scheda in vetro</span><span class="uso">Fondo scuro velato e bordo sottile, sopra la foto: il modulo contatti.</span></div>
+      <div class="tavola"><div class="scena" style="background:var(--struttura);gap:3mm"><span class="bottone pieno">Progetti</span><span class="bottone filo">Contatti</span></div>
+        <span class="nome">Bottoni</span><span class="uso">Pieno chiaro per l'azione principale, a filo per la secondaria.</span></div>
+      <div class="tavola"><div class="scena" style="background:var(--verde);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:3mm">
+          <div style="width:100%;height:18mm;background:url('../public/img/interiors-galleria-02.jpg') center/cover"></div>
+          <span class="es-nome" style="color:#fff;font-size:7.6pt;margin-top:2mm">Attico con terrazza</span><span class="es-luogo" style="color:#fff;opacity:.75;font-size:5.6pt">Seregno MB</span></div>
+        <span class="nome">Didascalia progetto</span><span class="uso">Sotto ogni foto di Interni e Architettura: nome del progetto e luogo.</span></div>
+      <div class="tavola"><div class="scena" style="background:var(--bruno)"><div class="filtro"><p class="leg">Categoria</p><div class="on">Tutto<em>22</em></div><div>Divani<em>5</em></div><div>Poltrone<em>14</em></div><div>Tavoli<em>3</em></div></div></div>
+        <span class="nome">Filtro dello shop</span><span class="uso">La voce scelta in grassetto con il trattino, il numero di prodotti a destra.</span></div>
+      <div class="tavola"><div class="scena" style="background:var(--scheda)"><div style="position:relative;width:24mm;height:24mm;background:#fff url('../public/img/og-07.jpg') center/88% no-repeat"><span class="nastro">special price</span></div></div>
+        <span class="nome">Scheda prodotto</span><span class="uso">Foto intera su bianco, nastro terracotta per le offerte.</span></div>
+      <div class="tavola"><div class="scena"><div class="mm"><span>Interni</span><span>Architettura</span><span>Prodotti</span><span>Contatto</span></div></div>
+        <span class="nome">Menu mobile</span><span class="uso">Pannello pieno, continua l'header: niente trasparenze sul contenuto.</span></div>
+      <div class="tavola"><div class="scena" style="background:#e9e9e7"><div class="wa"><svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.69.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41Z" /></svg></div></div>
+        <span class="nome">Tasto WhatsApp</span><span class="uso">Grigio struttura con icona bianca, in basso a destra su ogni pagina.</span></div>
+    </div>
+  </div>
+  <div class="piede"><span>PLAN B · Componenti</span><span>Sito realizzato da <b>BDTR</b></span><span>03 / 05</span></div>
+</section>
+
+<!-- ============ 4 · LE PAGINE ============ -->
+<section class="pagina">
+  <div class="barra"><img src="../public/img/chrome-img-01.png" alt="PLAN B" /><nav><span>Identità e tono</span><span>Componenti</span><span class="on">Le pagine</span><span>Interventi</span></nav></div>
+  <header class="testata" style="background:var(--terracotta);padding-bottom:8mm">
+    <p class="occhiello"><b>04</b>Le pagine</p>
+    <h1>Dal viaggio nella casa allo shop</h1>
+    <p>Trentatré pagine, tutte con i contenuti reali dello studio: progetti, prodotti, schede e recapiti.</p>
+  </header>
+  <div class="corpo" style="padding-top:7mm">
+    <div class="due" style="gap:5mm 8mm">
+      <div><img class="schermo" src="img/home.jpg" alt="Home" /><p class="didas"><span class="es-nome">Home</span><span class="es-luogo">Il viaggio 3D nella villa, sette tappe</span></p></div>
+      <div><img class="schermo" src="img/interni.jpg" alt="Interni" /><p class="didas"><span class="es-nome">Interni e Architettura</span><span class="es-luogo">Griglia di progetti con didascalia</span></p></div>
+      <div style="margin-top:4mm"><img class="schermo" src="img/shop.jpg" alt="Shop" /><p class="didas"><span class="es-nome">Shop e Outlet</span><span class="es-luogo">22 prodotti, filtri fissi a sinistra</span></p></div>
+      <div style="margin-top:4mm"><img class="schermo" src="img/contatti.jpg" alt="Contatti" /><p class="didas"><span class="es-nome">Contatti</span><span class="es-luogo">Il modulo con i recapiti attorno</span></p></div>
+    </div>
+    <div class="mobili" style="margin-top:7mm">
+      <img src="img/home-mobile.jpg" alt="Home su mobile" />
+      <img src="img/interni-mobile.jpg" alt="Interni su mobile" />
+      <img src="img/shop-mobile.jpg" alt="Shop su mobile" />
+      <div>
+        <p class="etichetta">Da telefono</p>
+        <p style="font-size:8.6pt;line-height:1.6">Su mobile la home rinuncia al 3D: apertura con foto e due bottoni, poi le quattro aree e il contatto. Le gallerie diventano una colonna con didascalie leggibili, lo shop due colonne con i filtri in un pannello laterale.</p>
+        <p class="etichetta" style="margin-top:5mm">Altre pagine</p>
+        <p style="font-size:8.6pt;line-height:1.6"><b>Studio</b>, <b>Consulenze</b>, <b>Prodotti</b>, la pagina <b>categoria</b> e le <b>22 schede prodotto</b>, ognuna con foto, prezzi e descrizione.</p>
+      </div>
+    </div>
+  </div>
+  <div class="piede"><span>PLAN B · Le pagine</span><span>Sito realizzato da <b>BDTR</b></span><span>04 / 05</span></div>
+</section>
+
+<!-- ============ 5 · INTERVENTI ============ -->
+<section class="pagina">
+  <div class="barra"><img src="../public/img/chrome-img-01.png" alt="PLAN B" /><nav><span>Identità e tono</span><span>Componenti</span><span>Le pagine</span><span class="on">Interventi</span></nav></div>
+  <header class="testata" style="background:var(--bruno)">
+    <p class="occhiello"><b>05</b>Interventi</p>
+    <h1>Più leggero, più rapido, più chiaro</h1>
+    <p>Cosa è cambiato rispetto alla prima versione, e cosa serve ancora per andare online.</p>
+  </header>
+  <div class="corpo">
+    <div class="numeri">
+      <div><b>99 › 31 MB</b><span>peso di foto, video e modelli 3D</span></div>
+      <div><b>40 › 5 MB</b><span>i tre video, a 720p e senza audio inutile</span></div>
+      <div><b>0,55 s</b><span>3D pronto in anteprima, prima 1,1 s</span></div>
+      <div><b>22</b><span>prodotti filtrabili per categoria, prezzo e offerte</span></div>
+    </div>
+    <div class="due">
+      <div>
+        <p class="etichetta">Fatto</p>
+        <div class="voci">
+          <div><b>Home che risponde subito.</b> Il primo gesto porta alla prima tappa vera; il volo parte all'istante e frena morbido.</div>
+          <div><b>3D senza blocchi.</b> Niente disegno durante il caricamento, materiali preparati in modo asincrono, qualità che si adatta al computer in pochi istanti.</div>
+          <div><b>Header pieno e leggibile.</b> Logo, voci e menu mobile in bianco sul grigio struttura.</div>
+          <div><b>Gallerie ridisegnate.</b> Interni, Architettura e Prodotti a griglia, con margini e didascalie.</div>
+          <div><b>Shop con filtri veri.</b> Ricerca, categorie, prezzo, offerte, ordinamento e caricamento a pagine.</div>
+          <div><b>Contatti essenziali.</b> Il modulo e i recapiti a sinistra, l'insegna dello studio libera a destra.</div>
+          <div><b>Terracotta più piena.</b> Da 4,4 a 5,5 : 1 sul testo bianco, oltre la soglia AA.</div>
+          <div><b>Dettagli.</b> Tasto WhatsApp su ogni pagina, comparse brevi e morbide al posto degli effetti a tendina.</div>
+        </div>
+      </div>
+      <div class="pannello">
+        <p class="etichetta">Prima della pubblicazione</p>
+        <div class="voci">
+          <div><b>Dominio.</b> Indicare l'indirizzo definitivo: oggi è un segnaposto e serve per Google e per le anteprime social.</div>
+          <div><b>Modulo contatti.</b> Collegarlo a un indirizzo email o a un servizio di invio: oggi non spedisce.</div>
+          <div><b>Privacy e cookie.</b> Il modulo richiama l'informativa, la pagina va scritta con i dati dello studio.</div>
+          <div><b>Carrello e acquisto.</b> I bottoni delle schede non sono collegati: scegliere vendita online o richiesta di preventivo.</div>
+          <div><b>Lingua.</b> IT e EN sono solo grafici: tradurre il sito o togliere il selettore.</div>
+          <div><b>Da confermare.</b> Le categorie dei 22 prodotti e il numero WhatsApp (+39 335 6208642).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chiusura">
+    <div class="foto" style="background-image:url('../public/img/interiors-galleria-02.jpg')"></div><div class="velo"></div>
+    <p class="occhiello"><b>06</b>Prossimo passo</p>
+    <p class="frase">Pubblicazione su Netlify, con il dominio dello studio</p>
+    <span class="bottone filo">Il sito è pronto</span>
+  </div>
+  <div class="piede"><span>PLAN B · Interventi</span><span>Sito realizzato da <b>BDTR</b></span><span>05 / 05</span></div>
+</section>
+
+</body>
+</html>
