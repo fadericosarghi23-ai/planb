@@ -1,5 +1,20 @@
 ---
+// Shop: la griglia mostra l'intero catalogo (prodotti di shop, outlet e pagina categoria, senza doppioni),
+// filtrabile per categoria, prezzo, offerte e ricerca (components/negozio/Griglia.astro).
 import Pagina from '../components/Pagina.astro';
-import p from '../data/pagine/shop.json';
+import shop from '../data/pagine/shop.json';
+import outlet from '../data/pagine/shop-promotion.json';
+import categoria from '../data/pagine/category.json';
+
+const trova = (nodi: any[]): any[] => nodi.flatMap((n) => (n.k === 'store' ? [n.store] : trova(n.c || [])));
+const catalogo = new Map<string, any>();
+for (const pg of [shop, outlet, categoria]) for (const s of trova(pg.sections)) for (const pr of s.products || []) {
+  if (!pr.slug) continue;
+  const gia = catalogo.get(pr.slug);
+  if (!gia) catalogo.set(pr.slug, { ...pr });
+  else if (!gia.ribbon && pr.ribbon) gia.ribbon = pr.ribbon; // il nastro "special price" può stare solo in una delle pagine
+}
+const p = structuredClone(shop) as any;
+for (const s of trova(p.sections)) s.products = [...catalogo.values()];
 ---
 <Pagina p={p} />

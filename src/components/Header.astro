@@ -33,7 +33,5 @@ const lingue = (() => { const f = (n: any): any => (n.k === 'lang' ? n : (n.c ||
   </div>
 </header>
 <style>
-  /* mobile: velo scuro sfumato come sfondo dell'header, così logo e menu bianchi restano
-     leggibili sia sulle sezioni scure (hero) sia su quelle chiare (griglia progetti) */
-  @media (max-width: 750px) { .sito-header { background: linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0)); } }
+  /* header pieno anche su mobile (stesso grigio scuro del desktop, da styles/base.css) */
 </style>

@@ -51,11 +51,13 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   const tl = new THREE.TextureLoader(manager);
   const gltf = new GLTFLoader(manager); gltf.setMeshoptDecoder(MeshoptDecoder);
 
-  // cielo HDRI: sfondo e illuminazione d'ambiente/riflessi
-  new RGBELoader(manager).load(BASE + 'hdri/cielo.hdr', (hdr) => {
+  // cielo HDRI: caricato FUORI dal LoadingManager, così il modello 3D diventa "pronto" senza
+  // attendere i ~5 MB dell'HDR. Fino a quel momento resta lo sfondo azzurro impostato sopra.
+  new RGBELoader().load(BASE + 'hdri/cielo.hdr', (hdr) => {
     hdr.mapping = THREE.EquirectangularReflectionMapping;
     scene.background = hdr; scene.environment = hdr;
     scene.environmentIntensity = 0.75; scene.backgroundIntensity = 1;
+    if (pronto) renderer.compileAsync(scene, camera); // env a scena avviata: ricompila senza scatti
   });
 
   // sole da nord-est come nella foto (ombre verso sud-ovest)
@@ -239,6 +241,7 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
         k++;
       }
       erba.count = k; erba.receiveShadow = true; erba.frustumCulled = false; scene.add(erba);
+      renderer.compileAsync(scene, camera); // compila subito lo shader dell'erba: niente scatto al primo frame visibile
     });
   };
   const fogliame = () => {
@@ -461,31 +464,38 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
   };
   const orologio = new THREE.Clock();
   let attivo = true, pronto = false;
-  // qualità adattiva: se il computer non regge i 40 fps si spegne prima l'occlusione, poi scende la risoluzione
+  // qualità adattiva: se il computer non regge i 48 fps si spegne prima l'occlusione, poi scende la risoluzione.
+  // Decide in fretta (20 fotogrammi) e, se è molto lento, scende di due gradini insieme: così un PC che fatica
+  // arriva alla qualità giusta in un paio di secondi invece di restare a scatti per 10-15 secondi.
   const maxPR = renderer.getPixelRatio();
   let livello = 0, campioni = 0, somma = 0, attesa = 0;
+  const scendi = () => {
+    livello++;
+    if (gtao) { composer.removePass(gtao); gtao.dispose(); gtao = null; return; }
+    renderer.setPixelRatio(Math.max(0.5, maxPR * [1, 0.85, 0.72, 0.6, 0.5][livello]));
+  };
   const qualita = (dtv) => {
-    if (!pronto || document.hidden || dtv > 0.25 || livello >= 4) return;
-    if ((attesa += dtv) < 2) return; // i primi istanti dopo il caricamento compilano gli shader
-    somma += dtv; if (++campioni < 30) return;
+    if (!pronto || document.hidden || dtv > 0.5 || livello >= 4) return;
+    if ((attesa += dtv) < 0.6) return; // primi istanti dopo il caricamento: assestamento
+    somma += dtv; if (++campioni < 20) return;
     const media = somma / campioni; campioni = 0; somma = 0;
     if (media < 1 / 48) return;
-    livello++; attesa = 1.5;
-    if (gtao) { composer.removePass(gtao); gtao.dispose(); gtao = null; return; }
-    renderer.setPixelRatio(Math.max(0.5, maxPR * [1, 0.85, 0.72, 0.6, 0.5][livello])); resize();
+    scendi(); if (media > 1 / 24 && livello < 4) scendi(); // sotto i 24 fps: due gradini
+    resize(); attesa = 0.3;
   };
   // fuori schermo non si disegna
   let inVista = true;
-  new IntersectionObserver(([e]) => { inVista = e.isIntersecting; }).observe(canvas);
+  const osservatore = new IntersectionObserver(([e]) => { inVista = e.isIntersecting; }); osservatore.observe(canvas);
   const ciclo = () => {
     if (!attivo) return;
     const dtv = orologio.getDelta(), dt = Math.min(0.05, dtv);
-    if (!inVista) { requestAnimationFrame(ciclo); return; }
+    // fuori schermo, o finché si carica (la foto aerea copre il canvas), non si disegna: la scheda video resta
+    // libera e la pagina scorre subito
+    if (!inVista || !pronto) { requestAnimationFrame(ciclo); return; }
     qualita(dtv);
     // lo scroll arriva già ammorbidito dal viaggio: qui solo un filtro breve contro gli scatti
     tAtt += (tTarget - tAtt) * Math.min(1, dt * 14);
     colloca(tAtt);
-    if (!pronto) renderer.shadowMap.needsUpdate = true;
     // nelle stanze il render deve restare identico alla foto: niente tone mapping né occlusione
     const dentro = dentroStanza(camera.position);
     renderer.toneMapping = dentro ? THREE.NoToneMapping : THREE.AgXToneMapping;
@@ -496,13 +506,20 @@ export function avviaVilla({ canvas, fotoSrc, stanze = [], onPronto }) {
     requestAnimationFrame(ciclo);
   };
   if (import.meta.env?.DEV) window.__villa3d = { scene, camera, modelli, renderer };
-  manager.onLoad = () => { if (pronto) return; pronto = true; fogliame(); prato(); renderer.compile(scene, camera); renderer.shadowMap.needsUpdate = true; onPronto?.(); };
+  // a caricamento finito gli shader si compilano in modo asincrono (renderer.compile bloccava il browser per
+  // secondi su Windows); la scena compare, e le ombre si calcolano, solo quando è tutto pronto
+  let caricato = false;
+  manager.onLoad = () => {
+    if (caricato) return; caricato = true;
+    fogliame(); prato();
+    renderer.compileAsync(scene, camera).catch(() => {}).finally(() => { renderer.shadowMap.needsUpdate = true; pronto = true; onPronto?.(); });
+  };
   colloca(0); requestAnimationFrame(ciclo);
 
   return {
     tappe,
     vai(t) { tTarget = THREE.MathUtils.clamp(t, 0, 1); },
     salta(t) { tAtt = tTarget = t; },
-    stop() { attivo = false; renderer.dispose(); },
+    stop() { attivo = false; window.removeEventListener('resize', resize); osservatore.disconnect(); composer?.dispose?.(); renderer.dispose(); },
   };
 }

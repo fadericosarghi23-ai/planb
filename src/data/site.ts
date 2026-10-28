@@ -6,6 +6,7 @@ export const site = {
   lingua: 'it',
   email: 'studio@filippodellorto.it',
   telefono: '+393356208642',
+  whatsapp: '393356208642', // numero per il tasto fisso WhatsApp (solo cifre, con prefisso internazionale)
   indirizzo: { via: '4 Via Clerici', cap: '22036', citta: 'Erba', provincia: 'CO', paese: 'IT' },
   immagineSchema: '/img/og-01.jpg',
   mappa: {

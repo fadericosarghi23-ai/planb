@@ -1,56 +1,223 @@
 ---
-// Shop / outlet: filtro a colonna (desktop) o pannello "Filtra" (mobile) + griglia a 3 colonne + "altri prodotti".
+// Shop / outlet: colonna filtri fissa a sinistra (desktop) o pannello "Filtra" (mobile), barra con
+// risultati e ordinamento, griglia prodotti fluida, "altri prodotti" a pagine da 12.
+// Filtri: ricerca per nome, categoria (da data/catalogo.json), prezzo massimo, solo offerte.
 import Card from './Card.astro';
+import catalogo from '../../data/catalogo.json';
 interface Props { s: any }
 const { s } = Astro.props;
 const c = s.cls;
+const PAGINA = 12;
+const num = (t: string) => +String(t || '').replace(/[^\d,]/g, '').replace(',', '.') || 0; // "13.695,00 €" → 13695
+const euro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+const cats = catalogo.prodotti as Record<string, string>;
+const prodotti = (s.products as any[]).map((p, i) => {
+  const prezzo = num(p.price), prima = num(p.before);
+  return { p, i, cat: cats[p.slug] || 'Altro', prezzo, sconto: prima > prezzo ? Math.round((1 - prezzo / prima) * 100) : 0, promo: !!p.ribbon };
+});
+const conteggi = catalogo.categorie.map((n) => [n, prodotti.filter((x) => x.cat === n).length] as const).filter(([, k]) => k > 0);
+const pMin = Math.floor(Math.min(...prodotti.map((x) => x.prezzo)) / 50) * 50;
+const pMax = Math.ceil(Math.max(...prodotti.map((x) => x.prezzo)) / 50) * 50;
+const nPromo = prodotti.filter((x) => x.promo).length;
 ---
-<div class="shop" style={`--card-bg:${c.cardBg};--ribbon-bg:${c.ribbonBg};--ribbon-bg-m:${c.ribbonBgM};--more-bg:${c.moreBg};--more-bg-m:${c.moreBgM};--more-border-m:${c.moreBorderM}`}>
-  <button class="filtra-m" type="button" data-apri-filtri><span class={s.filter.titleCls}>FILTRA</span></button>
-  <aside class="filtri" data-filtri>
+<div class="shop" data-shop data-cresce data-pagina={PAGINA} style={`--card-bg:${c.cardBg};--ribbon-bg:${c.ribbonBg};--ribbon-bg-m:${c.ribbonBgM};--more-bg:${c.moreBg};--more-bg-m:${c.moreBgM};--more-border-m:${c.moreBorderM}`}>
+  <button class="filtra-m" type="button" data-apri-filtri>FILTRA <span data-n-attivi></span></button>
+
+  <aside class="filtri" data-filtri aria-label="Filtri prodotti">
     <div class="filtri-testa">
-      <h2 class={s.filter.titleCls}>{s.filter.title}</h2>
-      <button class="chiudi-filtri" type="button" data-chiudi-filtri aria-label="Chiudi">
-        <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M15.5,10 L15.5,11 L4.5,11 L4.5,10 L15.5,10 Z"></path></svg>
+      <h2 class="f-tit">{s.filter.title}</h2>
+      <button class="chiudi-filtri" type="button" data-chiudi-filtri aria-label="Chiudi filtri">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="1.5" /></svg>
       </button>
     </div>
-    <ul class="opzioni" role="radiogroup">
-      {s.filter.options.map((o: string, i: number) => (
-        <li><label><input type="radio" name={`filtro-${s.filter.title}`} checked={i === 0} /><span class={i === 0 ? s.filter.optSelCls : s.filter.optCls}>{o}</span></label></li>
-      ))}
-    </ul>
+
+    <label class="f-cerca"><span class="nascosto">Cerca un prodotto</span><input type="search" placeholder="Cerca un prodotto" data-f-cerca /></label>
+
+    <div class="f-gruppo" role="radiogroup" aria-labelledby="f-leg-cat">
+      <p class="f-leg" id="f-leg-cat">Categoria</p>
+      <label class="f-opz"><input type="radio" name="f-cat" value="" checked data-f-cat /><span>Tutto</span><em>{prodotti.length}</em></label>
+      {conteggi.map(([n, k]) => <label class="f-opz"><input type="radio" name="f-cat" value={n} data-f-cat /><span>{n}</span><em>{k}</em></label>)}
+    </div>
+
+    <div class="f-gruppo" role="group" aria-labelledby="f-leg-prezzo">
+      <p class="f-leg" id="f-leg-prezzo">Prezzo</p>
+      <p class="f-prezzo">fino a <output data-f-prezzo-val>{euro.format(pMax)}</output></p>
+      <input type="range" min={pMin} max={pMax} step="50" value={pMax} data-f-prezzo aria-label="Prezzo massimo" />
+      <p class="f-estremi"><span>{euro.format(pMin)}</span><span>{euro.format(pMax)}</span></p>
+    </div>
+
+    {nPromo > 0 && (
+      <div class="f-gruppo" role="group" aria-labelledby="f-leg-offerte">
+        <p class="f-leg" id="f-leg-offerte">Offerte</p>
+        <label class="f-check"><input type="checkbox" data-f-promo /><span>Solo special price</span><em>{nPromo}</em></label>
+      </div>
+    )}
+
+    <button type="button" class="f-azzera" data-f-azzera>Azzera filtri</button>
+    <button type="button" class="f-vedi" data-chiudi-filtri>Mostra i prodotti</button>
   </aside>
-  <div class="griglia">
-    {s.products.map((p: any, i: number) => <div class="cella"><Card p={p} cls={c} i={i} /></div>)}
+
+  <div class="risultati">
+    <div class="barra">
+      <p class="conta" data-f-conta aria-live="polite">{prodotti.length} prodotti</p>
+      <label class="ordina">
+        <span>Ordina per</span>
+        <select data-f-ordina>
+          <option value="">In evidenza</option>
+          <option value="prezzo-su">Prezzo crescente</option>
+          <option value="prezzo-giu">Prezzo decrescente</option>
+          <option value="sconto">Sconto maggiore</option>
+          <option value="nome">Nome A–Z</option>
+        </select>
+      </label>
+    </div>
+    <div class="griglia" data-f-griglia>
+      {prodotti.map((x) => (
+        <div class="cella" data-cat={x.cat} data-prezzo={x.prezzo} data-sconto={x.sconto} data-promo={x.promo ? '1' : ''} data-nome={x.p.name.toLowerCase()} data-ordine={x.i}>
+          <Card p={x.p} cls={c} i={x.i} />
+        </div>
+      ))}
+    </div>
+    <div class="vuoto" data-f-vuoto hidden>
+      <p>Nessun prodotto con questi filtri.</p>
+      <button type="button" class="f-azzera" data-f-azzera>Azzera filtri</button>
+    </div>
+    <div class="altri"><button type="button" class={`altri-btn ${c.more}`} data-f-altri>{s.more}</button></div>
   </div>
-  <div class="altri"><button type="button" class={`altri-btn ${c.more}`}>{s.more}</button></div>
 </div>
+
 <style>
-  .shop { position: relative; height: 100%; --det-pad: 16px 15px 0; }
-  .filtra-m { display: none; }
-  .filtri { position: absolute; left: 20px; top: 45px; width: 200px; }
-  .filtri-testa { display: flex; justify-content: space-between; align-items: center; height: 19px; }
-  .chiudi-filtri { background: none; border: 0; padding: 0; color: var(--chiaro); cursor: pointer; }
-  .opzioni { list-style: none; margin-top: 19px; }
-  .opzioni li { height: 23.8px; }
-  .opzioni label { cursor: pointer; display: block; line-height: 23.8px; }
-  .opzioni input { position: absolute; opacity: 0; }
-  .opzioni label:hover span { opacity: .7; }
-  .griglia { position: absolute; left: 241px; top: 0; width: 1003px; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 413.3px; }
+  .shop { position: relative; display: grid; grid-template-columns: 230px minmax(0, 1fr); column-gap: 40px; align-items: start; padding: 10px 20px 70px; color: var(--chiaro); font-family: var(--font-avenir); --det-pad: 16px 15px 18px; --linea: rgba(255, 255, 255, .18); }
+  .shop [hidden] { display: none !important; }
+  .nascosto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .filtra-m, .chiudi-filtri, .f-vedi { display: none; }
+
+  /* colonna filtri: resta ferma sulla sinistra mentre si scorrono i prodotti */
+  .filtri { position: sticky; top: calc(var(--header-h) + 24px); display: flex; flex-direction: column; gap: 26px; max-height: calc(100vh - var(--header-h) - 48px); overflow-y: auto; scrollbar-width: thin; }
+  .filtri-testa { display: flex; justify-content: space-between; align-items: center; }
+  .f-tit { font: 300 15px/1 var(--font-avenir); letter-spacing: .25em; text-transform: uppercase; }
+  .chiudi-filtri { background: none; border: 0; padding: 0; color: inherit; cursor: pointer; }
+  .f-cerca input { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .45); color: inherit; font: 300 15px/1.4 var(--font-avenir); padding: 8px 0; outline: none; transition: border-color .3s; }
+  .f-cerca input::placeholder { color: inherit; opacity: .55; }
+  .f-cerca input:focus { border-bottom-color: currentColor; }
+  .f-gruppo { border-top: 1px solid var(--linea); padding-top: 18px; display: flex; flex-direction: column; }
+  .f-leg { font: 300 12px/1 var(--font-avenir); letter-spacing: .2em; text-transform: uppercase; opacity: .65; margin-bottom: 12px; }
+  .f-opz, .f-check { position: relative; display: flex; align-items: center; gap: 10px; padding: 6px 0; font: 300 15px/1.3 var(--font-avenir); cursor: pointer; transition: opacity .2s; }
+  .f-opz:hover, .f-check:hover { opacity: .75; }
+  .f-opz input { position: absolute; opacity: 0; pointer-events: none; }
+  .f-opz span::before { content: ''; display: inline-block; width: 0; height: 1px; margin-right: 0; vertical-align: middle; background: currentColor; transition: width .25s, margin-right .25s; }
+  .f-opz:has(input:checked) span { font-weight: 700; }
+  .f-opz:has(input:checked) span::before { width: 14px; margin-right: 8px; }
+  .f-opz:has(input:focus-visible) { outline: 1px dotted currentColor; outline-offset: 2px; }
+  .f-opz em, .f-check em { margin-left: auto; font-style: normal; font-size: 13px; opacity: .55; }
+  .f-check input { width: 16px; height: 16px; margin: 0; accent-color: var(--chiaro); }
+  .f-prezzo { display: flex; justify-content: space-between; font: 300 14px/1 var(--font-avenir); margin-bottom: 12px; }
+  .f-prezzo output { font-weight: 700; }
+  .f-gruppo input[type='range'] { width: 100%; margin: 0; accent-color: var(--chiaro); cursor: pointer; }
+  .f-estremi { display: flex; justify-content: space-between; margin-top: 8px; font: 300 12px/1 var(--font-avenir); opacity: .55; }
+  .f-azzera { height: 42px; padding: 0 20px; border: 1px solid rgba(255, 255, 255, .5); background: transparent; color: inherit; font: 300 12px var(--font-avenir); letter-spacing: .18em; text-transform: uppercase; cursor: pointer; transition: background-color .3s, color .3s; }
+  .f-azzera:hover { background: var(--chiaro); color: var(--scuro); }
+
+  /* risultati */
+  .barra { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 0 10px 14px; margin-bottom: 10px; border-bottom: 1px solid var(--linea); }
+  .conta { font: 300 14px/1 var(--font-avenir); letter-spacing: .06em; opacity: .8; }
+  .ordina { display: flex; align-items: center; gap: 12px; font: 300 13px/1 var(--font-avenir); letter-spacing: .06em; }
+  .ordina span { opacity: .7; }
+  .ordina select { height: 36px; padding: 0 12px; background: transparent; color: inherit; border: 1px solid rgba(255, 255, 255, .4); font: 300 14px var(--font-avenir); cursor: pointer; }
+  .ordina option { color: var(--scuro); }
+  .griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
   .cella { padding: 10px; }
-  .altri { position: absolute; left: 241px; width: 1003px; top: 1678px; display: flex; justify-content: center; }
+  .vuoto { display: flex; flex-direction: column; align-items: center; gap: 22px; padding: 80px 0; font: 300 18px/1.4 var(--font-avenir); }
+  .altri { display: flex; justify-content: center; margin-top: 30px; }
   .altri-btn { width: 216.7px; height: 42px; background: var(--more-bg); border: 0; cursor: pointer; transition: opacity .2s; }
   .altri-btn:hover { opacity: .8; }
+
   @media (max-width: 750px) {
-    .shop { --det-pad: 5vw 3.125vw 0; }
-    .filtra-m { display: flex; align-items: center; justify-content: center; position: absolute; left: 3.125vw; width: 81.25vw; top: 6.25vw; height: 12.5vw; background: none; border: 1px solid var(--chiaro); cursor: pointer; }
-    .filtri { position: fixed; z-index: 60; inset: 0; left: auto; width: 85vw; padding: 26.5vw 6.25vw; background: var(--chiaro); transform: translateX(100%); transition: transform .3s ease; }
-    .filtri.open { transform: none; }
-    .filtri :global(h2), .filtri :global(.opzioni span) { color: var(--scuro) !important; }
-    .chiudi-filtri { color: var(--scuro); }
-    .griglia { position: absolute; left: 3.125vw; top: 20vw; width: 81.25vw; grid-template-columns: 1fr; grid-auto-rows: auto; row-gap: 12.5vw; }
+    .shop { display: block; padding: 4vw 3.125vw 14vw; --det-pad: 3vw 2.5vw 3.5vw; --linea: rgba(0, 0, 0, .14); }
+    .filtra-m { display: flex; align-items: center; justify-content: center; gap: 2vw; width: 100%; height: 12.5vw; margin-bottom: 5vw; background: none; border: 1px solid var(--chiaro); color: var(--chiaro); font: 300 3.8vw var(--font-avenir); letter-spacing: .2em; cursor: pointer; }
+    .filtri { position: fixed; z-index: 70; top: 0; right: 0; bottom: 0; width: 85vw; max-height: none; padding: 8vw 6.25vw 10vw; gap: 7vw; background: var(--chiaro); color: var(--scuro); transform: translateX(100%); transition: transform .3s ease, box-shadow .3s; }
+    .filtri.open { transform: none; box-shadow: -10px 0 40px rgba(0, 0, 0, .3); }
+    .chiudi-filtri { display: block; }
+    .f-tit { font-size: 4.2vw; }
+    .f-cerca input { border-bottom-color: rgba(0, 0, 0, .35); font-size: 4.2vw; }
+    .f-opz, .f-check { font-size: 4.2vw; padding: 2vw 0; }
+    .f-leg { font-size: 3.2vw; }
+    .f-check input, .f-gruppo input[type='range'] { accent-color: var(--scuro); }
+    .f-azzera { border-color: rgba(0, 0, 0, .4); height: 12vw; font-size: 3.4vw; }
+    .f-azzera:hover { background: var(--scuro); color: var(--chiaro); }
+    .f-vedi { display: block; height: 12vw; border: 0; background: var(--scuro); color: var(--chiaro); font: 300 3.6vw var(--font-avenir); letter-spacing: .18em; text-transform: uppercase; cursor: pointer; }
+    .vuoto .f-azzera { border-color: rgba(255, 255, 255, .5); }
+    .barra { padding: 0 0 3vw; margin-bottom: 3vw; }
+    .conta { font-size: 3.6vw; }
+    .ordina span { display: none; }
+    .ordina select { height: 9vw; font-size: 3.6vw; }
+    .griglia { grid-template-columns: 1fr 1fr; gap: 3vw; }
+    /* testi delle card proporzionati alla griglia a 2 colonne */
+    .griglia :global(.card-det h3) { font-size: 3.3vw !important; line-height: 1.3 !important; }
+    .griglia :global(.prezzi span) { font-size: 3.3vw !important; }
+    .griglia :global(.nastro) { font-size: 2.8vw !important; padding: .4vw 2vw !important; }
     .cella { padding: 0; }
-    .altri { left: 0; width: 100%; top: auto; bottom: 0; }
+    .altri { margin-top: 8vw; }
     .altri-btn { width: 67.2vw; height: 13.125vw; background: var(--more-bg-m); border: var(--more-border-m); }
   }
 </style>
+
+<script>
+  // Filtri dello shop: tutto lato browser sulle celle già presenti nella pagina (dati in data-*).
+  type Ordine = (a: HTMLElement, b: HTMLElement) => number;
+  const n = (el: HTMLElement, k: string) => +(el.dataset[k] || 0);
+  const ORDINI: Record<string, Ordine> = {
+    'prezzo-su': (a, b) => n(a, 'prezzo') - n(b, 'prezzo'),
+    'prezzo-giu': (a, b) => n(b, 'prezzo') - n(a, 'prezzo'),
+    sconto: (a, b) => n(b, 'sconto') - n(a, 'sconto'),
+    nome: (a, b) => (a.dataset.nome || '').localeCompare(b.dataset.nome || ''),
+  };
+  const evidenza: Ordine = (a, b) => n(a, 'ordine') - n(b, 'ordine');
+  const euro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-shop]')) {
+    const $ = <T extends Element>(sel: string) => root.querySelector<T>(sel);
+    const celle = [...root.querySelectorAll<HTMLElement>('.cella')];
+    const griglia = $<HTMLElement>('[data-f-griglia]')!;
+    const cerca = $<HTMLInputElement>('[data-f-cerca]')!;
+    const prezzo = $<HTMLInputElement>('[data-f-prezzo]')!;
+    const promo = $<HTMLInputElement>('[data-f-promo]');
+    const ordina = $<HTMLSelectElement>('[data-f-ordina]')!;
+    const altri = $<HTMLElement>('[data-f-altri]')!.parentElement!;
+    const PAGINA = +(root.dataset.pagina || 12);
+    let limite = PAGINA;
+
+    const aggiorna = (daCapo = true) => {
+      if (daCapo) limite = PAGINA;
+      const cat = $<HTMLInputElement>('[data-f-cat]:checked')?.value || '';
+      const q = cerca.value.trim().toLowerCase();
+      const max = +prezzo.value, soloPromo = !!promo?.checked;
+      $('[data-f-prezzo-val]')!.textContent = euro.format(max);
+      const ok = celle
+        .filter((el) => (!cat || el.dataset.cat === cat) && (!q || (el.dataset.nome || '').includes(q)) && n(el, 'prezzo') <= max && (!soloPromo || el.dataset.promo === '1'))
+        .sort(ORDINI[ordina.value] || evidenza);
+      for (const el of celle) el.hidden = true;
+      ok.forEach((el, k) => { griglia.appendChild(el); el.hidden = k >= limite; });
+      $('[data-f-conta]')!.textContent = `${ok.length} ${ok.length === 1 ? 'prodotto' : 'prodotti'}`;
+      $<HTMLElement>('[data-f-vuoto]')!.hidden = ok.length > 0;
+      altri.hidden = ok.length <= limite;
+      const attivi = [cat, q, max < +prezzo.max, soloPromo].filter(Boolean).length;
+      $('[data-n-attivi]')!.textContent = attivi ? `(${attivi})` : '';
+      window.dispatchEvent(new Event('impagina')); // la pagina si allunga o accorcia con i risultati
+    };
+
+    root.querySelectorAll('[data-f-cat]').forEach((r) => r.addEventListener('change', () => aggiorna()));
+    cerca.addEventListener('input', () => aggiorna());
+    prezzo.addEventListener('input', () => aggiorna());
+    promo?.addEventListener('change', () => aggiorna());
+    ordina.addEventListener('change', () => aggiorna(false));
+    $('[data-f-altri]')!.addEventListener('click', () => { limite += PAGINA; aggiorna(false); });
+    root.querySelectorAll('[data-f-azzera]').forEach((b) => b.addEventListener('click', () => {
+      $<HTMLInputElement>('[data-f-cat][value=""]')!.checked = true;
+      cerca.value = ''; prezzo.value = prezzo.max; ordina.value = '';
+      if (promo) promo.checked = false;
+      aggiorna();
+    }));
+    aggiorna();
+  }
+</script>

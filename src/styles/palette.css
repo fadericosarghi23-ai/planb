@@ -43,9 +43,9 @@
   --gal-overlay: var(--colore-32);
   --lightbox-bg: var(--colore-01);
   --lightbox-text: var(--colore-02);
-  --mobile-menu-item-bg: var(--colore-33);
-  --mobile-menu-line: var(--colore-34);
-  --mobile-menu-text: var(--colore-13);
+  --mobile-menu-item-bg: var(--colore-05); /* pieno, come l'header */
+  --mobile-menu-line: var(--colore-19);
+  --mobile-menu-text: var(--colore-01);
   --hamburger: var(--colore-02);
   --store-line: var(--colore-27);
   --store-check: var(--colore-35);
@@ -56,5 +56,5 @@
   --grigio: var(--colore-09);
   --nero: var(--colore-13);
   --velo-chiaro: var(--colore-14);
-  --velo-menu: var(--colore-20);
+  --velo-menu: var(--colore-24); /* velo scuro dietro il menu mobile aperto */
 }

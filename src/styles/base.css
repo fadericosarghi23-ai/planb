@@ -64,12 +64,22 @@ html.js [data-fxd].fx-wait, html.js [data-fxm].fx-wait { opacity: 0; }
 .wx-btn:hover { background: var(--bh-bg, var(--b-bg)); }
 .wx-btn:hover .lbl { color: var(--bh-color, inherit) !important; font-weight: var(--bh-weight, inherit) !important; }
 
+/* ---- tasto fisso WhatsApp (in basso a destra, su tutte le pagine) ---- */
+.whatsapp { position: fixed; right: 24px; bottom: 24px; z-index: 55; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: var(--chiaro); box-shadow: 0 6px 20px rgba(0, 0, 0, .28); transition: transform .25s, box-shadow .25s; }
+.whatsapp:hover { transform: scale(1.08); box-shadow: 0 8px 26px rgba(0, 0, 0, .35); }
+.menu-aperto .whatsapp, .lightbox.open ~ .whatsapp { display: none; }
+@media (max-width: 750px) { .whatsapp { right: 4.5vw; bottom: 4.5vw; width: 13vw; height: 13vw; } .whatsapp svg { width: 7vw; height: 7vw; } }
+
 /* ---- header ---- */
 .sito-header { position: sticky; top: 0; z-index: 50; height: var(--header-h); }
 .sito-header .header-in { position: relative; height: 100%; }
-/* velo sfumato dietro il menu bianco: resta leggibile anche su sfondi chiari (es. erba in cima alla home) */
+/* header pieno (non trasparente) nel grigio scuro della palette, con scritte bianche */
+.sito-header { background: var(--grigio-scuro); }
+.sito-header .bg { display: none; } /* niente fascia semitrasparente né effetto di comparsa */
+.sito-header .k-image img { filter: brightness(0) invert(1); } /* logo nero → bianco sul fondo scuro */
+.sito-header .hamb span { background: var(--chiaro); } /* hamburger mobile bianco sul fondo scuro */
 @media (min-width: 751px) {
-  .sito-header::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 200%; background: linear-gradient(to bottom, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0)); pointer-events: none; z-index: -1; }
+  .sito-header .header-in :is(.t115, .t116, .t117, .t118) { color: var(--chiaro) !important; } /* menu, lingue e accesso in bianco */
 }
 @media (max-width: 750px) { .sito-header { height: var(--header-h-m); } }
 
@@ -113,6 +123,9 @@ html.js [data-fxd].fx-wait, html.js [data-fxm].fx-wait { opacity: 0; }
 .menu-mobile .mm-sub.open { display: block; }
 .menu-mobile .mm-sub a { font-size: 3.75vw; padding-left: 9vw; }
 .menu-mobile .mm-lingue { position: absolute; left: 61.875vw; top: 8.75vw; }
+.menu-mobile .mm-lingue span { color: var(--chiaro) !important; } /* IT/EN leggibili sull'header scuro */
+.menu-mobile .mm-lista { width: 100%; } /* tendina a tutta larghezza sotto l'header */
+.menu-mobile .mm-lista svg { fill: currentColor; }
 .menu-aperto .menu-mobile { visibility: visible; pointer-events: auto; }
 .menu-aperto .menu-mobile .mm-bg { opacity: 1; }
 .menu-aperto .menu-mobile .mm-lista { transform: none; }

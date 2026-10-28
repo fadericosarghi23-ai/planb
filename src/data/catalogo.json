@@ -1,0 +1,28 @@
+{
+  "_nota": "Categoria di ogni prodotto dello shop (chiave = slug della scheda). I filtri mostrano solo le categorie che hanno almeno un prodotto nella pagina. Per spostare un prodotto basta cambiare la categoria qui.",
+  "categorie": ["Divani", "Poltrone", "Tavoli", "Tavolini", "Lampade", "Oggetti", "Quadri"],
+  "prodotti": {
+    "kepler22-2sl-leather-sofa": "Divani",
+    "kepler22-3sl-leather-sofa": "Divani",
+    "plumpstones-leather": "Divani",
+    "fargosoft150-cotton": "Divani",
+    "fargosoft150-outdoor": "Divani",
+    "fargosoft80-cotton": "Poltrone",
+    "fargosoft80-outdoor": "Poltrone",
+    "fargo80": "Poltrone",
+    "softpill-concrete": "Poltrone",
+    "eero-velvetchair": "Poltrone",
+    "labimba-velvet": "Poltrone",
+    "labimba-merit": "Poltrone",
+    "labimba-suede": "Poltrone",
+    "foxhole120-leather": "Poltrone",
+    "babyflirtstone": "Poltrone",
+    "body-chair-grey": "Poltrone",
+    "body-chair-green": "Poltrone",
+    "vader-loungechair": "Poltrone",
+    "bucket90-felt": "Poltrone",
+    "moonphase160": "Tavoli",
+    "moonphase240": "Tavoli",
+    "organic240-oval": "Tavoli"
+  }
+}

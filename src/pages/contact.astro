@@ -1,10 +1,9 @@
 ---
-// Contatti nello stile della home: apertura a tutto schermo con la foto dell'ingresso dello studio
-// (la camera avanza piano verso la porta con lo scroll), scheda dei recapiti, poi modulo e mappa.
+// Contatti: una sola schermata sulla foto dell'ingresso dello studio. Modulo e recapiti stanno
+// insieme sulla sinistra, così a destra resta visibile il cartello dello studio nella foto.
 // Recapiti da data/pagine/contact.json, impostazione e testi del modulo da data/contatti.json.
 import Layout from '../layouts/Layout.astro';
 import Nodo from '../components/Nodo.astro';
-import Mappa from '../components/Mappa.astro';
 import p from '../data/pagine/contact.json';
 import c from '../data/contatti.json';
 import media from '../data/media.json';
@@ -19,93 +18,72 @@ const nodo = (id: string) => ({ ...trova(id), fx: undefined });
 const foto = M[c.foto];
 ---
 <Layout seo={p.seo} chrome={p.chrome} bg="var(--nero)">
-  <div class="c-apertura">
-    <div class="c-palco">
-      <img class="c-foto" src={foto.src} width={foto.w} height={foto.h} alt={foto.alt || ''} fetchpriority="high"
-        style={`object-position:${c.fuoco[0]}% ${c.fuoco[1]}%;transform-origin:${c.fuoco[0]}% ${c.fuoco[1]}%`} />
-      <div class="c-velo" aria-hidden="true"></div>
-      <div class="c-testa">
-        <p class="c-nome">{c.nome}</p>
-        <Nodo n={nodo(c.titolo)} />
-        <div class="c-scheda">
-          {c.colonne.map((col) => (
-            <div class="c-col">
-              <Nodo n={nodo(col.titolo)} />
-              {col.voci.map((v) => <Nodo n={nodo(v)} />)}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
+  <section class="c-pagina">
+    <img class="c-foto" src={foto.src} width={foto.w} height={foto.h} alt={foto.alt || ''} fetchpriority="high"
+      style={`object-position:${c.fuoco[0]}% ${c.fuoco[1]}%`} />
+    <div class="c-velo" aria-hidden="true"></div>
 
-  <section class="c-scrivi">
-    <form class="c-modulo" action={site.form.endpoint || undefined} method={site.form.metodo} data-endpoint={site.form.endpoint}>
-      <h2>{c.modulo.titolo}</h2>
-      <p class="c-intro">{c.modulo.testo}</p>
-      {c.modulo.campi.map((f) => (
-        <label class="c-campo">
-          <span>{f.etichetta}</span>
-          {f.tipo === 'textarea' ? <textarea name={f.nome} rows="5" required></textarea> : <input type={f.tipo} name={f.nome} required={f.nome !== 'telefono'} />}
-        </label>
-      ))}
-      <label class="c-privacy"><input type="checkbox" required /><span>{c.modulo.privacy}</span></label>
-      <button type="submit" class="c-invia">{c.modulo.invio}</button>
-    </form>
-    <div class="c-mappa"><Mappa /></div>
+    <div class="c-cornice">
+      <form class="c-modulo" action={site.form.endpoint || undefined} method={site.form.metodo} data-endpoint={site.form.endpoint}>
+        <p class="c-nome">{c.nome}</p>
+        <h1>{c.modulo.titolo}</h1>
+        <p class="c-intro">{c.modulo.testo}</p>
+        {c.modulo.campi.map((f) => (
+          <label class="c-campo">
+            <span>{f.etichetta}</span>
+            {f.tipo === 'textarea' ? <textarea name={f.nome} rows="4" required></textarea> : <input type={f.tipo} name={f.nome} required={f.nome !== 'telefono'} />}
+          </label>
+        ))}
+        <label class="c-privacy"><input type="checkbox" required /><span>{c.modulo.privacy}</span></label>
+        <button type="submit" class="c-invia">{c.modulo.invio}</button>
+      </form>
+
+      <aside class="c-lato">
+        {c.colonne.map((col) => (
+          <div class="c-col">
+            <Nodo n={nodo(col.titolo)} />
+            {col.voci.map((v) => <Nodo n={nodo(v)} />)}
+          </div>
+        ))}
+      </aside>
+    </div>
   </section>
 </Layout>
 
 <style>
-  .c-apertura { position: relative; height: 170vh; margin-top: calc(var(--header-h) * -1); }
-  .c-palco { position: sticky; top: 0; height: 100vh; overflow: hidden; }
-  .c-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: transform; }
-  .c-velo { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .78), rgba(0, 0, 0, .25) 55%, rgba(0, 0, 0, .1)), linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 22%); }
-  .c-testa { position: absolute; left: 50%; bottom: 8vh; width: min(980px, calc(100% - 140px)); transform: translateX(-50%); text-align: center; color: var(--chiaro); }
-  .c-nome { font: 300 13px/1 var(--font-avenir); letter-spacing: .25em; text-transform: uppercase; margin-bottom: 16px; }
-  .c-testa :global(.wx) { position: relative; left: auto; top: auto; width: auto; height: auto; }
-  .c-testa :global(.wx-text) { pointer-events: auto; }
-  .c-scheda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 44px; padding: 34px 40px; text-align: left;
-    background: rgba(20, 20, 20, .38); border: 1px solid rgba(255, 255, 255, .18); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .c-pagina { position: relative; min-height: 100vh; min-height: 100dvh; margin-top: calc(var(--header-h) * -1); padding: calc(var(--header-h) + 48px) 40px 64px; display: flex; align-items: center; overflow: hidden; color: var(--chiaro); }
+  .c-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .c-velo { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0, 0, 0, .6), rgba(0, 0, 0, .35) 45%, rgba(0, 0, 0, .05) 70%); } /* scuro a sinistra sotto i testi, chiaro sul cartello */
+
+  .c-cornice { position: relative; margin-left: max(0px, calc(6vw - 40px)); display: grid; grid-template-columns: minmax(0, 470px) auto; gap: 52px; align-items: center; }
+  .c-lato { display: flex; flex-direction: column; gap: 36px; text-align: left; }
   .c-col { display: flex; flex-direction: column; gap: 6px; }
-  .c-col > :global(.wx:first-child) { margin-bottom: 8px; }
+  .c-col :global(.wx) { position: relative; left: auto; top: auto; width: auto; height: auto; }
+  .c-col :global(.wx-text) { pointer-events: auto; }
+  .c-col :global(.wx-text *) { color: var(--chiaro) !important; text-align: inherit !important; }
+  .c-col > :global(.wx:first-child) { margin-bottom: 8px; opacity: .7; }
   .c-col :global(a) { transition: opacity .3s; }
   .c-col :global(a:hover) { opacity: .65; }
 
-  .c-scrivi { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; background: var(--grigio-scuro); color: var(--chiaro); }
-  .c-modulo { padding: 90px 60px 90px max(60px, calc(50vw - 490px)); display: flex; flex-direction: column; gap: 18px; }
-  .c-modulo h2 { font: 800 44px/1.1 var(--font-avenir); letter-spacing: -1px; }
-  .c-intro { font: 300 16px/1.6 var(--font-avenir); opacity: .85; margin-bottom: 10px; }
+  .c-modulo { display: flex; flex-direction: column; gap: 16px; padding: 44px 44px 40px;
+    background: rgba(20, 20, 20, .42); border: 1px solid rgba(255, 255, 255, .18); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .c-nome { font: 300 13px/1 var(--font-avenir); letter-spacing: .25em; text-transform: uppercase; opacity: .75; }
+  .c-modulo h1 { font: 800 40px/1.1 var(--font-avenir); letter-spacing: -1px; }
+  .c-intro { font: 300 15px/1.6 var(--font-avenir); opacity: .85; margin-bottom: 6px; }
   .c-campo { display: flex; flex-direction: column; gap: 8px; font: 300 12px/1 var(--font-avenir); letter-spacing: .14em; text-transform: uppercase; }
   .c-campo input, .c-campo textarea { background: transparent; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .45); color: var(--chiaro); font: 300 17px/1.5 var(--font-avenir); padding: 6px 0 10px; outline: none; transition: border-color .3s; resize: vertical; }
   .c-campo input:focus, .c-campo textarea:focus { border-bottom-color: var(--chiaro); }
   .c-privacy { display: flex; gap: 12px; align-items: flex-start; font: 300 13px/1.5 var(--font-avenir); opacity: .85; }
   .c-privacy input { margin-top: 3px; accent-color: var(--chiaro); }
-  .c-invia { align-self: flex-start; margin-top: 10px; padding: 0 46px; height: 50px; border: 1px solid var(--chiaro); background: transparent; color: var(--chiaro); font: 300 15px var(--font-avenir); letter-spacing: .2em; cursor: pointer; transition: background-color .3s, color .3s; }
+  .c-invia { align-self: flex-start; margin-top: 8px; padding: 0 46px; height: 50px; border: 1px solid var(--chiaro); background: transparent; color: var(--chiaro); font: 300 15px var(--font-avenir); letter-spacing: .2em; cursor: pointer; transition: background-color .3s, color .3s; }
   .c-invia:hover { background: var(--chiaro); color: var(--scuro); }
-  .c-mappa { position: relative; min-height: 420px; filter: grayscale(.85) contrast(1.05); }
-  .c-mappa :global(iframe), .c-mappa :global(.mappa-vuota) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
   @media (max-width: 750px) {
-    .c-apertura { margin-top: calc(var(--header-h-m) * -1); height: 150vh; }
-    .c-testa { width: calc(100% - 12.5vw); bottom: 5vh; }
-    .c-scheda { grid-template-columns: 1fr; gap: 22px; padding: 6vw; margin-top: 7vw; }
-    .c-nome { font-size: 3.4vw; }
-    .c-scrivi { grid-template-columns: 1fr; }
-    .c-modulo { padding: 14vw 6.25vw; }
-    .c-modulo h2 { font-size: 10vw; }
-    .c-mappa { min-height: 90vw; }
+    .c-pagina { margin-top: calc(var(--header-h-m) * -1); padding: calc(var(--header-h-m) + 8vw) 6.25vw 12vw; }
+    .c-cornice { margin-left: 0; grid-template-columns: 1fr; gap: 9vw; }
+    .c-velo { background: linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, .7)); }
+    .c-modulo { padding: 8vw 6vw; }
+    .c-modulo h1 { font-size: 10vw; }
+    .c-lato { gap: 7vw; }
   }
 </style>
-
-<script>
-  // la camera avanza piano verso l'ingresso dello studio mentre si scorre
-  const a = document.querySelector('.c-apertura') as HTMLElement;
-  const img = a?.querySelector('.c-foto') as HTMLImageElement;
-  if (a && img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let att = 0, ob = 0;
-    const leggi = () => { const r = a.getBoundingClientRect(); ob = Math.max(0, Math.min(1, -r.top / (a.offsetHeight - window.innerHeight))); };
-    const ciclo = () => { att += (ob - att) * 0.1; img.style.transform = `scale(${(1 + att * 0.22).toFixed(4)})`; requestAnimationFrame(ciclo); };
-    window.addEventListener('scroll', leggi, { passive: true }); leggi(); ciclo();
-  }
-</script>

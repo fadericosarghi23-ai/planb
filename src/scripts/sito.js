@@ -1,32 +1,12 @@
-// Comportamenti del sito: animazioni d'ingresso (stesse curve e durate del sito di partenza),
-// slider continuo, lightbox delle gallerie, menu mobile, altezza delle gallerie, widget dello shop.
+// Comportamenti del sito: animazioni d'ingresso, slider continuo, lightbox delle gallerie,
+// menu mobile, altezza delle gallerie, widget dello shop.
 const mq = window.matchMedia('(max-width: 750px)');
 const ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const EASE = 'cubic-bezier(0.645, 0.045, 0.355, 1)';
 
 // ---------- animazioni d'ingresso ----------
-const CLIP_FROM = {
-  left: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',
-  right: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)',
-  top: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
-  bottom: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
-};
-const CLIP_TO = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)';
-const SLIDE_FROM = { left: 'translate(-100%, 0)', right: 'translate(100%, 0)', top: 'translate(0, -100%)', bottom: 'translate(0, 100%)' };
-
-function keyframes(type, dir, dist, off) {
-  const start = { offset: 0, opacity: 0, easing: 'steps(1)' };
-  if (type === 'RevealIn') return [start, { offset: 0.000001, opacity: 1, clipPath: CLIP_FROM[dir] || CLIP_FROM.left, easing: EASE }, { offset: 1, opacity: 1, clipPath: CLIP_TO }];
-  if (type === 'SlideIn') return [start, { offset: 0.000001, opacity: 1, clipPath: CLIP_FROM[dir] || CLIP_FROM.left, transform: SLIDE_FROM[dir] || SLIDE_FROM.left, easing: EASE }, { offset: 1, opacity: 1, clipPath: CLIP_TO, transform: 'translate(0, 0)' }];
-  if (type === 'GlitchIn') {
-    const a = ((+dir || 0) * Math.PI) / 180;
-    const d = off ? window.innerWidth : (+dist || 200);
-    const x = Math.round(Math.sin(a) * d); const y = Math.round(-Math.cos(a) * d);
-    return [start, { offset: 0.000001, opacity: 1, transform: `translate(${x}px, ${y}px)`, easing: EASE }, { offset: 1, opacity: 1, transform: 'translate(0px, 0px)' }];
-  }
-  if (type === 'FadeIn') return [{ opacity: 0, easing: EASE }, { opacity: 1 }];
-  return null;
-}
+// Una sola comparsa, breve e morbida, per tutti gli elementi (al posto di tendine, scivolamenti
+// e ingressi da lontano del sito di partenza): dissolvenza con una leggera salita.
+const INGRESSO = [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }];
 
 function avviaIngressi() {
   const attr = mq.matches ? 'data-fxm' : 'data-fxd';
@@ -36,10 +16,8 @@ function avviaIngressi() {
     for (const e of entries) {
       if (!e.isIntersecting) continue;
       io.unobserve(e.target);
-      const [type, dir, dur, delay, dist, off] = e.target.getAttribute(attr).split('|');
-      const kf = keyframes(type, dir, dist, off === '1');
       e.target.classList.remove('fx-wait');
-      if (kf) e.target.animate(kf, { duration: +dur || 1200, delay: (+delay || 0) + 1, easing: 'linear', fill: 'backwards' });
+      e.target.animate(INGRESSO, { duration: 500, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)', fill: 'backwards' });
     }
   }, { threshold: 0.01 });
   for (const el of els) { el.classList.add('fx-wait'); io.observe(el); }
@@ -47,15 +25,18 @@ function avviaIngressi() {
 
 // ---------- gallerie: altezza dei contenitori e lightbox ----------
 function adattaGallerie() {
-  for (const g of document.querySelectorAll('.gal-rows')) {
+  const gal = [...document.querySelectorAll('.gal-rows, [data-cresce]')]; // gallerie e shop filtrabile: il contenitore segue il contenuto
+  if (!gal.length) return;
+  const voci = gal.map((g) => {
     const nodo = g.closest('.wx');
     const catena = [];
     for (let p = nodo; p && !p.classList.contains('sito'); p = p.parentElement) if (p.classList.contains('wx') || p.classList.contains('pagina')) catena.push(p);
-    catena.forEach((p) => p.style.removeProperty('height'));
-    const delta = g.offsetHeight - nodo.offsetHeight;
-    if (Math.abs(delta) < 1) continue;
-    catena.forEach((p) => { p.style.height = `${p.offsetHeight + delta}px`; });
-  }
+    return { g, nodo, catena };
+  });
+  // letture e scritture separate in tre fasi: un solo reflow invece di uno per galleria
+  for (const v of voci) v.catena.forEach((p) => p.style.removeProperty('height'));
+  for (const v of voci) { v.delta = v.g.offsetHeight - v.nodo.offsetHeight; v.h = v.catena.map((p) => p.offsetHeight); }
+  for (const v of voci) { if (Math.abs(v.delta) < 1) continue; v.catena.forEach((p, i) => { p.style.height = `${v.h[i] + v.delta}px`; }); }
 }
 
 function lightbox() {
@@ -154,5 +135,6 @@ menuMobile();
 negozio();
 moduli();
 let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(adattaGallerie, 150); });
-mq.addEventListener('change', () => location.reload());
+let bp; mq.addEventListener('change', () => { clearTimeout(bp); bp = setTimeout(() => location.reload(), 300); }); // niente reload a raffica mentre si trascina la finestra
 document.fonts?.ready.then(adattaGallerie);
+window.addEventListener('impagina', adattaGallerie); // lo shop cambia altezza quando si filtra
