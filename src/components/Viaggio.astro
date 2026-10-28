@@ -55,27 +55,25 @@ const grigliaMobile = [
     </nav>
   </div>
   <div class="v-mobile">
-    <div class="vm-hero-corsa">
-      <section class="vm-hero" aria-label="Plan B">
-        <img class="vm-bg" src={heroMobile.src} width={heroMobile.w} height={heroMobile.h} alt={heroMobile.alt || ''} fetchpriority="high" decoding="async" />
-        <div class="vm-vel" aria-hidden="true"></div>
-        <div class="vm-hero-cont">
-          <p class="vm-marchio">PLAN B</p>
-          <p class="vm-claim">{claimMobile}</p>
-          <div class="vm-cta">
-            <a class="vm-btn vm-btn-chiaro" href="#vm-progetti">Progetti</a>
-            <a class="vm-btn vm-btn-bordo" href="/contact">Contatti</a>
-          </div>
+    <section class="vm-hero" aria-label="Plan B">
+      <img class="vm-bg" src={heroMobile.src} width={heroMobile.w} height={heroMobile.h} alt={heroMobile.alt || ''} fetchpriority="high" decoding="async" />
+      <div class="vm-vel" aria-hidden="true"></div>
+      <div class="vm-hero-cont">
+        <p class="vm-marchio">PLAN B</p>
+        <p class="vm-claim">{claimMobile}</p>
+        <div class="vm-cta">
+          <a class="vm-btn vm-btn-chiaro" href="#vm-progetti">Progetti</a>
+          <a class="vm-btn vm-btn-bordo" href="/contact">Contatti</a>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
     <section class="vm-progetti" id="vm-progetti" aria-label="Progetti">
       <h2 class="vm-tit">Progetti</h2>
       <div class="vm-griglia">
-        {grigliaMobile.map((g) => (
+        {grigliaMobile.map((g, i) => (
           <a class="vm-tile" href={g.href} aria-label={g.nome}>
             <img src={g.img.src} width={g.img.w} height={g.img.h} alt={g.img.alt || ''} loading="lazy" decoding="async" />
-            <span class="vm-tile-nome">{g.nome}</span>
+            <span class="vm-tile-nome"><b>{String(i + 1).padStart(2, '0')}</b>{g.nome}</span>
           </a>
         ))}
       </div>
@@ -124,10 +122,7 @@ const grigliaMobile = [
     .v-mobile { display: block; background: var(--chiaro); }
     .vm-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     /* hero */
-    /* l'apertura resta ferma per quasi uno schermo in più (la foto si avvicina, i testi sfumano), poi scorre via */
-    .vm-hero-corsa { position: relative; height: 185vh; height: 185svh; }
-    .vm-hero { position: sticky; top: 0; height: 100vh; height: 100svh; padding-top: var(--header-h-m); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-    .vm-bg, .vm-hero-cont { will-change: transform, opacity; }
+    .vm-hero { position: relative; min-height: 100vh; min-height: 100svh; padding-top: var(--header-h-m); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
     .vm-vel { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .22) 38%, rgba(0, 0, 0, .6)); }
     .vm-hero-cont { position: relative; z-index: 1; color: var(--chiaro); padding: 0 8vw; }
     .vm-marchio { font: 300 12vw/1 var(--font-avenir); letter-spacing: .14em; }
@@ -137,13 +132,15 @@ const grigliaMobile = [
     .vm-btn-chiaro { background: var(--chiaro); color: var(--scuro); }
     .vm-btn-bordo { border: 1px solid var(--colore-33); color: var(--chiaro); }
     /* griglia progetti */
-    .vm-progetti { padding: calc(var(--header-h-m) + 9vw) 5vw 16vw; background: var(--chiaro); color: var(--scuro); scroll-margin-top: var(--header-h-m); }
+    .vm-progetti { padding: 12vw 5vw 16vw; background: var(--chiaro); color: var(--scuro); scroll-margin-top: var(--header-h-m); }
     .vm-tit { text-align: center; font: 300 6vw/1 var(--font-avenir); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 8vw; }
-    .vm-griglia { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; }
-    .vm-tile { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+    /* le quattro aree una per riga, a tutta larghezza: la landing si legge con calma */
+    .vm-griglia { display: grid; grid-template-columns: 1fr; gap: 6vw; }
+    .vm-tile { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; }
     .vm-tile img { width: 100%; height: 100%; object-fit: cover; }
     .vm-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0) 55%); }
-    .vm-tile-nome { position: absolute; left: 4.5vw; bottom: 4vw; z-index: 1; color: var(--chiaro); font: 400 3.6vw/1 var(--font-avenir); letter-spacing: .15em; text-transform: uppercase; }
+    .vm-tile-nome { position: absolute; left: 6vw; bottom: 6.5vw; z-index: 1; color: var(--chiaro); font: 300 4.6vw/1 var(--font-avenir); letter-spacing: .22em; text-transform: uppercase; }
+    .vm-tile-nome b { font-weight: 800; margin-right: 3vw; }
     /* contatti */
     .vm-contatti { padding: 16vw 8vw; text-align: center; background: var(--scuro); color: var(--chiaro); }
     .vm-ct-claim { margin-bottom: 7vw; font: 300 5.6vw/1.35 var(--font-avenir); letter-spacing: .02em; }
@@ -314,21 +311,4 @@ const grigliaMobile = [
     window.addEventListener('touchend', () => { ty0 = null; }, { passive: true });
   });
 
-  // Mobile: mentre l'apertura è ferma la foto si avvicina piano e titolo e bottoni salgono sfumando.
-  const corsaM = root?.querySelector<HTMLElement>('.vm-hero-corsa');
-  if (corsaM && esMobile && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const foto = corsaM.querySelector<HTMLElement>('.vm-bg')!, testi = corsaM.querySelector<HTMLElement>('.vm-hero-cont')!;
-    let inCoda = false;
-    const posa = () => {
-      inCoda = false;
-      const corsa = corsaM.offsetHeight - window.innerHeight;
-      const p = Math.max(0, Math.min(1, -corsaM.getBoundingClientRect().top / Math.max(1, corsa)));
-      foto.style.transform = `scale(${(1 + 0.14 * p).toFixed(4)})`;
-      const q = Math.max(0, (p - 0.35) / 0.65); // i testi restano pieni per il primo terzo, poi sfumano
-      testi.style.opacity = (1 - q).toFixed(3);
-      testi.style.transform = `translate3d(0, ${(-q * 8).toFixed(2)}vh, 0)`;
-    };
-    window.addEventListener('scroll', () => { if (!inCoda) { inCoda = true; requestAnimationFrame(posa); } }, { passive: true });
-    posa();
-  }
 </script>
